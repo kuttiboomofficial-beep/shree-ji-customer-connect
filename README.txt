@@ -1,10 +1,7 @@
-SHREE JI CONNECT
-Step 1 clean build.
+SHREE JI CONNECT - STEP 2
 
-Upload index.html to the root of your GitHub repository and commit.
-Then GitHub Pages -> main -> / (root).
-
-This version contains only the core customer/order fields requested:
-Customer Name, Mobile No, Shop Name, Place, Order No, Weight, Gold Touch, Advance, Status, Order Date.
-Customer cards show previous orders.
-Data is saved in the browser on the device.
+Customer + Order History version.
+Customer fields: Name, Mobile No, Shop Name, Place.
+Order fields: Order No, Weight, Gold Touch, Advance, Status, Order Date.
+Each customer's saved orders appear under Previous Orders.
+Data is stored in the browser localStorage.
