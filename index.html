@@ -7,159 +7,2900 @@
 <meta name="description" content="SHREE JI CONNECT - Customer CRM, Orders and WhatsApp">
 <link rel="manifest" href="manifest.json">
 <title>SHREE JI CONNECT</title>
+
 <style>
-*{box-sizing:border-box}body{margin:0;font-family:Arial,Helvetica,sans-serif;background:#f5f5f5;color:#171717}
-.top{height:76px;background:#111;color:#fff;display:flex;align-items:center;gap:12px;padding:10px 16px;position:sticky;top:0;z-index:30}
-.menuBtn{width:46px;height:46px;border:0;background:transparent;color:#fff;font-size:29px;cursor:pointer}.logo{width:48px;height:48px;border-radius:50%;background:#d4ad58;color:#111;display:grid;place-items:center;font-weight:800}
-.top h1{font-size:18px;margin:0}.top small{color:#ccc}
-.wrap{max-width:1100px;margin:auto;padding:18px 14px 55px}.nav{display:none}
-.drawer{position:fixed;inset:0;z-index:100;pointer-events:none}.drawer:before{content:"";position:absolute;inset:0;background:#0008;opacity:0;transition:.2s}
-.drawer.open{pointer-events:auto}.drawer.open:before{opacity:1}.side{position:absolute;left:0;top:0;bottom:0;width:min(320px,86vw);background:#fff;transform:translateX(-100%);transition:.25s;box-shadow:5px 0 25px #0003;overflow:auto}
-.drawer.open .side{transform:translateX(0)}.sideHead{background:#111;color:#fff;padding:18px;display:flex;align-items:center;gap:12px}
-.sideHead .logo{width:44px;height:44px}.sideHead b{font-size:16px}.sideHead small{display:block;color:#ccc;margin-top:3px}
-.sideClose{margin-left:auto;background:#333;color:#fff;border:0;border-radius:50%;width:36px;height:36px;font-size:22px}
-.sideNav{padding:12px}.sideNav button{width:100%;border:0;background:#fff;text-align:left;padding:14px;border-radius:12px;font-size:16px;font-weight:700;margin:3px 0}.sideNav button.active{background:#f2dfad}.sideNav button:hover{background:#f7f1df}
-.card{background:#fff;border-radius:20px;padding:18px;margin:13px 0;box-shadow:0 2px 14px #0000000d}.hero{padding:24px}.hero h2{font-size:28px;margin:0 0 8px}
-.muted{color:#777}.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}.stat{background:#fff;border-radius:18px;padding:18px;box-shadow:0 2px 12px #0000000d}.stat b{font-size:27px;display:block;margin-bottom:6px}
-.grid2{display:grid;grid-template-columns:1fr 1fr;gap:12px}.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
-.field{margin:11px 0}.field label{display:block;font-weight:700;margin-bottom:6px}.field input,.field select,.field textarea{width:100%;padding:13px;border:1px solid #ddd;border-radius:11px;font-size:16px;background:#fff}.field textarea{min-height:110px;resize:vertical}
-.actions{display:flex;gap:8px;flex-wrap:wrap}.btn{border:0;border-radius:11px;padding:11px 15px;background:#eee;font-weight:700;font-size:15px;cursor:pointer}.gold{background:#d0aa55;color:#fff}.green{background:#168b58;color:#fff}.red{background:#d84b4b;color:#fff}.dark{background:#222;color:#fff}.small{padding:8px 10px;font-size:13px}
-.search{width:100%;padding:13px;border:1px solid #ddd;border-radius:11px;font-size:16px}.customer,.order,.template{border:1px solid #eee;border-radius:15px;padding:15px;margin:10px 0}.customer h3{margin:0 0 7px}.pill{display:inline-block;padding:5px 9px;border-radius:20px;background:#eee;font-size:12px;font-weight:700}
-.history{border-top:1px solid #eee;margin-top:13px;padding-top:13px}.preview{background:#f8f8f8;border-radius:12px;padding:13px;white-space:pre-wrap}.empty{text-align:center;color:#888;padding:28px}
-.modal{display:none;position:fixed;inset:0;background:#0008;z-index:150;align-items:flex-end}.modal.show{display:flex}.box{background:#fff;width:100%;max-width:760px;margin:auto;border-radius:22px 22px 0 0;padding:20px;max-height:94vh;overflow:auto}.close{float:right;border:0;background:#eee;border-radius:50%;width:35px;height:35px;font-size:20px}
-.toast{display:none;position:fixed;bottom:22px;left:50%;transform:translateX(-50%);background:#222;color:#fff;padding:12px 17px;border-radius:10px;z-index:200;max-width:90%;text-align:center}
-.footer{text-align:center;color:#888;font-size:12px;padding:20px}.hide{display:none!important}
-.checkrow{display:flex;align-items:center;gap:9px;padding:10px 0;border-bottom:1px solid #eee}.checkrow input{width:20px;height:20px}
-.kpiTitle{font-size:14px;color:#777}.quick{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
-@media(max-width:720px){.stats{grid-template-columns:1fr 1fr}.grid2,.grid3{grid-template-columns:1fr}.quick{grid-template-columns:1fr}.hero h2{font-size:24px}}
+*{box-sizing:border-box}
+
+body{
+  margin:0;
+  font-family:Arial,Helvetica,sans-serif;
+  background:#f5f5f5;
+  color:#171717;
+  font-size:16px;
+}
+
+.top{
+  height:76px;
+  background:#111;
+  color:#fff;
+  display:flex;
+  align-items:center;
+  gap:12px;
+  padding:10px 16px;
+  position:sticky;
+  top:0;
+  z-index:30;
+}
+
+.menuBtn{
+  width:46px;
+  height:46px;
+  border:0;
+  background:transparent;
+  color:#fff;
+  font-size:29px;
+  cursor:pointer;
+}
+
+.logo{
+  width:48px;
+  height:48px;
+  border-radius:50%;
+  background:#d4ad58;
+  color:#111;
+  display:grid;
+  place-items:center;
+  font-weight:800;
+}
+
+.top h1{
+  font-size:18px;
+  margin:0;
+}
+
+.top small{
+  color:#ccc;
+}
+
+.wrap{
+  max-width:1100px;
+  margin:auto;
+  padding:18px 14px 55px;
+}
+
+.drawer{
+  position:fixed;
+  inset:0;
+  z-index:100;
+  pointer-events:none;
+}
+
+.drawer:before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:#0008;
+  opacity:0;
+  transition:.2s;
+}
+
+.drawer.open{
+  pointer-events:auto;
+}
+
+.drawer.open:before{
+  opacity:1;
+}
+
+.side{
+  position:absolute;
+  left:0;
+  top:0;
+  bottom:0;
+  width:min(320px,86vw);
+  background:#fff;
+  transform:translateX(-100%);
+  transition:.25s;
+  box-shadow:5px 0 25px #0003;
+  overflow:auto;
+}
+
+.drawer.open .side{
+  transform:translateX(0);
+}
+
+.sideHead{
+  background:#111;
+  color:#fff;
+  padding:18px;
+  display:flex;
+  align-items:center;
+  gap:12px;
+}
+
+.sideHead .logo{
+  width:44px;
+  height:44px;
+}
+
+.sideHead b{
+  font-size:16px;
+}
+
+.sideHead small{
+  display:block;
+  color:#ccc;
+  margin-top:3px;
+}
+
+.sideClose{
+  margin-left:auto;
+  background:#333;
+  color:#fff;
+  border:0;
+  border-radius:50%;
+  width:36px;
+  height:36px;
+  font-size:22px;
+}
+
+.sideNav{
+  padding:12px;
+}
+
+.sideNav button{
+  width:100%;
+  border:0;
+  background:#fff;
+  text-align:left;
+  padding:14px;
+  border-radius:12px;
+  font-size:16px;
+  font-weight:700;
+  margin:3px 0;
+}
+
+.sideNav button.active{
+  background:#f2dfad;
+}
+
+.card{
+  background:#fff;
+  border-radius:20px;
+  padding:18px;
+  margin:13px 0;
+  box-shadow:0 2px 14px #0000000d;
+}
+
+.hero{
+  padding:24px;
+}
+
+.hero h2{
+  font-size:28px;
+  margin:0 0 8px;
+}
+
+.muted{
+  color:#777;
+}
+
+.stats{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:12px;
+}
+
+.stat{
+  background:#fff;
+  border-radius:18px;
+  padding:18px;
+  box-shadow:0 2px 12px #0000000d;
+}
+
+.stat b{
+  font-size:27px;
+  display:block;
+  margin-bottom:6px;
+}
+
+.grid2{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:12px;
+}
+
+.grid3{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:12px;
+}
+
+.field{
+  margin:11px 0;
+}
+
+.field label{
+  display:block;
+  font-weight:700;
+  margin-bottom:6px;
+}
+
+.field input,
+.field select,
+.field textarea{
+  width:100%;
+  padding:14px;
+  border:1px solid #d5d5d5;
+  border-radius:11px;
+  font-size:17px;
+  background:#fff;
+  color:#111;
+}
+
+.field input:focus,
+.field select:focus,
+.field textarea:focus{
+  outline:2px solid #d4ad58;
+  border-color:#d4ad58;
+}
+
+.field textarea{
+  min-height:110px;
+  resize:vertical;
+}
+
+.actions{
+  display:flex;
+  gap:8px;
+  flex-wrap:wrap;
+}
+
+.btn{
+  border:0;
+  border-radius:11px;
+  padding:12px 15px;
+  background:#eee;
+  font-weight:700;
+  font-size:15px;
+  cursor:pointer;
+}
+
+.gold{
+  background:#d0aa55;
+  color:#fff;
+}
+
+.green{
+  background:#168b58;
+  color:#fff;
+}
+
+.red{
+  background:#d84b4b;
+  color:#fff;
+}
+
+.dark{
+  background:#222;
+  color:#fff;
+}
+
+.small{
+  padding:8px 10px;
+  font-size:13px;
+}
+
+.search{
+  width:100%;
+  padding:14px;
+  border:1px solid #ddd;
+  border-radius:11px;
+  font-size:16px;
+}
+
+.customer,
+.order,
+.template{
+  border:1px solid #eee;
+  border-radius:15px;
+  padding:15px;
+  margin:10px 0;
+}
+
+.customer h3{
+  margin:0 0 7px;
+}
+
+.pill{
+  display:inline-block;
+  padding:5px 9px;
+  border-radius:20px;
+  background:#eee;
+  font-size:12px;
+  font-weight:700;
+}
+
+.history{
+  border-top:1px solid #eee;
+  margin-top:13px;
+  padding-top:13px;
+}
+
+.preview{
+  background:#f8f8f8;
+  border-radius:12px;
+  padding:13px;
+  white-space:pre-wrap;
+}
+
+.empty{
+  text-align:center;
+  color:#888;
+  padding:28px;
+}
+
+.modal{
+  display:none;
+  position:fixed;
+  inset:0;
+  background:#0008;
+  z-index:150;
+  align-items:flex-end;
+}
+
+.modal.show{
+  display:flex;
+}
+
+.box{
+  background:#fff;
+  width:100%;
+  max-width:760px;
+  margin:auto;
+  border-radius:22px 22px 0 0;
+  padding:20px;
+  max-height:94vh;
+  overflow:auto;
+}
+
+.close{
+  float:right;
+  border:0;
+  background:#eee;
+  border-radius:50%;
+  width:35px;
+  height:35px;
+  font-size:20px;
+}
+
+.toast{
+  display:none;
+  position:fixed;
+  bottom:22px;
+  left:50%;
+  transform:translateX(-50%);
+  background:#222;
+  color:#fff;
+  padding:12px 17px;
+  border-radius:10px;
+  z-index:200;
+  max-width:90%;
+  text-align:center;
+}
+
+.footer{
+  text-align:center;
+  color:#888;
+  font-size:12px;
+  padding:20px;
+}
+
+.checkrow{
+  display:flex;
+  align-items:center;
+  gap:9px;
+  padding:10px 0;
+  border-bottom:1px solid #eee;
+}
+
+.checkrow input{
+  width:20px;
+  height:20px;
+}
+
+.kpiTitle{
+  font-size:14px;
+  color:#777;
+}
+
+.quick{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:10px;
+}
+
+/* RING SIZE */
+.ringBox{
+  border:1px solid #ddd;
+  border-radius:14px;
+  padding:14px;
+  background:#fafafa;
+}
+
+.ringTitle{
+  font-weight:700;
+  margin-bottom:10px;
+}
+
+.ringHint{
+  font-size:13px;
+  color:#777;
+  margin-top:5px;
+}
+
+.ringInput{
+  font-size:20px !important;
+  font-weight:700;
+  text-align:center;
+}
+
+@media(max-width:720px){
+
+  .stats{
+    grid-template-columns:1fr 1fr;
+  }
+
+  .grid2,
+  .grid3{
+    grid-template-columns:1fr;
+  }
+
+  .quick{
+    grid-template-columns:1fr;
+  }
+
+  .hero h2{
+    font-size:24px;
+  }
+
+  .field input,
+  .field select,
+  .field textarea{
+    font-size:16px;
+  }
+}
 </style>
 </head>
+
 <body>
+
 <header class="top">
 <button class="menuBtn" onclick="openDrawer()" aria-label="Menu">☰</button>
-<div class="logo">SJ</div><div><h1>SHREE JI CONNECT</h1><small>SHREE JI GOLD CREATOR LLP</small></div>
+<div class="logo">SJ</div>
+<div>
+<h1>SHREE JI CONNECT</h1>
+<small>SHREE JI GOLD CREATOR LLP</small>
+</div>
 </header>
 
 <div id="drawer" class="drawer" onclick="if(event.target===this)closeDrawer()">
- <aside class="side">
-  <div class="sideHead"><div class="logo">SJ</div><div><b>SHREE JI CONNECT</b><small>SHREE JI GOLD CREATOR LLP</small></div><button class="sideClose" onclick="closeDrawer()">×</button></div>
-  <nav class="sideNav" id="sideNav">
-   <button data-page="dashboard" onclick="go('dashboard')">🏠 Dashboard</button>
-   <button data-page="customers" onclick="go('customers')">👥 Customer CRM</button>
-   <button data-page="orders" onclick="go('orders')">📦 Order Management</button>
-   <button data-page="whatsapp" onclick="go('whatsapp')">💬 WhatsApp Center</button>
-   <button data-page="templates" onclick="go('templates')">📝 Message Templates</button>
-   <button data-page="backup" onclick="go('backup')">💾 Backup & Restore</button>
-  </nav>
- </aside>
+
+<aside class="side">
+
+<div class="sideHead">
+<div class="logo">SJ</div>
+<div>
+<b>SHREE JI CONNECT</b>
+<small>SHREE JI GOLD CREATOR LLP</small>
+</div>
+<button class="sideClose" onclick="closeDrawer()">×</button>
 </div>
 
-<div class="wrap"><main id="app"></main><div class="footer">SHREE JI CONNECT • Data stays in this browser unless you export a backup.</div></div>
-<div id="modal" class="modal"><div class="box"><button class="close" onclick="closeModal()">×</button><div id="form"></div></div></div>
+<nav class="sideNav" id="sideNav">
+
+<button data-page="dashboard" onclick="go('dashboard')">
+🏠 Dashboard
+</button>
+
+<button data-page="customers" onclick="go('customers')">
+👥 Customer CRM
+</button>
+
+<button data-page="orders" onclick="go('orders')">
+📦 Order Management
+</button>
+
+<button data-page="whatsapp" onclick="go('whatsapp')">
+💬 WhatsApp Center
+</button>
+
+<button data-page="templates" onclick="go('templates')">
+📝 Message Templates
+</button>
+
+<button data-page="backup" onclick="go('backup')">
+💾 Backup & Restore
+</button>
+
+</nav>
+</aside>
+</div>
+
+<div class="wrap">
+<main id="app"></main>
+
+<div class="footer">
+SHREE JI CONNECT • Data stays in this browser unless you export a backup.
+</div>
+</div>
+
+<div id="modal" class="modal">
+<div class="box">
+<button class="close" onclick="closeModal()">×</button>
+<div id="form"></div>
+</div>
+</div>
+
 <div id="toast" class="toast"></div>
 
 <script>
+
 const KEY='shree_ji_connect_final_v2';
+
 let DB=loadDB();
 
-function uid(){return Date.now().toString(36)+Math.random().toString(36).slice(2,8)}
-function loadDB(){try{const d=JSON.parse(localStorage.getItem(KEY)||'null');if(d&&Array.isArray(d.customers)&&Array.isArray(d.templates))return d}catch(e){}return{customers:[],templates:defaultTemplates()}}
-function saveDB(){localStorage.setItem(KEY,JSON.stringify(DB))}
+function uid(){
+return Date.now().toString(36)+Math.random().toString(36).slice(2,8);
+}
+
+function loadDB(){
+try{
+const d=JSON.parse(localStorage.getItem(KEY)||'null');
+
+if(
+d &&
+Array.isArray(d.customers) &&
+Array.isArray(d.templates)
+){
+return d;
+}
+
+}catch(e){}
+
+return{
+customers:[],
+templates:defaultTemplates()
+};
+}
+
+function saveDB(){
+localStorage.setItem(KEY,JSON.stringify(DB));
+}
+
 function defaultTemplates(){
- const x=[
- ['Exhibition Invite','Dear {{name}},\n\nYou are warmly invited to visit SHREE JI GOLD CREATOR LLP at our exhibition.\n\nWe look forward to seeing you.'],
- ['Festival Greeting','Dear {{name}},\n\nWarm festival wishes from SHREE JI GOLD CREATOR LLP.\n\nThank you for your continued support.'],
- ['Stall Visit Thank You','Dear {{name}},\n\nThank you for visiting our stall. It was a pleasure meeting you.\n\nRegards,\nSHREE JI GOLD CREATOR LLP'],
- ['Order Thank You','Dear {{name}},\n\nThank you for your valuable order {{orderNo}}. We truly appreciate your trust and support.'],
- ['Order Started','Dear {{name}},\n\nYour order {{orderNo}} has been started.\nStatus: {{status}}\n\nThank you.'],
- ['Order Completed','Dear {{name}},\n\nYour order {{orderNo}} has been completed successfully.\n\nThank you for choosing SHREE JI GOLD CREATOR LLP.'],
- ['Ready for Delivery','Dear {{name}},\n\nYour order {{orderNo}} is ready for delivery.\nWeight: {{weight}}\n\nPlease contact us for delivery.'],
- ['Delivery Update','Dear {{name}},\n\nUpdate for order {{orderNo}}: {{status}}.\n\nThank you.'],
- ['Review Request','Dear {{name}},\n\nThank you for your order. We would appreciate your valuable feedback and review.'],
- ['Repeat Order','Dear {{name}},\n\nIt has been a while since your last order. We would be happy to serve you again.'],
- ['New Collection','Dear {{name}},\n\nOur new jewellery collection is now available. Please contact us for the latest designs.'],
- ['Follow-up','Dear {{name}},\n\nJust following up regarding your order / enquiry. Please let us know if you need any assistance.']
- ];
- return x.map(([name,message])=>({id:uid(),name,message}));
+
+const x=[
+
+['Exhibition Invite',
+'Dear {{name}},\n\nYou are warmly invited to visit SHREE JI GOLD CREATOR LLP at our exhibition.\n\nWe look forward to seeing you.'
+],
+
+['Festival Greeting',
+'Dear {{name}},\n\nWarm festival wishes from SHREE JI GOLD CREATOR LLP.\n\nThank you for your continued support.'
+],
+
+['Stall Visit Thank You',
+'Dear {{name}},\n\nThank you for visiting our stall. It was a pleasure meeting you.\n\nRegards,\nSHREE JI GOLD CREATOR LLP'
+],
+
+['Order Thank You',
+'Dear {{name}},\n\nThank you for your valuable order {{orderNo}}. We truly appreciate your trust and support.'
+],
+
+['Order Started',
+'Dear {{name}},\n\nYour order {{orderNo}} has been started.\nStatus: {{status}}\n\nThank you.'
+],
+
+['Order Completed',
+'Dear {{name}},\n\nYour order {{orderNo}} has been completed successfully.\n\nThank you for choosing SHREE JI GOLD CREATOR LLP.'
+],
+
+['Ready for Delivery',
+'Dear {{name}},\n\nYour order {{orderNo}} is ready for delivery.\nWeight: {{weight}}\n\nPlease contact us for delivery.'
+],
+
+['Delivery Update',
+'Dear {{name}},\n\nUpdate for order {{orderNo}}: {{status}}.\n\nThank you.'
+],
+
+['Review Request',
+'Dear {{name}},\n\nThank you for your order. We would appreciate your valuable feedback and review.'
+],
+
+['Repeat Order',
+'Dear {{name}},\n\nIt has been a while since your last order. We would be happy to serve you again.'
+],
+
+['New Collection',
+'Dear {{name}},\n\nOur new jewellery collection is now available. Please contact us for the latest designs.'
+],
+
+['Follow-up',
+'Dear {{name}},\n\nJust following up regarding your order / enquiry. Please let us know if you need any assistance.'
+]
+
+];
+
+return x.map(([name,message])=>({
+id:uid(),
+name,
+message
+}));
+
 }
-function esc(x){return String(x??'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]))}
-function money(x){return Number(x||0).toLocaleString('en-IN')}
-function toast(t){const x=document.getElementById('toast');x.textContent=t;x.style.display='block';clearTimeout(window.tt);window.tt=setTimeout(()=>x.style.display='none',1900)}
-function openDrawer(){document.getElementById('drawer').classList.add('open')}
-function closeDrawer(){document.getElementById('drawer').classList.remove('open')}
-function go(p){closeDrawer();document.querySelectorAll('#sideNav button').forEach(b=>b.classList.toggle('active',b.dataset.page===p));({dashboard,customers:customersPage,orders:ordersPage,whatsapp:whatsappPage,templates:templatesPage,backup:backupPage}[p]||dashboard)()}
-function allOrders(){return DB.customers.flatMap(c=>(c.orders||[]).map(o=>({...o,customerId:c.id,customerName:c.name,mobile:c.mobile,shop:c.shop,city:c.city}))).sort((a,b)=>(b.createdAt||'').localeCompare(a.createdAt||''))}
-function statusActive(s){return !['Completed','Delivered'].includes(s||'')}
+
+function esc(x){
+return String(x??'').replace(/[&<>"']/g,m=>({
+'&':'&amp;',
+'<':'&lt;',
+'>':'&gt;',
+'"':'&quot;',
+"'":'&#39;'
+}[m]));
+}
+
+function money(x){
+return Number(x||0).toLocaleString('en-IN');
+}
+
+function toast(t){
+const x=document.getElementById('toast');
+
+x.textContent=t;
+x.style.display='block';
+
+clearTimeout(window.tt);
+
+window.tt=setTimeout(()=>{
+x.style.display='none';
+},1900);
+}
+
+function openDrawer(){
+document.getElementById('drawer').classList.add('open');
+}
+
+function closeDrawer(){
+document.getElementById('drawer').classList.remove('open');
+}
+
+function go(p){
+
+closeDrawer();
+
+document.querySelectorAll('#sideNav button')
+.forEach(b=>{
+b.classList.toggle(
+'active',
+b.dataset.page===p
+);
+});
+
+({
+dashboard,
+customers:customersPage,
+orders:ordersPage,
+whatsapp:whatsappPage,
+templates:templatesPage,
+backup:backupPage
+}[p]||dashboard)();
+
+}
+
+function allOrders(){
+
+return DB.customers
+.flatMap(c=>
+(c.orders||[]).map(o=>({
+...o,
+customerId:c.id,
+customerName:c.name,
+mobile:c.mobile,
+shop:c.shop,
+city:c.city
+}))
+)
+.sort((a,b)=>
+(b.createdAt||'').localeCompare(a.createdAt||'')
+);
+
+}
+
+function statusActive(s){
+return !['Completed','Delivered'].includes(s||'');
+}
+
+/* DASHBOARD */
+
 function dashboard(){
- const os=allOrders(),active=os.filter(o=>statusActive(o.status)).length,done=os.filter(o=>['Completed','Delivered'].includes(o.status)).length,pending=os.filter(o=>!['Completed','Delivered'].includes(o.status)).length;
- const value=os.reduce((s,o)=>s+Number(o.value||0),0);
- document.getElementById('app').innerHTML=`<section class="card hero"><h2>Welcome to SHREE JI CONNECT 👋</h2><p class="muted">Customer Relationship & Order Management</p><div class="actions"><button class="btn gold" onclick="openCustomer()">＋ Add Customer</button><button class="btn" onclick="go('orders')">📦 New Order</button></div></section>
- <div class="stats">
- <div class="stat"><b>${DB.customers.length}</b><span class="kpiTitle">Total Customers</span></div>
- <div class="stat"><b>${active}</b><span class="kpiTitle">Active Orders</span></div>
- <div class="stat"><b>${pending}</b><span class="kpiTitle">Pending Delivery</span></div>
- <div class="stat"><b>₹${money(value)}</b><span class="kpiTitle">Order Value</span></div></div>
- <section class="card"><div class="actions" style="justify-content:space-between"><h2 style="margin:0">📦 Recent Orders</h2><button class="btn small" onclick="go('orders')">View All</button></div>
- ${os.length?os.slice(0,5).map(orderCard).join(''):'<div class="empty">📦<br>No orders yet.<br>Your recent orders will appear here.</div>'}</section>
- <section class="card"><h2>⚡ Quick Actions</h2><div class="quick"><button class="btn gold" onclick="openCustomer()">👤 Add Customer</button><button class="btn" onclick="go('orders')">📦 New Order</button><button class="btn green" onclick="go('whatsapp')">💬 WhatsApp Center</button></div></section>
- <section class="card"><h3>📊 Overview</h3><div class="grid3"><div><b>${done}</b><br><span class="muted">Completed Orders</span></div><div><b>₹${money(os.reduce((s,o)=>s+Number(o.advance||0),0))}</b><br><span class="muted">Total Advance</span></div><div><b>${DB.templates.length}</b><br><span class="muted">WhatsApp Templates</span></div></div></section>`;
+
+const os=allOrders();
+
+const active=os.filter(o=>statusActive(o.status)).length;
+
+const done=os.filter(o=>
+['Completed','Delivered'].includes(o.status)
+).length;
+
+const pending=os.filter(o=>
+!['Completed','Delivered'].includes(o.status)
+).length;
+
+const value=os.reduce(
+(s,o)=>s+Number(o.value||0),
+0
+);
+
+document.getElementById('app').innerHTML=`
+
+<section class="card hero">
+
+<h2>Welcome to SHREE JI CONNECT 👋</h2>
+
+<p class="muted">
+Customer Relationship & Order Management
+</p>
+
+<div class="actions">
+
+<button class="btn gold"
+onclick="openCustomer()">
+＋ Add Customer
+</button>
+
+<button class="btn"
+onclick="go('orders')">
+📦 New Order
+</button>
+
+</div>
+
+</section>
+
+<div class="stats">
+
+<div class="stat">
+<b>${DB.customers.length}</b>
+<span class="kpiTitle">Total Customers</span>
+</div>
+
+<div class="stat">
+<b>${active}</b>
+<span class="kpiTitle">Active Orders</span>
+</div>
+
+<div class="stat">
+<b>${pending}</b>
+<span class="kpiTitle">Pending Delivery</span>
+</div>
+
+<div class="stat">
+<b>₹${money(value)}</b>
+<span class="kpiTitle">Order Value</span>
+</div>
+
+</div>
+
+<section class="card">
+
+<div class="actions"
+style="justify-content:space-between">
+
+<h2 style="margin:0">
+📦 Recent Orders
+</h2>
+
+<button class="btn small"
+onclick="go('orders')">
+View All
+</button>
+
+</div>
+
+${
+os.length
+?
+os.slice(0,5).map(orderCard).join('')
+:
+'<div class="empty">📦<br>No orders yet.<br>Your recent orders will appear here.</div>'
 }
-function customersPage(){document.getElementById('app').innerHTML=`<section class="card"><div class="actions" style="justify-content:space-between"><h2 style="margin:0">👥 Customer CRM</h2><button class="btn gold" onclick="openCustomer()">＋ Add Customer</button></div><div class="field"><input id="custSearch" class="search" placeholder="Search name, WhatsApp, shop or city..." oninput="renderCustomers()"></div><div id="customerList"></div></section>`;renderCustomers()}
-function renderCustomers(){const q=(document.getElementById('custSearch')?.value||'').toLowerCase();const a=DB.customers.filter(c=>(c.name+' '+c.mobile+' '+c.shop+' '+c.city+' '+c.notes).toLowerCase().includes(q));document.getElementById('customerList').innerHTML=a.length?a.map(customerCard).join(''):'<div class="empty">No customers found.</div>'}
-function customerCard(c){return `<div class="customer"><h3>${esc(c.name)}</h3><div>📱 ${esc(c.mobile)}</div><div>🏪 ${esc(c.shop||'-')}</div><div>📍 ${esc(c.city||'-')}</div>${c.notes?`<div>📝 ${esc(c.notes)}</div>`:''}<div class="actions" style="margin-top:11px"><button class="btn gold small" onclick="addOrder('${c.id}')">＋ Add Order</button><button class="btn small" onclick="editCustomer('${c.id}')">✏️ Edit</button><button class="btn small green" onclick="whatsappCustomer('${c.id}')">💬 WhatsApp</button><button class="btn small" onclick="openCustomerHistory('${c.id}')">📋 History</button><button class="btn red small" onclick="deleteCustomer('${c.id}')">🗑 Delete</button></div><div class="history"><b>📦 Customer History (${(c.orders||[]).length})</b>${(c.orders||[]).length?(c.orders||[]).slice().reverse().map(o=>orderCard({...o,customerName:c.name,customerId:c.id})).join(''):'<div class="empty">No previous orders</div>'}</div></div>`}
-function openCustomer(){document.getElementById('form').innerHTML=`<h2>👤 Add Customer</h2><div class="field"><label>Name *</label><input id="c_name" placeholder="Customer name"></div><div class="field"><label>WhatsApp Number *</label><input id="c_mobile" inputmode="tel" placeholder="10 digit mobile number"></div><div class="grid2"><div class="field"><label>Shop / Company</label><input id="c_shop"></div><div class="field"><label>City</label><input id="c_city"></div></div><div class="field"><label>Notes</label><textarea id="c_notes"></textarea></div><div class="actions"><button class="btn" onclick="closeModal()">Cancel</button><button class="btn gold" onclick="saveCustomer()">Save Customer</button></div>`;showModal()}
-function saveCustomer(){const name=c_name.value.trim(),mobile=c_mobile.value.trim();if(!name||!mobile)return toast('Name and WhatsApp number are required');DB.customers.push({id:uid(),name,mobile,shop:c_shop.value.trim(),city:c_city.value.trim(),notes:c_notes.value.trim(),createdAt:new Date().toISOString(),orders:[]});saveDB();closeModal();go('customers');toast('Customer added ✓')}
-function editCustomer(id){const c=DB.customers.find(x=>x.id===id);if(!c)return;document.getElementById('form').innerHTML=`<h2>✏️ Edit Customer</h2><div class="field"><label>Name *</label><input id="c_name" value="${esc(c.name)}"></div><div class="field"><label>WhatsApp Number *</label><input id="c_mobile" value="${esc(c.mobile)}"></div><div class="grid2"><div class="field"><label>Shop / Company</label><input id="c_shop" value="${esc(c.shop||'')}"></div><div class="field"><label>City</label><input id="c_city" value="${esc(c.city||'')}"></div></div><div class="field"><label>Notes</label><textarea id="c_notes">${esc(c.notes||'')}</textarea></div><div class="actions"><button class="btn" onclick="closeModal()">Cancel</button><button class="btn gold" onclick="updateCustomer('${id}')">Save Changes</button></div>`;showModal()}
-function updateCustomer(id){const c=DB.customers.find(x=>x.id===id);if(!c)return;c.name=c_name.value.trim();c.mobile=c_mobile.value.trim();c.shop=c_shop.value.trim();c.city=c_city.value.trim();c.notes=c_notes.value.trim();if(!c.name||!c.mobile)return toast('Name and WhatsApp number are required');saveDB();closeModal();go('customers');toast('Customer updated ✓')}
-function deleteCustomer(id){if(!confirm('Delete this customer and all order history?'))return;DB.customers=DB.customers.filter(c=>c.id!==id);saveDB();renderCustomers();toast('Customer deleted')}
-function addOrder(cid){const c=DB.customers.find(x=>x.id===cid);if(c)orderForm(c)}
-function orderForm(c,oid=null){const o=oid?(c.orders||[]).find(x=>x.id===oid):null;document.getElementById('form').innerHTML=`<h2>${o?'✏️ Edit Order':'📦 New Order'}</h2><p><b>${esc(c.name)}</b> • ${esc(c.mobile)}</p>
-<div class="grid2"><div class="field"><label>Order Number *</label><input id="o_no" value="${esc(o?.orderNo||'')}"></div><div class="field"><label>Item</label><input id="o_item" value="${esc(o?.item||'')}"></div></div>
-<div class="grid2"><div class="field"><label>Start Date</label><input id="o_start" type="date" value="${esc(o?.startDate||today())}"></div><div class="field"><label>Expected Finish</label><input id="o_expected" type="date" value="${esc(o?.expectedFinish||'')}"></div></div>
-<div class="grid2"><div class="field"><label>Actual Finish</label><input id="o_actual" type="date" value="${esc(o?.actualFinish||'')}"></div><div class="field"><label>Delivery Date</label><input id="o_delivery" type="date" value="${esc(o?.deliveryDate||'')}"></div></div>
-<div class="grid2"><div class="field"><label>Status</label><select id="o_status">${['Pending','Started','Processing','Completed','Ready for Delivery','Delivered'].map(s=>`<option ${o?.status===s?'selected':''}>${s}</option>`).join('')}</select></div><div class="field"><label>Order Value (₹)</label><input id="o_value" type="number" min="0" value="${esc(o?.value||'')}"></div></div>
-<div class="grid2"><div class="field"><label>Advance (₹)</label><input id="o_advance" type="number" min="0" value="${esc(o?.advance||'')}"></div><div class="field"><label>Gold Weight</label><input id="o_weight" value="${esc(o?.weight||'')}" placeholder="Example: 12.500 g"></div></div>
-<div class="grid2"><div class="field"><label>Gold Touch</label><input id="o_touch" value="${esc(o?.touch||'')}" placeholder="Example: 916"></div><div class="field"><label>Screw Type</label><input id="o_screw" value="${esc(o?.screw||'')}" placeholder="Example: Screw / Hook"></div></div>
-<div class="field"><label>Order Notes</label><textarea id="o_notes">${esc(o?.notes||'')}</textarea></div>
-<div class="actions"><button class="btn" onclick="closeModal()">Cancel</button><button class="btn gold" onclick="saveOrder('${c.id}','${oid||''}')">${o?'Update Order':'Save Order'}</button></div>`;showModal()}
-function today(){return new Date().toISOString().slice(0,10)}
-function saveOrder(cid,oid){const c=DB.customers.find(x=>x.id===cid);if(!c)return;const no=o_no.value.trim();if(!no)return toast('Order Number is required');const old=oid?(c.orders||[]).find(x=>x.id===oid):null;const data={id:oid||uid(),orderNo:no,item:o_item.value.trim(),startDate:o_start.value,expectedFinish:o_expected.value,actualFinish:o_actual.value,deliveryDate:o_delivery.value,status:o_status.value,value:Number(o_value.value||0),advance:Number(o_advance.value||0),weight:o_weight.value.trim(),touch:o_touch.value.trim(),screw:o_screw.value.trim(),notes:o_notes.value.trim(),createdAt:old?.createdAt||new Date().toISOString()};c.orders=c.orders||[];if(oid){const i=c.orders.findIndex(x=>x.id===oid);if(i>=0)c.orders[i]=data}else c.orders.push(data);saveDB();closeModal();go('orders');toast(oid?'Order updated ✓':'Order saved ✓')}
-function orderCard(o){return `<div class="order"><div class="actions" style="justify-content:space-between"><b>📦 ${esc(o.orderNo||'Order')}</b><span class="pill">${esc(o.status||'Pending')}</span></div><div>👤 ${esc(o.customerName||'Customer')}</div><div>💎 ${esc(o.item||'-')} &nbsp; ⚖️ ${esc(o.weight||'-')} &nbsp; 🪙 ${esc(o.touch||'-')}</div><div>💰 Value: ₹${money(o.value)} &nbsp; Advance: ₹${money(o.advance)}</div><div>📅 Start: ${esc(o.startDate||'-')} &nbsp; Delivery: ${esc(o.deliveryDate||'-')}</div><div class="actions" style="margin-top:8px"><button class="btn small" onclick="editOrder('${o.customerId}','${o.id}')">✏️ Edit</button><button class="btn red small" onclick="deleteOrder('${o.customerId}','${o.id}')">🗑 Delete</button></div></div>`}
-function ordersPage(){document.getElementById('app').innerHTML=`<section class="card"><div class="actions" style="justify-content:space-between"><h2 style="margin:0">📦 Order Management</h2><button class="btn gold" onclick="newOrderFromOrders()">＋ New Order</button></div><div class="field"><input id="orderSearch" class="search" placeholder="Search order number, customer, item or status..." oninput="renderOrders()"></div><div id="ordersList"></div></section>`;renderOrders()}
-function newOrderFromOrders(){if(!DB.customers.length)return toast('Add a customer first');document.getElementById('form').innerHTML=`<h2>📦 Select Customer</h2>${DB.customers.map(c=>`<button class="btn" style="width:100%;text-align:left;margin:4px 0" onclick="closeModal();addOrder('${c.id}')">👤 ${esc(c.name)} — ${esc(c.mobile)}</button>`).join('')}`;showModal()}
-function renderOrders(){const q=(document.getElementById('orderSearch')?.value||'').toLowerCase();const os=allOrders().filter(o=>(o.orderNo+' '+o.customerName+' '+o.status+' '+o.item+' '+o.weight).toLowerCase().includes(q));document.getElementById('ordersList').innerHTML=os.length?os.map(orderCard).join(''):'<div class="empty">No orders found.</div>'}
-function editOrder(cid,oid){const c=DB.customers.find(x=>x.id===cid);if(c)orderForm(c,oid)}
-function deleteOrder(cid,oid){if(!confirm('Delete this order?'))return;const c=DB.customers.find(x=>x.id===cid);if(!c)return;c.orders=(c.orders||[]).filter(o=>o.id!==oid);saveDB();go('orders');toast('Order deleted')}
-function openCustomerHistory(cid){const c=DB.customers.find(x=>x.id===cid);if(!c)return;document.getElementById('form').innerHTML=`<h2>📋 ${esc(c.name)} — History</h2><p>📱 ${esc(c.mobile)}<br>🏪 ${esc(c.shop||'-')} • 📍 ${esc(c.city||'-')}</p>${(c.orders||[]).length?(c.orders||[]).slice().reverse().map(o=>orderCard({...o,customerName:c.name,customerId:c.id})).join(''):'<div class="empty">No previous orders</div>'}`;showModal()}
-function normalizePhone(p){let n=String(p||'').replace(/\D/g,'');if(n.length===10)n='91'+n;return n}
-function whatsappCustomer(id){sessionStorage.setItem('waCustomerId',id);go('whatsapp')}
-function whatsappPage(){const pending=sessionStorage.getItem('waCustomerId')||'';sessionStorage.removeItem('waCustomerId');document.getElementById('app').innerHTML=`<section class="card"><h2>💬 WhatsApp Center</h2><div class="field"><label>Select Customer</label><select id="wa_customer" onchange="loadWAForCustomer(this.value)"><option value="">— Select customer —</option>${DB.customers.map(c=>`<option value="${c.id}" ${c.id===pending?'selected':''}>${esc(c.name)} — ${esc(c.mobile)}</option>`).join('')}</select></div><div class="field"><label>WhatsApp Number</label><input id="wa_phone" inputmode="tel" placeholder="Select a customer or enter number manually"></div><div class="field"><label>Message</label><textarea id="wa_message" placeholder="Type your message..."></textarea></div><button class="btn green" onclick="openWhatsApp()">💬 Open WhatsApp</button></section>
-<section class="card"><h2>📣 Bulk WhatsApp</h2><p class="muted">Select customers → choose template → preview → open chats one by one.</p><div class="actions"><button class="btn" onclick="selectAllWA(true)">Select All</button><button class="btn" onclick="selectAllWA(false)">Clear</button></div><div class="field"><label>Message Template</label><select id="bulkTemplate" onchange="setBulkPreview()">${DB.templates.map(t=>`<option value="${t.id}">${esc(t.name)}</option>`).join('')}</select></div><div id="bulkCustomers"></div><h3>Preview</h3><div id="bulkPreview" class="preview">Select customers.</div><br><button class="btn green" onclick="bulkWhatsApp()">💬 Start WhatsApp</button></section>
-<section class="card"><h2>🖼️ WhatsApp Image</h2><p class="muted">Select an image to share manually through WhatsApp.</p><input id="wa_image" type="file" accept="image/*"><br><br><button class="btn" onclick="shareImage()">🖼️ Share Image</button></section>`;renderBulkCustomers();setBulkPreview();if(pending)loadWAForCustomer(pending)}
-function loadWAForCustomer(id){const c=DB.customers.find(x=>x.id===id);if(!c)return;const phone=document.getElementById('wa_phone'),msg=document.getElementById('wa_message');if(phone)phone.value=c.mobile||'';const o=(c.orders||[]).slice(-1)[0],t=DB.templates.find(x=>x.name==='Order Thank You')||DB.templates[0];if(msg&&t)msg.value=applyTemplate(t.message,c,o)}
-function openWhatsApp(){const n=normalizePhone(document.getElementById('wa_phone')?.value),m=document.getElementById('wa_message')?.value.trim();if(!n)return toast('Select a customer or enter WhatsApp number');if(!m)return toast('Enter a message');window.open('https://wa.me/'+n+'?text='+encodeURIComponent(m),'_blank')}
-async function shareImage(){const f=document.getElementById('wa_image')?.files?.[0];if(!f)return toast('Please select an image');if(navigator.share&&navigator.canShare&&navigator.canShare({files:[f]})){try{await navigator.share({title:'SHREE JI CONNECT',text:'SHREE JI GOLD CREATOR LLP',files:[f]});toast('Share opened ✓')}catch(e){}return}toast('Direct image sharing is not supported here. Use WhatsApp attachment manually.')}
-function renderBulkCustomers(){const box=document.getElementById('bulkCustomers');if(!box)return;box.innerHTML=DB.customers.length?DB.customers.map(c=>`<label class="checkrow"><input class="bulkCheck" type="checkbox" value="${c.id}" onchange="setBulkPreview()"><span>👤 <b>${esc(c.name)}</b> — ${esc(c.mobile)} ${c.shop?'• '+esc(c.shop):''}</span></label>`).join(''):'<div class="empty">Add customers first.</div>'}
-function selectAllWA(v){document.querySelectorAll('.bulkCheck').forEach(x=>x.checked=v);setBulkPreview()}
-function getTemplate(id){return DB.templates.find(t=>t.id===id)}
-function applyTemplate(msg,c,o){return String(msg||'').replaceAll('{{name}}',c?.name||'').replaceAll('{{phone}}',c?.mobile||'').replaceAll('{{company}}','SHREE JI GOLD CREATOR LLP').replaceAll('{{orderNo}}',o?.orderNo||'').replaceAll('{{item}}',o?.item||'').replaceAll('{{weight}}',o?.weight||'').replaceAll('{{touch}}',o?.touch||'').replaceAll('{{screw}}',o?.screw||'').replaceAll('{{value}}',money(o?.value||0)).replaceAll('{{advance}}',money(o?.advance||0)).replaceAll('{{status}}',o?.status||'').replaceAll('{{date}}',o?.deliveryDate||o?.startDate||'')}
-function setBulkPreview(){const p=document.getElementById('bulkPreview');if(!p)return;const t=getTemplate(document.getElementById('bulkTemplate')?.value),ids=[...document.querySelectorAll('.bulkCheck:checked')].map(x=>x.value);if(!ids.length){p.textContent='Select customers.';return}p.innerHTML=ids.map(id=>{const c=DB.customers.find(x=>x.id===id),o=(c.orders||[]).slice(-1)[0];return `<b>${esc(c.name)}</b>\\n${esc(applyTemplate(t?.message||'',c,o))}`}).join('\\n\\n──────────\\n\\n')}
-function bulkWhatsApp(){const t=getTemplate(document.getElementById('bulkTemplate')?.value),ids=[...document.querySelectorAll('.bulkCheck:checked')].map(x=>x.value);if(!ids.length)return toast('Select customers first');ids.forEach((id,i)=>{const c=DB.customers.find(x=>x.id===id),o=(c.orders||[]).slice(-1)[0],url='https://wa.me/'+normalizePhone(c.mobile)+'?text='+encodeURIComponent(applyTemplate(t?.message||'',c,o));setTimeout(()=>window.open(url,'_blank'),i*900)});toast('WhatsApp chats opened')}
-function templatesPage(){document.getElementById('app').innerHTML=`<section class="card"><div class="actions" style="justify-content:space-between"><h2 style="margin:0">📝 Message Templates</h2><button class="btn green" onclick="addTemplate()">＋ New Template</button></div><p class="muted">Placeholders: {{name}}, {{phone}}, {{company}}, {{orderNo}}, {{item}}, {{weight}}, {{touch}}, {{screw}}, {{value}}, {{advance}}, {{status}}, {{date}}</p><div id="templateList"></div></section>`;renderTemplates()}
-function renderTemplates(){const b=document.getElementById('templateList');if(!b)return;b.innerHTML=DB.templates.length?DB.templates.map(t=>`<div class="template"><h3>📝 ${esc(t.name)}</h3><div class="preview">${esc(t.message)}</div><div class="actions" style="margin-top:10px"><button class="btn small" onclick="editTemplate('${t.id}')">✏️ Edit</button><button class="btn red small" onclick="deleteTemplate('${t.id}')">🗑 Delete</button></div></div>`).join(''):'<div class="empty">No templates yet.</div>'}
-function addTemplate(tid=null){const t=tid?DB.templates.find(x=>x.id===tid):null;document.getElementById('form').innerHTML=`<h2>${t?'✏️ Edit Template':'📝 Create Template'}</h2><div class="field"><label>Template Name</label><input id="t_name" value="${esc(t?.name||'')}"></div><div class="field"><label>Message</label><textarea id="t_message" placeholder="Dear {{name}},"></textarea></div><div class="actions"><button class="btn" onclick="closeModal()">Cancel</button><button class="btn green" onclick="saveTemplate('${tid||''}')">Save Template</button></div>`;if(t)document.getElementById('t_message').value=t.message;showModal()}
-function saveTemplate(id){const name=t_name.value.trim(),message=t_message.value;if(!name||!message)return toast('Template name and message are required');if(id){const t=DB.templates.find(x=>x.id===id);t.name=name;t.message=message}else DB.templates.push({id:uid(),name,message});saveDB();closeModal();go('templates');toast('Template saved ✓')}
-function editTemplate(id){addTemplate(id)}
-function deleteTemplate(id){if(!confirm('Delete this template?'))return;DB.templates=DB.templates.filter(t=>t.id!==id);saveDB();renderTemplates();toast('Template deleted')}
-function backupPage(){document.getElementById('app').innerHTML=`<section class="card"><h2>💾 Backup & Restore</h2><p>Export customers, full order history and templates as JSON. Keep the backup safe.</p><div class="actions"><button class="btn green" onclick="exportBackup()">⬇️ Export Backup</button><label class="btn" style="cursor:pointer">⬆️ Import Backup<input id="importFile" type="file" accept="application/json" hidden onchange="importBackup(event)"></label></div></section><section class="card"><h2>📊 Data Summary</h2><div class="grid3"><div><b>${DB.customers.length}</b><br><span class="muted">Customers</span></div><div><b>${allOrders().length}</b><br><span class="muted">Orders</span></div><div><b>${DB.templates.length}</b><br><span class="muted">Templates</span></div></div></section><section class="card"><h2>⚠️ Reset</h2><p class="muted">Export a backup first. Reset permanently clears browser data.</p><button class="btn red" onclick="resetData()">Reset All Data</button></section>`}
-function exportBackup(){const blob=new Blob([JSON.stringify(DB,null,2)],{type:'application/json'}),a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='shree-ji-connect-backup-'+today()+'.json';a.click();setTimeout(()=>URL.revokeObjectURL(a.href),1000);toast('Backup downloaded ✓')}
-function importBackup(e){const f=e.target.files?.[0];if(!f)return;const r=new FileReader();r.onload=()=>{try{const d=JSON.parse(r.result);if(!Array.isArray(d.customers)||!Array.isArray(d.templates))throw Error();if(!confirm('Replace current data with this backup?'))return;DB=d;saveDB();go('dashboard');toast('Backup restored ✓')}catch(x){toast('Invalid backup file')}};r.readAsText(f)}
-function resetData(){if(!confirm('Reset ALL customers, orders and templates?'))return;DB={customers:[],templates:defaultTemplates()};saveDB();go('dashboard');toast('All data reset')}
-function showModal(){document.getElementById('modal').classList.add('show')}function closeModal(){document.getElementById('modal').classList.remove('show')}
-document.addEventListener('keydown',e=>{if(e.key==='Escape'){closeModal();closeDrawer()}})
-setInterval(()=>{try{saveDB()}catch(e){}},30000)
-go('dashboard')
-if('serviceWorker' in navigator)window.addEventListener('load',()=>navigator.serviceWorker.register('sw.js').catch(()=>{}))
+
+</section>
+
+<section class="card">
+
+<h2>⚡ Quick Actions</h2>
+
+<div class="quick">
+
+<button class="btn gold"
+onclick="openCustomer()">
+👤 Add Customer
+</button>
+
+<button class="btn"
+onclick="go('orders')">
+📦 New Order
+</button>
+
+<button class="btn green"
+onclick="go('whatsapp')">
+💬 WhatsApp Center
+</button>
+
+</div>
+
+</section>
+
+<section class="card">
+
+<h3>📊 Overview</h3>
+
+<div class="grid3">
+
+<div>
+<b>${done}</b>
+<br>
+<span class="muted">Completed Orders</span>
+</div>
+
+<div>
+<b>
+₹${money(
+os.reduce(
+(s,o)=>s+Number(o.advance||0),
+0
+)
+)}
+</b>
+<br>
+<span class="muted">Total Advance</span>
+</div>
+
+<div>
+<b>${DB.templates.length}</b>
+<br>
+<span class="muted">WhatsApp Templates</span>
+</div>
+
+</div>
+
+</section>
+`;
+
+}
+
+/* CUSTOMERS */
+
+function customersPage(){
+
+document.getElementById('app').innerHTML=`
+
+<section class="card">
+
+<div class="actions"
+style="justify-content:space-between">
+
+<h2 style="margin:0">
+👥 Customer CRM
+</h2>
+
+<button class="btn gold"
+onclick="openCustomer()">
+＋ Add Customer
+</button>
+
+</div>
+
+<div class="field">
+
+<input
+id="custSearch"
+class="search"
+placeholder="Search name, WhatsApp, shop or city..."
+oninput="renderCustomers()">
+
+</div>
+
+<div id="customerList"></div>
+
+</section>
+`;
+
+renderCustomers();
+
+}
+
+function renderCustomers(){
+
+const q=
+(document.getElementById('custSearch')?.value||'')
+.toLowerCase();
+
+const a=DB.customers.filter(c=>
+(
+c.name+' '+
+c.mobile+' '+
+c.shop+' '+
+c.city+' '+
+c.notes
+)
+.toLowerCase()
+.includes(q)
+);
+
+document.getElementById('customerList').innerHTML=
+a.length
+?
+a.map(customerCard).join('')
+:
+'<div class="empty">No customers found.</div>';
+
+}
+
+function customerCard(c){
+
+return `
+
+<div class="customer">
+
+<h3>${esc(c.name)}</h3>
+
+<div>📱 ${esc(c.mobile)}</div>
+
+<div>🏪 ${esc(c.shop||'-')}</div>
+
+<div>📍 ${esc(c.city||'-')}</div>
+
+${
+c.notes
+?
+`<div>📝 ${esc(c.notes)}</div>`
+:
+''
+}
+
+<div class="actions"
+style="margin-top:11px">
+
+<button class="btn gold small"
+onclick="addOrder('${c.id}')">
+＋ Add Order
+</button>
+
+<button class="btn small"
+onclick="editCustomer('${c.id}')">
+✏️ Edit
+</button>
+
+<button class="btn small green"
+onclick="whatsappCustomer('${c.id}')">
+💬 WhatsApp
+</button>
+
+<button class="btn small"
+onclick="openCustomerHistory('${c.id}')">
+📋 History
+</button>
+
+<button class="btn red small"
+onclick="deleteCustomer('${c.id}')">
+🗑 Delete
+</button>
+
+</div>
+
+<div class="history">
+
+<b>
+📦 Customer History
+(${(c.orders||[]).length})
+</b>
+
+${
+(c.orders||[]).length
+?
+(c.orders||[])
+.slice()
+.reverse()
+.map(o=>
+orderCard({
+...o,
+customerName:c.name,
+customerId:c.id
+})
+)
+.join('')
+:
+'<div class="empty">No previous orders</div>'
+}
+
+</div>
+
+</div>
+
+`;
+
+}
+
+/* ADD CUSTOMER */
+
+function openCustomer(){
+
+document.getElementById('form').innerHTML=`
+
+<h2>👤 Add Customer</h2>
+
+<div class="field">
+<label>Name *</label>
+<input
+id="c_name"
+placeholder="Customer name">
+</div>
+
+<div class="field">
+<label>WhatsApp Number *</label>
+<input
+id="c_mobile"
+inputmode="tel"
+placeholder="10 digit mobile number">
+</div>
+
+<div class="grid2">
+
+<div class="field">
+<label>Shop / Company</label>
+<input id="c_shop">
+</div>
+
+<div class="field">
+<label>City</label>
+<input id="c_city">
+</div>
+
+</div>
+
+<div class="field">
+<label>Notes</label>
+<textarea id="c_notes"></textarea>
+</div>
+
+<div class="actions">
+
+<button class="btn"
+onclick="closeModal()">
+Cancel
+</button>
+
+<button class="btn gold"
+onclick="saveCustomer()">
+Save Customer
+</button>
+
+</div>
+`;
+
+showModal();
+
+}
+
+function saveCustomer(){
+
+const name=
+document.getElementById('c_name').value.trim();
+
+const mobile=
+document.getElementById('c_mobile').value.trim();
+
+if(!name||!mobile){
+return toast(
+'Name and WhatsApp number are required'
+);
+}
+
+DB.customers.push({
+
+id:uid(),
+name,
+mobile,
+shop:document.getElementById('c_shop').value.trim(),
+city:document.getElementById('c_city').value.trim(),
+notes:document.getElementById('c_notes').value.trim(),
+createdAt:new Date().toISOString(),
+orders:[]
+
+});
+
+saveDB();
+
+closeModal();
+
+go('customers');
+
+toast('Customer added ✓');
+
+}
+
+/* EDIT CUSTOMER */
+
+function editCustomer(id){
+
+const c=DB.customers.find(x=>x.id===id);
+
+if(!c)return;
+
+document.getElementById('form').innerHTML=`
+
+<h2>✏️ Edit Customer</h2>
+
+<div class="field">
+<label>Name *</label>
+<input
+id="c_name"
+value="${esc(c.name)}">
+</div>
+
+<div class="field">
+<label>WhatsApp Number *</label>
+<input
+id="c_mobile"
+value="${esc(c.mobile)}">
+</div>
+
+<div class="grid2">
+
+<div class="field">
+<label>Shop / Company</label>
+<input
+id="c_shop"
+value="${esc(c.shop||'')}">
+</div>
+
+<div class="field">
+<label>City</label>
+<input
+id="c_city"
+value="${esc(c.city||'')}">
+</div>
+
+</div>
+
+<div class="field">
+<label>Notes</label>
+<textarea id="c_notes">${esc(c.notes||'')}</textarea>
+</div>
+
+<div class="actions">
+
+<button class="btn"
+onclick="closeModal()">
+Cancel
+</button>
+
+<button class="btn gold"
+onclick="updateCustomer('${id}')">
+Save Changes
+</button>
+
+</div>
+`;
+
+showModal();
+
+}
+
+function updateCustomer(id){
+
+const c=DB.customers.find(x=>x.id===id);
+
+if(!c)return;
+
+c.name=document.getElementById('c_name').value.trim();
+
+c.mobile=document.getElementById('c_mobile').value.trim();
+
+c.shop=document.getElementById('c_shop').value.trim();
+
+c.city=document.getElementById('c_city').value.trim();
+
+c.notes=document.getElementById('c_notes').value.trim();
+
+if(!c.name||!c.mobile){
+return toast(
+'Name and WhatsApp number are required'
+);
+}
+
+saveDB();
+
+closeModal();
+
+go('customers');
+
+toast('Customer updated ✓');
+
+}
+
+function deleteCustomer(id){
+
+if(!confirm(
+'Delete this customer and all order history?'
+))return;
+
+DB.customers=
+DB.customers.filter(c=>c.id!==id);
+
+saveDB();
+
+renderCustomers();
+
+toast('Customer deleted');
+
+}
+
+/* ORDER */
+
+function addOrder(cid){
+
+const c=DB.customers.find(x=>x.id===cid);
+
+if(c)orderForm(c);
+
+}
+
+function orderForm(c,oid=null){
+
+const o=oid
+?
+(c.orders||[]).find(x=>x.id===oid)
+:
+null;
+
+document.getElementById('form').innerHTML=`
+
+<h2>
+${o?'✏️ Edit Order':'📦 New Order'}
+</h2>
+
+<p>
+<b>${esc(c.name)}</b>
+•
+${esc(c.mobile)}
+</p>
+
+<div class="grid2">
+
+<div class="field">
+<label>Order Number *</label>
+<input
+id="o_no"
+value="${esc(o?.orderNo||'')}"
+placeholder="Example: SJ001">
+</div>
+
+<div class="field">
+<label>Item</label>
+<input
+id="o_item"
+value="${esc(o?.item||'')}"
+placeholder="Example: Ring">
+</div>
+
+</div>
+
+<div class="grid2">
+
+<div class="field">
+<label>Start Date</label>
+<input
+id="o_start"
+type="date"
+value="${esc(o?.startDate||today())}">
+</div>
+
+<div class="field">
+<label>Status</label>
+
+<select id="o_status">
+
+${
+[
+'Pending',
+'Started',
+'Processing',
+'Completed',
+'Ready for Delivery',
+'Delivered'
+]
+.map(s=>
+`<option ${
+o?.status===s?'selected':''
+}>${s}</option>`
+)
+.join('')
+}
+
+</select>
+
+</div>
+
+</div>
+
+<div class="grid2">
+
+<div class="field">
+<label>Advance (GPay / Cash) ₹</label>
+<input
+id="o_advance"
+type="number"
+min="0"
+value="${esc(o?.advance||'')}"
+placeholder="0">
+</div>
+
+<div class="field">
+<label>Gold Weight</label>
+<input
+id="o_weight"
+value="${esc(o?.weight||'')}"
+placeholder="Example: 12.500 g">
+</div>
+
+</div>
+
+<div class="grid2">
+
+<div class="field">
+<label>Gold Touch</label>
+<input
+id="o_touch"
+value="${esc(o?.touch||'')}"
+placeholder="Example: 916">
+</div>
+
+<div class="field">
+<label>Screw Type</label>
+<input
+id="o_screw"
+value="${esc(o?.screw||'')}"
+placeholder="Example: Screw / Hook">
+</div>
+
+</div>
+
+<div class="ringBox">
+
+<div class="ringTitle">
+💍 Ring Size
+</div>
+
+<div class="grid2">
+
+<div class="field">
+
+<label>Lady's — 9 to 15</label>
+
+<input
+id="o_ladySize"
+class="ringInput"
+type="number"
+inputmode="decimal"
+min="9"
+max="15"
+step="0.5"
+value="${esc(o?.ladySize||'')}"
+placeholder="9 - 15">
+
+<div class="ringHint">
+Manual number entry
+</div>
+
+</div>
+
+<div class="field">
+
+<label>Gents — 17 to 25</label>
+
+<input
+id="o_gentsSize"
+class="ringInput"
+type="number"
+inputmode="decimal"
+min="17"
+max="25"
+step="0.5"
+value="${esc(o?.gentsSize||'')}"
+placeholder="17 - 25">
+
+<div class="ringHint">
+Manual number entry
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="field">
+<label>Order Notes</label>
+<textarea
+id="o_notes"
+placeholder="Enter order notes..."
+>${esc(o?.notes||'')}</textarea>
+</div>
+
+<div class="actions">
+
+<button class="btn"
+onclick="closeModal()">
+Cancel
+</button>
+
+<button class="btn gold"
+onclick="saveOrder('${c.id}','${oid||''}')">
+${o?'Update Order':'Save Order'}
+</button>
+
+</div>
+`;
+
+showModal();
+
+}
+
+/* SAVE ORDER */
+
+function saveOrder(cid,oid){
+
+const c=DB.customers.find(x=>x.id===cid);
+
+if(!c)return;
+
+const no=
+document.getElementById('o_no').value.trim();
+
+if(!no){
+return toast(
+'Order Number is required'
+);
+}
+
+const ladySize=
+document.getElementById('o_ladySize').value.trim();
+
+const gentsSize=
+document.getElementById('o_gentsSize').value.trim();
+
+/* Ring validation */
+
+if(ladySize){
+
+const n=Number(ladySize);
+
+if(n<9||n>15){
+return toast(
+"Lady's ring size must be 9 to 15"
+);
+}
+
+}
+
+if(gentsSize){
+
+const n=Number(gentsSize);
+
+if(n<17||n>25){
+return toast(
+"Gents ring size must be 17 to 25"
+);
+}
+
+}
+
+const old=oid
+?
+(c.orders||[]).find(x=>x.id===oid)
+:
+null;
+
+const data={
+
+id:oid||uid(),
+
+orderNo:no,
+
+item:document
+.getElementById('o_item')
+.value.trim(),
+
+startDate:document
+.getElementById('o_start')
+.value,
+
+status:document
+.getElementById('o_status')
+.value,
+
+advance:Number(
+document
+.getElementById('o_advance')
+.value||0
+),
+
+weight:document
+.getElementById('o_weight')
+.value.trim(),
+
+touch:document
+.getElementById('o_touch')
+.value.trim(),
+
+screw:document
+.getElementById('o_screw')
+.value.trim(),
+
+ladySize,
+
+gentsSize,
+
+notes:document
+.getElementById('o_notes')
+.value.trim(),
+
+createdAt:
+old?.createdAt||
+new Date().toISOString()
+
+};
+
+c.orders=c.orders||[];
+
+if(oid){
+
+const i=c.orders.findIndex(
+x=>x.id===oid
+);
+
+if(i>=0){
+c.orders[i]=data;
+}
+
+}else{
+
+c.orders.push(data);
+
+}
+
+saveDB();
+
+closeModal();
+
+go('orders');
+
+toast(
+oid
+?
+'Order updated ✓'
+:
+'Order saved ✓'
+);
+
+}
+
+function today(){
+
+return new Date()
+.toISOString()
+.slice(0,10);
+
+}
+
+/* ORDER CARD */
+
+function orderCard(o){
+
+return `
+
+<div class="order">
+
+<div class="actions"
+style="justify-content:space-between">
+
+<b>
+📦 ${esc(o.orderNo||'Order')}
+</b>
+
+<span class="pill">
+${esc(o.status||'Pending')}
+</span>
+
+</div>
+
+<div>
+👤 ${esc(o.customerName||'Customer')}
+</div>
+
+<div>
+💎 ${esc(o.item||'-')}
+&nbsp;
+⚖️ ${esc(o.weight||'-')}
+&nbsp;
+🪙 ${esc(o.touch||'-')}
+</div>
+
+<div>
+💰 Advance: ₹${money(o.advance)}
+</div>
+
+${
+(o.ladySize||o.gentsSize)
+?
+`<div>
+💍 Ring Size:
+${o.ladySize?`Lady's ${esc(o.ladySize)}`:''}
+${o.gentsSize?` Gents ${esc(o.gentsSize)}`:''}
+</div>`
+:
+''
+}
+
+<div>
+📅 Start:
+${esc(o.startDate||'-')}
+</div>
+
+${
+o.notes
+?
+`<div>📝 ${esc(o.notes)}</div>`
+:
+''
+}
+
+<div class="actions"
+style="margin-top:8px">
+
+<button class="btn small"
+onclick="editOrder('${o.customerId}','${o.id}')">
+✏️ Edit
+</button>
+
+<button class="btn red small"
+onclick="deleteOrder('${o.customerId}','${o.id}')">
+🗑 Delete
+</button>
+
+</div>
+
+</div>
+
+`;
+
+}
+
+/* ORDERS PAGE */
+
+function ordersPage(){
+
+document.getElementById('app').innerHTML=`
+
+<section class="card">
+
+<div class="actions"
+style="justify-content:space-between">
+
+<h2 style="margin:0">
+📦 Order Management
+</h2>
+
+<button class="btn gold"
+onclick="newOrderFromOrders()">
+＋ New Order
+</button>
+
+</div>
+
+<div class="field">
+
+<input
+id="orderSearch"
+class="search"
+placeholder="Search order number, customer, item or status..."
+oninput="renderOrders()">
+
+</div>
+
+<div id="ordersList"></div>
+
+</section>
+`;
+
+renderOrders();
+
+}
+
+function newOrderFromOrders(){
+
+if(!DB.customers.length){
+
+return toast(
+'Add a customer first'
+);
+
+}
+
+document.getElementById('form').innerHTML=`
+
+<h2>📦 Select Customer</h2>
+
+${
+DB.customers
+.map(c=>
+`
+<button
+class="btn"
+style="width:100%;text-align:left;margin:4px 0"
+onclick="closeModal();addOrder('${c.id}')">
+
+👤 ${esc(c.name)}
+—
+${esc(c.mobile)}
+
+</button>
+`
+)
+.join('')
+}
+
+`;
+
+showModal();
+
+}
+
+function renderOrders(){
+
+const q=
+(document.getElementById('orderSearch')?.value||'')
+.toLowerCase();
+
+const os=
+allOrders()
+.filter(o=>
+(
+o.orderNo+' '+
+o.customerName+' '+
+o.status+' '+
+o.item+' '+
+o.weight
+)
+.toLowerCase()
+.includes(q)
+);
+
+document.getElementById('ordersList').innerHTML=
+os.length
+?
+os.map(orderCard).join('')
+:
+'<div class="empty">No orders found.</div>';
+
+}
+
+function editOrder(cid,oid){
+
+const c=DB.customers.find(
+x=>x.id===cid
+);
+
+if(c)orderForm(c,oid);
+
+}
+
+function deleteOrder(cid,oid){
+
+if(!confirm('Delete this order?'))return;
+
+const c=DB.customers.find(
+x=>x.id===cid
+);
+
+if(!c)return;
+
+c.orders=
+(c.orders||[])
+.filter(o=>o.id!==oid);
+
+saveDB();
+
+go('orders');
+
+toast('Order deleted');
+
+}
+
+function openCustomerHistory(cid){
+
+const c=DB.customers.find(
+x=>x.id===cid
+);
+
+if(!c)return;
+
+document.getElementById('form').innerHTML=`
+
+<h2>
+📋 ${esc(c.name)} — History
+</h2>
+
+<p>
+📱 ${esc(c.mobile)}
+<br>
+🏪 ${esc(c.shop||'-')}
+•
+📍 ${esc(c.city||'-')}
+</p>
+
+${
+(c.orders||[]).length
+?
+(c.orders||[])
+.slice()
+.reverse()
+.map(o=>
+orderCard({
+...o,
+customerName:c.name,
+customerId:c.id
+})
+)
+.join('')
+:
+'<div class="empty">No previous orders</div>'
+}
+
+`;
+
+showModal();
+
+}
+
+/* WHATSAPP */
+
+function normalizePhone(p){
+
+let n=String(p||'')
+.replace(/\D/g,'');
+
+if(n.length===10){
+n='91'+n;
+}
+
+return n;
+
+}
+
+function whatsappCustomer(id){
+
+sessionStorage.setItem(
+'waCustomerId',
+id
+);
+
+go('whatsapp');
+
+}
+
+function whatsappPage(){
+
+const pending=
+sessionStorage.getItem(
+'waCustomerId'
+)||'';
+
+sessionStorage.removeItem(
+'waCustomerId'
+);
+
+document.getElementById('app').innerHTML=`
+
+<section class="card">
+
+<h2>💬 WhatsApp Center</h2>
+
+<div class="field">
+
+<label>Select Customer</label>
+
+<select
+id="wa_customer"
+onchange="loadWAForCustomer(this.value)">
+
+<option value="">
+— Select customer —
+</option>
+
+${
+DB.customers.map(c=>
+`
+<option
+value="${c.id}"
+${c.id===pending?'selected':''}>
+
+${esc(c.name)}
+—
+${esc(c.mobile)}
+
+</option>
+`
+)
+.join('')
+}
+
+</select>
+
+</div>
+
+<div class="field">
+
+<label>WhatsApp Number</label>
+
+<input
+id="wa_phone"
+inputmode="tel"
+placeholder="Select a customer or enter number manually">
+
+</div>
+
+<div class="field">
+
+<label>Message</label>
+
+<textarea
+id="wa_message"
+placeholder="Type your message..."></textarea>
+
+</div>
+
+<button
+class="btn green"
+onclick="openWhatsApp()">
+
+💬 Open WhatsApp
+
+</button>
+
+</section>
+
+<section class="card">
+
+<h2>📣 Bulk WhatsApp</h2>
+
+<p class="muted">
+Select customers → choose template → preview → open chats one by one.
+</p>
+
+<div class="actions">
+
+<button
+class="btn"
+onclick="selectAllWA(true)">
+Select All
+</button>
+
+<button
+class="btn"
+onclick="selectAllWA(false)">
+Clear
+</button>
+
+</div>
+
+<div class="field">
+
+<label>Message Template</label>
+
+<select
+id="bulkTemplate"
+onchange="setBulkPreview()">
+
+${
+DB.templates.map(t=>
+`
+<option value="${t.id}">
+${esc(t.name)}
+</option>
+`
+)
+.join('')
+}
+
+</select>
+
+</div>
+
+<div id="bulkCustomers"></div>
+
+<h3>Preview</h3>
+
+<div
+id="bulkPreview"
+class="preview">
+Select customers.
+</div>
+
+<br>
+
+<button
+class="btn green"
+onclick="bulkWhatsApp()">
+
+💬 Start WhatsApp
+
+</button>
+
+</section>
+
+`;
+
+renderBulkCustomers();
+
+setBulkPreview();
+
+if(pending){
+loadWAForCustomer(pending);
+}
+
+}
+
+function loadWAForCustomer(id){
+
+const c=DB.customers.find(
+x=>x.id===id
+);
+
+if(!c)return;
+
+const phone=
+document.getElementById('wa_phone');
+
+const msg=
+document.getElementById('wa_message');
+
+if(phone){
+phone.value=c.mobile||'';
+}
+
+const o=
+(c.orders||[])
+.slice(-1)[0];
+
+const t=
+DB.templates.find(
+x=>x.name==='Order Thank You'
+)
+||
+DB.templates[0];
+
+if(msg&&t){
+
+msg.value=
+applyTemplate(t.message,c,o);
+
+}
+
+}
+
+function openWhatsApp(){
+
+const n=
+normalizePhone(
+document.getElementById('wa_phone')?.value
+);
+
+const m=
+document.getElementById('wa_message')
+?.value.trim();
+
+if(!n){
+
+return toast(
+'Select a customer or enter WhatsApp number'
+);
+
+}
+
+if(!m){
+
+return toast(
+'Enter a message'
+);
+
+}
+
+window.open(
+'https://wa.me/'+
+n+
+'?text='+
+encodeURIComponent(m),
+'_blank'
+);
+
+}
+
+function renderBulkCustomers(){
+
+const box=
+document.getElementById(
+'bulkCustomers'
+);
+
+if(!box)return;
+
+box.innerHTML=
+DB.customers.length
+?
+DB.customers.map(c=>
+`
+<label class="checkrow">
+
+<input
+class="bulkCheck"
+type="checkbox"
+value="${c.id}"
+onchange="setBulkPreview()">
+
+<span>
+👤 <b>${esc(c.name)}</b>
+—
+${esc(c.mobile)}
+
+</span>
+
+</label>
+`
+)
+.join('')
+:
+'<div class="empty">Add customers first.</div>';
+
+}
+
+function selectAllWA(v){
+
+document
+.querySelectorAll('.bulkCheck')
+.forEach(x=>{
+x.checked=v;
+});
+
+setBulkPreview();
+
+}
+
+function getTemplate(id){
+
+return DB.templates.find(
+t=>t.id===id
+);
+
+}
+
+function applyTemplate(msg,c,o){
+
+return String(msg||'')
+.replaceAll(
+'{{name}}',
+c?.name||''
+)
+.replaceAll(
+'{{phone}}',
+c?.mobile||''
+)
+.replaceAll(
+'{{company}}',
+'SHREE JI GOLD CREATOR LLP'
+)
+.replaceAll(
+'{{orderNo}}',
+o?.orderNo||''
+)
+.replaceAll(
+'{{item}}',
+o?.item||''
+)
+.replaceAll(
+'{{weight}}',
+o?.weight||''
+)
+.replaceAll(
+'{{touch}}',
+o?.touch||''
+)
+.replaceAll(
+'{{screw}}',
+o?.screw||''
+)
+.replaceAll(
+'{{ladySize}}',
+o?.ladySize||''
+)
+.replaceAll(
+'{{gentsSize}}',
+o?.gentsSize||''
+)
+.replaceAll(
+'{{advance}}',
+money(o?.advance||0)
+)
+.replaceAll(
+'{{status}}',
+o?.status||''
+)
+.replaceAll(
+'{{date}}',
+o?.startDate||''
+);
+
+}
+
+function setBulkPreview(){
+
+const p=
+document.getElementById(
+'bulkPreview'
+);
+
+if(!p)return;
+
+const t=
+getTemplate(
+document.getElementById(
+'bulkTemplate'
+)?.value
+);
+
+const ids=
+[
+...document.querySelectorAll(
+'.bulkCheck:checked'
+)
+]
+.map(x=>x.value);
+
+if(!ids.length){
+
+p.textContent=
+'Select customers.';
+
+return;
+
+}
+
+p.innerHTML=
+ids.map(id=>{
+
+const c=
+DB.customers.find(
+x=>x.id===id
+);
+
+const o=
+(c.orders||[])
+.slice(-1)[0];
+
+return `
+<b>${esc(c.name)}</b>
+
+${esc(
+applyTemplate(
+t?.message||'',
+c,
+o
+)
+)}
+`;
+
+})
+.join(
+'\n\n──────────\n\n'
+);
+
+}
+
+function bulkWhatsApp(){
+
+const t=
+getTemplate(
+document.getElementById(
+'bulkTemplate'
+)?.value
+);
+
+const ids=
+[
+...document.querySelectorAll(
+'.bulkCheck:checked'
+)
+]
+.map(x=>x.value);
+
+if(!ids.length){
+
+return toast(
+'Select customers first'
+);
+
+}
+
+ids.forEach((id,i)=>{
+
+const c=
+DB.customers.find(
+x=>x.id===id
+);
+
+const o=
+(c.orders||[])
+.slice(-1)[0];
+
+const url=
+'https://wa.me/' +
+normalizePhone(c.mobile) +
+'?text=' +
+encodeURIComponent(
+applyTemplate(
+t?.message||'',
+c,
+o
+)
+);
+
+setTimeout(
+()=>{
+window.open(
+url,
+'_blank'
+);
+},
+i*900
+);
+
+});
+
+toast(
+'WhatsApp chats opened'
+);
+
+}
+
+/* TEMPLATES */
+
+function templatesPage(){
+
+document.getElementById('app').innerHTML=`
+
+<section class="card">
+
+<div class="actions"
+style="justify-content:space-between">
+
+<h2 style="margin:0">
+📝 Message Templates
+</h2>
+
+<button
+class="btn green"
+onclick="addTemplate()">
+
+＋ New Template
+
+</button>
+
+</div>
+
+<p class="muted">
+Placeholders:
+{{name}},
+{{phone}},
+{{company}},
+{{orderNo}},
+{{item}},
+{{weight}},
+{{touch}},
+{{screw}},
+{{ladySize}},
+{{gentsSize}},
+{{advance}},
+{{status}},
+{{date}}
+</p>
+
+<div id="templateList"></div>
+
+</section>
+
+`;
+
+renderTemplates();
+
+}
+
+function renderTemplates(){
+
+const b=
+document.getElementById(
+'templateList'
+);
+
+if(!b)return;
+
+b.innerHTML=
+DB.templates.length
+?
+DB.templates.map(t=>
+`
+
+<div class="template">
+
+<h3>
+📝 ${esc(t.name)}
+</h3>
+
+<div class="preview">
+${esc(t.message)}
+</div>
+
+<div
+class="actions"
+style="margin-top:10px">
+
+<button
+class="btn small"
+onclick="editTemplate('${t.id}')">
+
+✏️ Edit
+
+</button>
+
+<button
+class="btn red small"
+onclick="deleteTemplate('${t.id}')">
+
+🗑 Delete
+
+</button>
+
+</div>
+
+</div>
+`
+)
+.join('')
+:
+'<div class="empty">No templates yet.</div>';
+
+}
+
+function addTemplate(tid=null){
+
+const t=
+tid
+?
+DB.templates.find(
+x=>x.id===tid
+)
+:
+null;
+
+document.getElementById('form').innerHTML=`
+
+<h2>
+${t?'✏️ Edit Template':'📝 Create Template'}
+</h2>
+
+<div class="field">
+
+<label>Template Name</label>
+
+<input
+id="t_name"
+value="${esc(t?.name||'')}">
+
+</div>
+
+<div class="field">
+
+<label>Message</label>
+
+<textarea
+id="t_message"
+placeholder="Dear {{name}},">${esc(t?.message||'')}</textarea>
+
+</div>
+
+<div class="actions">
+
+<button
+class="btn"
+onclick="closeModal()">
+Cancel
+</button>
+
+<button
+class="btn green"
+onclick="saveTemplate('${tid||''}')">
+Save Template
+</button>
+
+</div>
+`;
+
+showModal();
+
+}
+
+function saveTemplate(id){
+
+const name=
+document.getElementById(
+'t_name'
+).value.trim();
+
+const message=
+document.getElementById(
+'t_message'
+).value;
+
+if(!name||!message){
+
+return toast(
+'Template name and message are required'
+);
+
+}
+
+if(id){
+
+const t=
+DB.templates.find(
+x=>x.id===id
+);
+
+t.name=name;
+t.message=message;
+
+}else{
+
+DB.templates.push({
+id:uid(),
+name,
+message
+});
+
+}
+
+saveDB();
+
+closeModal();
+
+go('templates');
+
+toast('Template saved ✓');
+
+}
+
+function editTemplate(id){
+
+addTemplate(id);
+
+}
+
+function deleteTemplate(id){
+
+if(!confirm(
+'Delete this template?'
+))return;
+
+DB.templates=
+DB.templates.filter(
+t=>t.id!==id
+);
+
+saveDB();
+
+renderTemplates();
+
+toast(
+'Template deleted'
+);
+
+}
+
+/* BACKUP */
+
+function backupPage(){
+
+document.getElementById('app').innerHTML=`
+
+<section class="card">
+
+<h2>💾 Backup & Restore</h2>
+
+<p>
+Export customers, full order history and templates as JSON.
+Keep the backup safe.
+</p>
+
+<div class="actions">
+
+<button
+class="btn green"
+onclick="exportBackup()">
+
+⬇️ Export Backup
+
+</button>
+
+<label
+class="btn"
+style="cursor:pointer">
+
+⬆️ Import Backup
+
+<input
+id="importFile"
+type="file"
+accept="application/json"
+hidden
+onchange="importBackup(event)">
+
+</label>
+
+</div>
+
+</section>
+
+<section class="card">
+
+<h2>📊 Data Summary</h2>
+
+<div class="grid3">
+
+<div>
+<b>${DB.customers.length}</b>
+<br>
+<span class="muted">Customers</span>
+</div>
+
+<div>
+<b>${allOrders().length}</b>
+<br>
+<span class="muted">Orders</span>
+</div>
+
+<div>
+<b>${DB.templates.length}</b>
+<br>
+<span class="muted">Templates</span>
+</div>
+
+</div>
+
+</section>
+
+<section class="card">
+
+<h2>⚠️ Reset</h2>
+
+<p class="muted">
+Export a backup first.
+Reset permanently clears browser data.
+</p>
+
+<button
+class="btn red"
+onclick="resetData()">
+
+Reset All Data
+
+</button>
+
+</section>
+
+`;
+
+}
+
+function exportBackup(){
+
+const blob=
+new Blob(
+[
+JSON.stringify(
+DB,
+null,
+2
+)
+],
+{
+type:'application/json'
+}
+);
+
+const a=
+document.createElement('a');
+
+a.href=
+URL.createObjectURL(blob);
+
+a.download=
+'shree-ji-connect-backup-'+
+today()+
+'.json';
+
+a.click();
+
+setTimeout(
+()=>{
+URL.revokeObjectURL(
+a.href
+);
+},
+1000
+);
+
+toast(
+'Backup downloaded ✓'
+);
+
+}
+
+function importBackup(e){
+
+const f=
+e.target.files?.[0];
+
+if(!f)return;
+
+const r=
+new FileReader();
+
+r.onload=()=>{
+
+try{
+
+const d=
+JSON.parse(
+r.result
+);
+
+if(
+!Array.isArray(d.customers)||
+!Array.isArray(d.templates)
+){
+throw Error();
+}
+
+if(
+!confirm(
+'Replace current data with this backup?'
+)
+)return;
+
+DB=d;
+
+saveDB();
+
+go('dashboard');
+
+toast(
+'Backup restored ✓'
+);
+
+}catch(x){
+
+toast(
+'Invalid backup file'
+);
+
+}
+
+};
+
+r.readAsText(f);
+
+}
+
+function resetData(){
+
+if(!confirm(
+'Reset ALL customers, orders and templates?'
+))return;
+
+DB={
+customers:[],
+templates:defaultTemplates()
+};
+
+saveDB();
+
+go('dashboard');
+
+toast(
+'All data reset'
+);
+
+}
+
+/* MODAL */
+
+function showModal(){
+
+document
+.getElementById('modal')
+.classList.add('show');
+
+}
+
+function closeModal(){
+
+document
+.getElementById('modal')
+.classList.remove('show');
+
+}
+
+document.addEventListener(
+'keydown',
+e=>{
+
+if(e.key==='Escape'){
+
+closeModal();
+closeDrawer();
+
+}
+
+}
+);
+
+setInterval(
+()=>{
+try{
+saveDB();
+}catch(e){}
+},
+30000
+);
+
+go('dashboard');
+
+if('serviceWorker' in navigator){
+
+window.addEventListener(
+'load',
+()=>
+navigator.serviceWorker
+.register('sw.js')
+.catch(()=>{})
+);
+
+}
+
 </script>
+
 </body>
-</html>
+ </html>
