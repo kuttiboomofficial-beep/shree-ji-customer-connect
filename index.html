@@ -8,14 +8,23 @@
 
 <style>
 *{box-sizing:border-box}
+
 body{
 margin:0;
 font-family:Arial,Helvetica,sans-serif;
-background:#f5f5f7;
+background:#f5f5f5;
 color:#181818
 }
-button,input,select,textarea{font:inherit}
-button{cursor:pointer}
+
+button,input,select,textarea{
+font:inherit
+}
+
+button{
+cursor:pointer
+}
+
+/* HEADER */
 .header{
 height:70px;
 background:linear-gradient(135deg,#111,#292929);
@@ -29,231 +38,485 @@ top:0;
 z-index:20;
 box-shadow:0 4px 15px #0003
 }
-.brand{display:flex;align-items:center;gap:11px}
+
+.brand{
+display:flex;
+align-items:center;
+gap:11px
+}
+
 .logo{
-width:43px;height:43px;border-radius:50%;
+width:43px;
+height:43px;
+border-radius:50%;
 background:linear-gradient(135deg,#c59b45,#f0d58d);
 color:#111;
-display:flex;align-items:center;justify-content:center;
+display:flex;
+align-items:center;
+justify-content:center;
 font-weight:900
 }
-.brand h2{font-size:17px;margin:0}
-.brand small{font-size:9px;color:#ccc}
+
+.brand h2{
+font-size:17px;
+margin:0
+}
+
+.brand small{
+font-size:9px;
+color:#ccc
+}
+
 .menu{
-background:none;border:0;color:#fff;font-size:25px;
-display:none
+background:none;
+border:0;
+color:#fff;
+font-size:25px
 }
+
 .avatar{
-width:40px;height:40px;border-radius:50%;
-background:#c59b45;color:#111;border:0;font-weight:bold
+width:40px;
+height:40px;
+border-radius:50%;
+background:#c59b45;
+color:#111;
+display:flex;
+align-items:center;
+justify-content:center;
+font-weight:bold
 }
-.layout{display:flex;min-height:calc(100vh - 70px)}
+
+/* LAYOUT */
+.layout{
+display:flex;
+min-height:calc(100vh - 70px)
+}
+
 .sidebar{
-width:235px;background:#fff;border-right:1px solid #e5e5e5;
-padding:15px 10px;flex-shrink:0
+width:235px;
+background:#fff;
+border-right:1px solid #e5e5e5;
+padding:15px 10px;
+flex-shrink:0;
+position:fixed;
+top:70px;
+bottom:0;
+left:0;
+overflow-y:auto;
+z-index:15
 }
+
 .nav{
-display:block;width:100%;border:0;background:none;
-padding:13px;border-radius:11px;text-align:left;
-font-weight:bold;color:#555;margin:4px 0
+display:block;
+width:100%;
+border:0;
+background:none;
+padding:13px;
+border-radius:8px;
+text-align:left;
+font-weight:bold;
+color:#555;
+margin-bottom:4px
 }
-.nav:hover,.nav.active{
-background:#fff4dc;color:#966d25
+
+.nav:hover,
+.nav.active{
+background:#fff4dc;
+color:#9b6d1c
 }
-.main{flex:1;padding:22px;max-width:1450px}
+
+.main{
+flex:1;
+padding:22px;
+max-width:1450px;
+margin-left:235px
+}
+
+/* MOBILE */
+@media(max-width:800px){
+
+.sidebar{
+transform:translateX(-100%);
+transition:.25s
+}
+
+.sidebar.open{
+transform:translateX(0)
+}
+
+.main{
+margin-left:0;
+padding:14px
+}
+
+.header{
+padding:0 12px
+}
+
+}
+
+/* TITLE */
 .title{
-display:flex;justify-content:space-between;align-items:center;
+display:flex;
+justify-content:space-between;
+align-items:center;
+gap:10px;
 margin-bottom:20px
 }
-.title h1{margin:0;font-size:27px}
-.title p{margin:5px 0;color:#777;font-size:13px}
+
+.title h1{
+margin:0;
+font-size:27px
+}
+
+.title p{
+margin:5px 0 0;
+color:#777;
+font-size:13px
+}
+
+/* BUTTONS */
 .primary{
-border:0;border-radius:10px;padding:12px 17px;
-background:linear-gradient(135deg,#c59b45,#a87927);
-color:#fff;font-weight:bold
+border:0;
+border-radius:10px;
+padding:12px 17px;
+background:linear-gradient(135deg,#c59b45,#f0d58d);
+color:#fff;
+font-weight:bold
 }
+
 .secondary{
-border:1px solid #ddd;border-radius:10px;
-background:#fff;padding:10px 14px
+border:1px solid #ddd;
+border-radius:10px;
+padding:10px 14px;
+background:#fff
 }
+
+.danger{
+border:0;
+border-radius:8px;
+padding:9px 12px;
+background:#dc3545;
+color:#fff
+}
+
+.success{
+border:0;
+border-radius:10px;
+padding:12px 16px;
+background:#198754;
+color:#fff;
+font-weight:bold
+}
+
+/* CARDS */
 .cards{
 display:grid;
 grid-template-columns:repeat(4,1fr);
-gap:14px;margin-bottom:18px
+gap:12px;
+margin-bottom:20px
 }
+
 .card{
-background:#fff;border:1px solid #e8e8e8;
-border-radius:15px;padding:18px;
-box-shadow:0 4px 15px #00000008
+background:#fff;
+border:1px solid #e8e8e8;
+border-radius:14px;
+padding:16px;
+box-shadow:0 2px 8px #0000000b
 }
-.stat{display:flex;justify-content:space-between}
-.stat p{font-size:12px;color:#777;margin:0}
-.stat h2{font-size:27px;margin:8px 0 0}
+
+.stat{
+display:flex;
+justify-content:space-between;
+align-items:center
+}
+
+.stat h3{
+margin:0;
+font-size:25px
+}
+
+.stat p{
+margin:5px 0 0;
+font-size:12px;
+color:#777
+}
+
 .icon{
-width:44px;height:44px;border-radius:12px;
-background:#fff2d3;display:flex;
-align-items:center;justify-content:center;font-size:20px
+width:42px;
+height:42px;
+border-radius:12px;
+display:flex;
+align-items:center;
+justify-content:center;
+background:#fff4dc;
+font-size:20px
 }
-.grid{
-display:grid;grid-template-columns:1.4fr 1fr;
-gap:17px
-}
+
+/* SECTION */
 .section{
-font-weight:800;font-size:16px;
-display:flex;justify-content:space-between;
-margin-bottom:13px
+background:#fff;
+border:1px solid #e5e5e5;
+border-radius:14px;
+padding:18px;
+margin-bottom:18px
 }
-.quick{
-display:grid;grid-template-columns:1fr 1fr;gap:9px
+
+.section h2{
+margin:0 0 14px;
+font-size:18px
 }
-.quick button{
-padding:15px;border:1px solid #eee;
-background:#fafafa;border-radius:11px;
-text-align:left;font-weight:bold
+
+/* FORM */
+.formGrid{
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:13px
 }
-.quick button:hover{
-border-color:#c59b45;background:#fffaf0
+
+.field{
+margin-bottom:10px
 }
-table{width:100%;border-collapse:collapse}
+
+.field label{
+display:block;
+font-size:12px;
+font-weight:bold;
+margin-bottom:6px;
+color:#555
+}
+
+.field input,
+.field select,
+.field textarea{
+width:100%;
+padding:11px 12px;
+border:1px solid #ddd;
+border-radius:9px;
+outline:none;
+background:#fff
+}
+
+.field textarea{
+min-height:110px;
+resize:vertical
+}
+
+.field input:focus,
+.field select:focus,
+.field textarea:focus{
+border-color:#c59b45
+}
+
+.full{
+grid-column:1/-1
+}
+
+/* ACTIONS */
+.actions{
+display:flex;
+gap:9px;
+flex-wrap:wrap;
+margin-top:10px
+}
+
+/* TABLE */
+.tableWrap{
+overflow-x:auto
+}
+
+table{
+width:100%;
+border-collapse:collapse;
+min-width:650px
+}
+
 th,td{
-padding:12px 9px;border-bottom:1px solid #eee;
-text-align:left;font-size:12px
+padding:11px 9px;
+border-bottom:1px solid #eee;
+text-align:left;
+font-size:13px
 }
-th{color:#777;font-size:10px}
-.table{overflow:auto}
-.badge{
-padding:5px 8px;border-radius:20px;
-font-size:10px;font-weight:bold;
-background:#fff0d0;color:#946b21
+
+th{
+background:#fafafa;
+font-size:12px;
+color:#666
 }
+
+/* SEARCH */
 .search{
-width:100%;padding:13px;border:1px solid #ddd;
-border-radius:10px;margin-bottom:15px;
-outline:none;background:#fff
+width:100%;
+padding:12px;
+border:1px solid #ddd;
+border-radius:9px;
+margin-bottom:12px
 }
-.customerGrid{
-display:grid;grid-template-columns:repeat(3,1fr);gap:14px
-}
-.customer{
-background:#fff;border:1px solid #e7e7e7;
-border-radius:14px;padding:16px
-}
-.customerTop{display:flex;align-items:center;gap:10px}
-.cavatar{
-width:44px;height:44px;border-radius:50%;
-background:#fff0d0;color:#8d671f;
-display:flex;align-items:center;justify-content:center;
+
+/* BADGE */
+.badge{
+display:inline-block;
+padding:5px 9px;
+border-radius:20px;
+font-size:11px;
 font-weight:bold
 }
-.customer h3{margin:0;font-size:15px}
-.customer small{color:#777}
-.actions{display:flex;gap:7px;margin-top:13px}
-.wa{
-background:#20b858;color:#fff;
-border:0;border-radius:8px;padding:9px 11px;font-weight:bold
+
+.badge.pending{
+background:#fff3cd;
+color:#856404
 }
-.view{
-background:#f1f1f1;border:0;border-radius:8px;
-padding:9px 11px
+
+.badge.ready{
+background:#d1ecf1;
+color:#0c5460
 }
-.templates{
-display:grid;grid-template-columns:repeat(3,1fr);gap:14px
+
+.badge.completed{
+background:#d4edda;
+color:#155724
 }
-.template{
-background:#fff;border:1px solid #e5e5e5;
-border-radius:14px;padding:17px
-}
-.template .big{font-size:25px}
-.template h3{font-size:15px;margin:9px 0 5px}
-.template p{font-size:12px;color:#777;line-height:1.5}
+
+/* MODAL */
 .modal{
-position:fixed;inset:0;background:#0008;
-display:none;align-items:center;justify-content:center;
-padding:15px;z-index:50
+position:fixed;
+inset:0;
+background:#0008;
+display:none;
+align-items:center;
+justify-content:center;
+padding:15px;
+z-index:50
 }
-.modal.show{display:flex}
+
+.modal.show{
+display:flex
+}
+
 .modalBox{
-background:#fff;border-radius:17px;
-width:100%;max-width:560px;
-max-height:90vh;overflow:auto;padding:20px
+background:#fff;
+width:min(650px,100%);
+max-height:90vh;
+overflow:auto;
+border-radius:16px;
+box-shadow:0 15px 50px #0005
 }
+
 .modalHead{
-display:flex;justify-content:space-between;
-align-items:center;margin-bottom:17px
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:15px 18px;
+border-bottom:1px solid #eee
 }
-.modalHead h2{margin:0;font-size:20px}
+
+.modalHead h2{
+margin:0;
+font-size:18px
+}
+
 .close{
-border:0;background:#eee;border-radius:50%;
-width:34px;height:34px;font-size:20px
+border:0;
+background:none;
+font-size:25px
 }
-.form{
-display:grid;grid-template-columns:1fr 1fr;gap:11px
+
+.modalBody{
+padding:18px
 }
-.field label{
-display:block;font-size:11px;font-weight:bold;
-margin-bottom:5px
+
+/* WHATSAPP */
+.wa{
+background:#25d366!important;
+color:#fff!important
 }
-.field input,.field select,.field textarea{
-width:100%;padding:11px;border:1px solid #ddd;
-border-radius:9px;outline:none
+
+.imagePreview{
+max-width:180px;
+max-height:180px;
+border-radius:10px;
+margin-top:8px;
+display:none
 }
-.field textarea{min-height:80px}
-.full{grid-column:1/-1}
-.modalActions{
-display:flex;justify-content:flex-end;
-gap:8px;margin-top:14px
+
+/* TEMPLATE */
+.templateItem{
+border:1px solid #eee;
+border-radius:10px;
+padding:13px;
+margin-bottom:10px
 }
-.empty{text-align:center;color:#888;padding:35px}
-.timelineItem{
-display:flex;gap:10px;margin-bottom:17px
+
+.templateItem strong{
+display:block;
+margin-bottom:6px
 }
-.dot{
-width:10px;height:10px;border-radius:50%;
-background:#c59b45;margin-top:4px;flex-shrink:0
+
+.templateItem p{
+white-space:pre-wrap;
+font-size:13px;
+color:#555
 }
-.timelineItem h4{margin:0;font-size:13px}
-.timelineItem p{margin:4px 0;color:#777;font-size:11px}
-.progress{
-height:8px;background:#eee;border-radius:10px;
-overflow:hidden
-}
-.progress span{
-display:block;height:100%;
-background:linear-gradient(90deg,#c59b45,#e5c77c)
-}
+
+/* TOAST */
 .toast{
-position:fixed;bottom:20px;left:50%;
-transform:translate(-50%,80px);
-background:#171717;color:#fff;padding:12px 17px;
-border-radius:10px;opacity:0;
-transition:.3s;z-index:100
+position:fixed;
+left:50%;
+bottom:25px;
+transform:translate(-50%,100px);
+background:#222;
+color:#fff;
+padding:12px 18px;
+border-radius:10px;
+z-index:100;
+transition:.25s;
+opacity:0
 }
+
 .toast.show{
-transform:translate(-50%,0);opacity:1
+transform:translate(-50%,0);
+opacity:1
 }
-@media(max-width:1000px){
-.cards{grid-template-columns:1fr 1fr}
-.customerGrid{grid-template-columns:1fr 1fr}
-.templates{grid-template-columns:1fr 1fr}
-.grid{grid-template-columns:1fr}
+
+/* EMPTY */
+.empty{
+text-align:center;
+padding:30px;
+color:#888
 }
+
 @media(max-width:700px){
-.header{height:64px}
-.menu{display:block}
-.sidebar{
-position:fixed;left:-250px;top:64px;bottom:0;
-z-index:30;transition:.25s
+
+.cards{
+grid-template-columns:repeat(2,1fr)
 }
-.sidebar.open{left:0}
-.main{padding:14px}
-.title h1{font-size:21px}
-.cards{gap:8px}
-.card{padding:13px}
-.stat h2{font-size:21px}
-.customerGrid,.templates{grid-template-columns:1fr}
-.form{grid-template-columns:1fr}
-.full{grid-column:auto}
-.brand h2{font-size:14px}
+
+.formGrid{
+grid-template-columns:1fr
+}
+
+.title{
+align-items:flex-start;
+flex-direction:column
+}
+
+}
+
+@media(max-width:420px){
+
+.cards{
+grid-template-columns:1fr 1fr;
+gap:8px
+}
+
+.card{
+padding:12px
+}
+
+.stat h3{
+font-size:20px
+}
+
 }
 </style>
 </head>
@@ -261,19 +524,24 @@ z-index:30;transition:.25s
 <body>
 
 <header class="header">
+
 <div class="brand">
+
 <button class="menu" onclick="toggleMenu()">☰</button>
+
 <div class="logo">SJ</div>
+
 <div>
 <h2>SHREE JI CONNECT</h2>
 <small>SHREE JI GOLD CREATOR LLP</small>
 </div>
+
 </div>
 
-<div>
-<button class="avatar">SJ</button>
-</div>
+<div class="avatar">SJ</div>
+
 </header>
+
 
 <div class="layout">
 
@@ -284,7 +552,7 @@ z-index:30;transition:.25s
 </button>
 
 <button class="nav" onclick="showPage('customers',this)">
-👥 Customers
+👤 Customers
 </button>
 
 <button class="nav" onclick="showPage('orders',this)">
@@ -292,1376 +560,2345 @@ z-index:30;transition:.25s
 </button>
 
 <button class="nav" onclick="showPage('whatsapp',this)">
-💬 WhatsApp Center
+💬 WhatsApp
 </button>
 
 <button class="nav" onclick="showPage('exhibitions',this)">
-🎪 Exhibitions
+🎪 Exhibition
 </button>
 
 <button class="nav" onclick="showPage('reviews',this)">
-⭐ Customer Reviews
+⭐ Reviews
 </button>
 
 <button class="nav" onclick="showPage('reports',this)">
 📊 Reports
 </button>
 
-<button class="nav" onclick="showPage('settings',this)">
-⚙️ Settings
+<button class="nav" onclick="showPage('templates',this)">
+📝 Templates
 </button>
 
 </aside>
 
-<main class="main" id="main">
+
+<main class="main" id="app"></main>
+
+</div>
+
+
+<!-- MODAL -->
+
+<div class="modal" id="modal">
+
+<div class="modalBox">
+
+<div class="modalHead">
+
+<h2 id="modalTitle">SHREE JI CONNECT</h2>
+
+<button class="close" onclick="closeModal()">×</button>
+
+</div>
+
+<div class="modalBody" id="modalBody"></div>
+
+</div>
+
+</div>
+
+
+<div class="toast" id="toast"></div>
+
+
+<script>
+
+/* =========================
+   DATABASE
+========================= */
+
+const DB={
+customers:JSON.parse(localStorage.getItem("sj_customers")||"[]"),
+orders:JSON.parse(localStorage.getItem("sj_orders")||"[]"),
+reviews:JSON.parse(localStorage.getItem("sj_reviews")||"[]"),
+exhibitions:JSON.parse(localStorage.getItem("sj_exhibitions")||"[]"),
+templates:JSON.parse(localStorage.getItem("sj_templates")||"[]")
+};
+
+
+/* =========================
+   SAVE DATABASE
+========================= */
+
+function saveDB(){
+
+localStorage.setItem(
+"sj_customers",
+JSON.stringify(DB.customers)
+);
+
+localStorage.setItem(
+"sj_orders",
+JSON.stringify(DB.orders)
+);
+
+localStorage.setItem(
+"sj_reviews",
+JSON.stringify(DB.reviews)
+);
+
+localStorage.setItem(
+"sj_exhibitions",
+JSON.stringify(DB.exhibitions)
+);
+
+localStorage.setItem(
+"sj_templates",
+JSON.stringify(DB.templates)
+);
+
+}
+
+
+/* =========================
+   BASIC FUNCTIONS
+========================= */
+
+function toast(msg){
+
+const x=document.getElementById("toast");
+
+x.textContent=msg;
+
+x.classList.add("show");
+
+setTimeout(()=>{
+x.classList.remove("show");
+},2200);
+
+}
+
+
+function toggleMenu(){
+
+document.getElementById("sidebar")
+.classList.toggle("open");
+
+}
+
+
+function closeMenu(){
+
+document.getElementById("sidebar")
+.classList.remove("open");
+
+}
+
+
+function openModal(title,body){
+
+document.getElementById("modalTitle").textContent=title;
+
+document.getElementById("modalBody").innerHTML=body;
+
+document.getElementById("modal").classList.add("show");
+
+}
+
+
+function closeModal(){
+
+document.getElementById("modal")
+.classList.remove("show");
+
+}
+
+
+function money(v){
+
+return "₹"+Number(v||0).toLocaleString("en-IN");
+
+}
+
+
+function esc(v){
+
+return String(v??"")
+.replace(/&/g,"&amp;")
+.replace(/</g,"&lt;")
+.replace(/>/g,"&gt;")
+.replace(/"/g,"&quot;");
+
+}
+
+
+function uid(){
+
+return Date.now().toString(36)+
+Math.random().toString(36).slice(2,7);
+
+}
+
+
+/* =========================
+   PAGE NAVIGATION
+========================= */
+
+function showPage(name,btn){
+
+document.querySelectorAll(".nav")
+.forEach(x=>x.classList.remove("active"));
+
+if(btn) btn.classList.add("active");
+
+closeMenu();
+
+if(name==="dashboard") dashboard();
+
+if(name==="customers") customersPage();
+
+if(name==="orders") ordersPage();
+
+if(name==="whatsapp") whatsappPage();
+
+if(name==="exhibitions") exhibitionsPage();
+
+if(name==="reviews") reviewsPage();
+
+if(name==="reports") reportsPage();
+
+if(name==="templates") templatesPage();
+
+}
+
+
+/* =========================
+   DASHBOARD
+========================= */
+
+function dashboard(){
+
+const active=DB.orders.filter(o=>
+!["Completed","Delivered"].includes(o.status)
+).length;
+
+const pending=DB.orders.filter(o=>
+o.status==="Ready for Delivery"
+).length;
+
+const total=DB.orders.reduce(
+(a,o)=>a+Number(o.value||0),0
+);
+
+const recent=DB.orders
+.slice(-5)
+.reverse();
+
+document.getElementById("app").innerHTML=`
 
 <div class="title">
+
 <div>
 <h1>Welcome to SHREE JI CONNECT 👋</h1>
 <p>Customer Relationship & Order Management</p>
 </div>
-<button class="primary">＋ Add Customer</button>
+
+<button class="primary"
+onclick="addCustomer()">
+＋ Add Customer
+</button>
+
 </div>
+
 
 <div class="cards">
 
 <div class="card stat">
 <div>
+<h3>${DB.customers.length}</h3>
 <p>Total Customers</p>
-<h2>0</h2>
 </div>
 <div class="icon">👥</div>
 </div>
 
+
 <div class="card stat">
 <div>
+<h3>${active}</h3>
 <p>Active Orders</p>
-<h2>0</h2>
 </div>
 <div class="icon">📦</div>
 </div>
 
+
 <div class="card stat">
 <div>
+<h3>${pending}</h3>
 <p>Pending Delivery</p>
-<h2>0</h2>
 </div>
 <div class="icon">🚚</div>
 </div>
 
+
 <div class="card stat">
 <div>
+<h3>${money(total)}</h3>
 <p>Total Order Value</p>
-<h2>₹0</h2>
 </div>
 <div class="icon">💎</div>
 </div>
 
 </div>
 
-<div class="grid">
 
-<div class="card">
 <div class="section">
-<span>Recent Orders</span>
-<span>📋</span>
+
+<div class="title">
+<h2>Recent Orders</h2>
+<button class="secondary"
+onclick="showPage('orders')">
+View All
+</button>
 </div>
 
-<div class="empty">
+${
+recent.length
+?
+`<div class="tableWrap">
+<table>
+<thead>
+<tr>
+<th>Order</th>
+<th>Customer</th>
+<th>Value</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody>
+
+${recent.map(o=>`
+
+<tr>
+<td>${esc(o.orderNo||"-")}</td>
+<td>${esc(o.customerName||"-")}</td>
+<td>${money(o.value)}</td>
+<td>
+<span class="badge ${
+o.status==="Completed"||
+o.status==="Delivered"
+?"completed":
+o.status==="Ready for Delivery"
+?"ready":"pending"
+}">
+${esc(o.status||"Pending")}
+</span>
+</td>
+</tr>
+
+`).join("")}
+
+</tbody>
+</table>
+</div>`
+
+:
+
+`<div class="empty">
 📦<br><br>
 No orders yet.<br>
 Your recent orders will appear here.
-</div>
+</div>`
+}
+
 </div>
 
-<div class="card">
 
 <div class="section">
-<span>Quick Actions</span>
+
+<h2>Quick Actions</h2>
+
+<div class="actions">
+
+<button class="primary"
+onclick="addCustomer()">
+👤 Add Customer
+</button>
+
+<button class="secondary"
+onclick="addOrder()">
+📦 New Order
+</button>
+
+<button class="secondary"
+onclick="showPage('whatsapp')">
+💬 WhatsApp
+</button>
+
+<button class="secondary"
+onclick="showPage('exhibitions')">
+🎪 Exhibition
+</button>
+
+<button class="secondary"
+onclick="showPage('reviews')">
+⭐ Reviews
+</button>
+
+<button class="secondary"
+onclick="showPage('reports')">
+📊 Reports
+</button>
+
 </div>
 
-<div class="quick">
-
-<button>👤<br>Add Customer</button>
-<button>📦<br>New Order</button>
-<button>💬<br>WhatsApp</button>
-<button>🎪<br>Exhibition</button>
-<button>⭐<br>Reviews</button>
-<button>📊<br>Reports</button>
-
 </div>
 
-</div>
+`;
 
-</div>
+}
 
-</main>
-</div>
 
-<div class="modal" id="modal">
-<div class="modalBox">
-<div class="modalHead">
-<h2 id="modalTitle">SHREE JI CONNECT</h2>
-<button class="close" onclick="closeModal()">×</button>
-</div>
-<div id="modalBody"></div>
-</div>
-</div>
+/* =========================
+   START APP
+========================= */
 
-<div class="toast" id="toast"></div>
+dashboard();
 
-<script>
 </script>
 
 </body>
 </html>
-const DB={
- customers:JSON.parse(localStorage.getItem("sj_customers")||"[]"),
- orders:JSON.parse(localStorage.getItem("sj_orders")||"[]"),
- reviews:JSON.parse(localStorage.getItem("sj_reviews")||"[]"),
- exhibitions:JSON.parse(localStorage.getItem("sj_exhibitions")||"[]")
-};
-
-function saveDB(){
- localStorage.setItem("sj_customers",JSON.stringify(DB.customers));
- localStorage.setItem("sj_orders",JSON.stringify(DB.orders));
- localStorage.setItem("sj_reviews",JSON.stringify(DB.reviews));
- localStorage.setItem("sj_exhibitions",JSON.stringify(DB.exhibitions));
-}
-
-function toast(msg){
- const x=document.getElementById("toast");
- x.textContent=msg;
- x.classList.add("show");
- setTimeout(()=>x.classList.remove("show"),2200);
-}
-
-function toggleMenu(){
- document.getElementById("sidebar").classList.toggle("open");
-}
-
-function showPage(name,btn){
-
- document.querySelectorAll(".nav").forEach(x=>x.classList.remove("active"));
- if(btn)btn.classList.add("active");
-
- document.getElementById("sidebar").classList.remove("open");
-
- if(name==="dashboard")dashboard();
- if(name==="customers")customersPage();
- if(name==="orders")ordersPage();
- if(name==="whatsapp")whatsappPage();
- if(name==="exhibitions")exhibitionsPage();
- if(name==="reviews")reviewsPage();
- if(name==="reports")reportsPage();
- if(name==="settings")settingsPage();
-}
-
 function dashboard(){
 
- const active=DB.orders.filter(o=>
- !["Completed","Delivered"].includes(o.status)
- ).length;
+  const active = DB.orders.filter(o =>
+    !["Completed","Delivered"].includes(o.status)
+  ).length;
 
- const delivery=DB.orders.filter(o=>
- o.status==="Ready for Delivery"
- ).length;
+  const pending = DB.orders.filter(o =>
+    o.status === "Ready for Delivery"
+  ).length;
 
- const value=DB.orders.reduce((a,o)=>a+Number(o.value||0),0);
+  const total = DB.orders.reduce(
+    (a,o) => a + Number(o.value || 0), 0
+  );
 
- document.getElementById("main").innerHTML=`
- <div class="title">
-  <div>
-   <h1>Good Morning 👋</h1>
-   <p>SHREE JI GOLD CREATOR LLP • Business Overview</p>
-  </div>
-  <button class="primary" onclick="addCustomer()">＋ Add Customer</button>
- </div>
+  const recent = DB.orders.slice(-5).reverse();
 
- <div class="cards">
+  document.getElementById("app").innerHTML = `
+    <section class="page">
 
- <div class="card stat">
-  <div><p>Total Customers</p><h2>${DB.customers.length}</h2></div>
-  <div class="icon">👥</div>
- </div>
+      <div class="hero">
+        <h1>Welcome to SHREE JI CONNECT 👋</h1>
+        <p>Customer & Order Management</p>
+      </div>
 
- <div class="card stat">
-  <div><p>Active Orders</p><h2>${active}</h2></div>
-  <div class="icon">📦</div>
- </div>
+      <div class="stats">
 
- <div class="card stat">
-  <div><p>Pending Delivery</p><h2>${delivery}</h2></div>
-  <div class="icon">🚚</div>
- </div>
+        <div class="stat">
+          <div class="statIcon">👥</div>
+          <div>
+            <b>${DB.customers.length}</b>
+            <span>Customers</span>
+          </div>
+        </div>
 
- <div class="card stat">
-  <div><p>Total Order Value</p><h2>₹${value.toLocaleString("en-IN")}</h2></div>
-  <div class="icon">💎</div>
- </div>
+        <div class="stat">
+          <div class="statIcon">📦</div>
+          <div>
+            <b>${active}</b>
+            <span>Active Orders</span>
+          </div>
+        </div>
 
- </div>
+        <div class="stat">
+          <div class="statIcon">🚚</div>
+          <div>
+            <b>${pending}</b>
+            <span>Ready for Delivery</span>
+          </div>
+        </div>
 
- <div class="grid">
+        <div class="stat">
+          <div class="statIcon">💰</div>
+          <div>
+            <b>₹${money(total)}</b>
+            <span>Total Order Value</span>
+          </div>
+        </div>
 
- <div class="card">
-  <div class="section">
-   <span>Recent Orders</span>
-   <button class="secondary" onclick="showPage('orders')">View All</button>
-  </div>
+      </div>
 
-  ${DB.orders.length?
-  `<div class="table">
-  <table>
-  <tr>
-   <th>Order</th>
-   <th>Customer</th>
-   <th>Status</th>
-   <th>Value</th>
-  </tr>
-  ${DB.orders.slice(-6).reverse().map(o=>`
-  <tr>
-   <td><b>${o.number}</b></td>
-   <td>${safe(o.customer)}</td>
-   <td><span class="badge">${o.status}</span></td>
-   <td>₹${Number(o.value||0).toLocaleString("en-IN")}</td>
-  </tr>`).join("")}
-  </table>
-  </div>`
-  :
-  `<div class="empty">📦<br><br>No orders yet.</div>`}
- </div>
+      <div class="section">
+        <div class="sectionHead">
+          <h2>Quick Actions</h2>
+        </div>
 
- <div class="card">
-  <div class="section">Quick Actions</div>
+        <div class="quickGrid">
 
-  <div class="quick">
-   <button onclick="addCustomer()">👤<br>Add Customer</button>
-   <button onclick="addOrder()">📦<br>New Order</button>
-   <button onclick="showPage('whatsapp')">💬<br>WhatsApp</button>
-   <button onclick="addExhibition()">🎪<br>Exhibition</button>
-   <button onclick="addReview()">⭐<br>Add Review</button>
-   <button onclick="showPage('reports')">📊<br>Reports</button>
-  </div>
+          <button onclick="showPage('customers')">
+            👥<br>
+            <b>Customers</b>
+          </button>
 
-  <br>
+          <button onclick="showPage('orders')">
+            📦<br>
+            <b>Orders</b>
+          </button>
 
-  <div class="section">Customer Engagement</div>
-  <p style="font-size:12px;color:#777">
-   ${DB.reviews.length} customer reviews collected
-  </p>
+          <button onclick="showPage('whatsapp')">
+            💬<br>
+            <b>WhatsApp</b>
+          </button>
 
- </div>
+          <button onclick="showPage('templates')">
+            📝<br>
+            <b>Templates</b>
+          </button>
 
- </div>
- `;
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="sectionHead">
+          <h2>Recent Orders</h2>
+          <button class="smallBtn"
+            onclick="showPage('orders')">
+            View All
+          </button>
+        </div>
+
+        ${
+          recent.length
+          ?
+          recent.map(o => `
+            <div class="orderRow">
+
+              <div>
+                <b>${esc(o.customerName || o.name || "Customer")}</b>
+                <small>${esc(o.product || "Order")}</small>
+              </div>
+
+              <div class="orderRight">
+                <b>₹${money(o.value)}</b>
+                <span class="status">
+                  ${esc(o.status || "Pending")}
+                </span>
+              </div>
+
+            </div>
+          `).join("")
+          :
+          `
+            <div class="empty">
+              No orders yet
+            </div>
+          `
+        }
+
+      </div>
+
+    </section>
+  `;
 }
 
-function safe(v){
- return String(v||"").replace(/[&<>"']/g,m=>({
- "&":"&amp;","<":"&lt;",">":"&gt;",
- '"':"&quot;","'":"&#039;"
- }[m]));
-}
 
-function openModal(title,html){
- document.getElementById("modalTitle").textContent=title;
- document.getElementById("modalBody").innerHTML=html;
- document.getElementById("modal").classList.add("show");
-}
-
-function closeModal(){
- document.getElementById("modal").classList.remove("show");
-}
-
-function addCustomer(){
-
- openModal("Add New Customer",`
-
- <div class="form">
-
- <div class="field">
- <label>Customer Name *</label>
- <input id="cn" placeholder="Customer name">
- </div>
-
- <div class="field">
- <label>WhatsApp Number *</label>
- <input id="cp" type="tel" placeholder="10 digit number">
- </div>
-
- <div class="field">
- <label>Shop / Company</label>
- <input id="cs" placeholder="Shop name">
- </div>
-
- <div class="field">
- <label>City</label>
- <input id="cc" placeholder="City">
- </div>
-
- <div class="field full">
- <label>Notes</label>
- <textarea id="ct" placeholder="Customer notes"></textarea>
- </div>
-
- </div>
-
- <div class="modalActions">
- <button class="secondary" onclick="closeModal()">Cancel</button>
- <button class="primary" onclick="saveCustomer()">Save Customer</button>
- </div>
- `);
-}
-
-function saveCustomer(){
-
- const name=document.getElementById("cn").value.trim();
- const phone=document.getElementById("cp").value.trim();
-
- if(!name||!phone){
-  toast("Name & WhatsApp number required");
-  return;
- }
-
- if(DB.customers.some(c=>c.phone===phone)){
-  toast("Customer already exists");
-  return;
- }
-
- DB.customers.push({
-  id:Date.now(),
-  name,
-  phone,
-  shop:document.getElementById("cs").value.trim(),
-  city:document.getElementById("cc").value.trim(),
-  notes:document.getElementById("ct").value.trim(),
-  date:new Date().toLocaleDateString()
- });
-
- saveDB();
- closeModal();
- dashboard();
- toast("Customer added successfully ✓");
-}
+/* =========================
+   CUSTOMERS
+========================= */
 
 function customersPage(){
 
- document.getElementById("main").innerHTML=`
+  document.getElementById("app").innerHTML = `
 
- <div class="title">
-  <div>
-   <h1>Customers 👥</h1>
-   <p>Complete customer relationship management</p>
-  </div>
-  <button class="primary" onclick="addCustomer()">＋ Add Customer</button>
- </div>
+    <section class="page">
 
- <input class="search"
- id="customerSearch"
- placeholder="🔍 Search name, shop or WhatsApp number..."
- oninput="renderCustomers()">
+      <div class="section">
+        <div class="sectionHead">
+          <h2>👥 Customers</h2>
 
- <div class="customerGrid" id="customerList"></div>
- `;
+          <button class="success"
+            onclick="addCustomer()">
+            + Add Customer
+          </button>
+        </div>
 
- renderCustomers();
+        <input
+          class="search"
+          id="customerSearch"
+          placeholder="🔍 Search customer..."
+          oninput="renderCustomers()"
+        >
+
+        <div id="customerList"></div>
+
+      </div>
+
+    </section>
+  `;
+
+  renderCustomers();
 }
+
 
 function renderCustomers(){
 
- const box=document.getElementById("customerList");
- if(!box)return;
+  const box = document.getElementById("customerList");
 
- const q=(document.getElementById("customerSearch")?.value||"").toLowerCase();
+  if(!box) return;
 
- const list=DB.customers.filter(c=>
- c.name.toLowerCase().includes(q)||
- (c.shop||"").toLowerCase().includes(q)||
- c.phone.includes(q)
- );
+  const search = String(
+    document.getElementById("customerSearch")?.value || ""
+  ).toLowerCase();
 
- if(!list.length){
-  box.innerHTML=`
-  <div class="card empty" style="grid-column:1/-1">
-  👥<br><br>No customers found.
-  </div>`;
-  return;
- }
+  const list = DB.customers.filter(c =>
+    String(c.name || "").toLowerCase().includes(search) ||
+    String(c.phone || "").includes(search)
+  );
 
- box.innerHTML=list.map(c=>`
+  box.innerHTML = list.length
+    ?
+    list.map(c => `
 
- <div class="customer">
+      <div class="customerRow">
 
- <div class="customerTop">
+        <div class="avatar">
+          ${String(c.name || "?").charAt(0).toUpperCase()}
+        </div>
 
- <div class="cavatar">
- ${initials(c.name)}
- </div>
+        <div class="customerInfo">
 
- <div>
- <h3>${safe(c.name)}</h3>
- <small>${safe(c.shop||"Customer")}</small>
- </div>
+          <b>${esc(c.name || "Unnamed")}</b>
 
- </div>
+          <span>${esc(c.phone || "")}</span>
 
- <p style="font-size:12px;color:#777;line-height:1.8;margin:12px 0">
- 📱 ${safe(c.phone)}<br>
- 📍 ${safe(c.city||"Not added")}<br>
- 📦 ${DB.orders.filter(o=>o.customerPhone===c.phone).length} Orders
- </p>
+          ${
+            c.company
+            ? `<small>${esc(c.company)}</small>`
+            : ""
+          }
 
- <div class="actions">
+        </div>
 
- <button class="wa"
- onclick="sendWhatsApp('${encodeURIComponent(c.phone)}','${encodeURIComponent(c.name)}')">
- 💬 WhatsApp
- </button>
+        <div class="customerActions">
 
- <button class="view"
- onclick="customerView('${encodeURIComponent(c.phone)}')">
- View
- </button>
+          <button
+            onclick="openWhatsApp('${esc(c.phone || "")}')">
+            💬
+          </button>
 
- </div>
+          <button
+            onclick="editCustomer('${c.id}')">
+            ✏️
+          </button>
 
- </div>
+          <button
+            onclick="deleteCustomer('${c.id}')">
+            🗑️
+          </button>
 
- `).join("");
+        </div>
+
+      </div>
+
+    `).join("")
+    :
+    `
+      <div class="empty">
+        No customers found.
+      </div>
+    `;
 }
 
-function initials(n){
- return n.split(" ")
- .map(x=>x[0])
- .slice(0,2)
- .join("")
- .toUpperCase();
+
+/* =========================
+   ADD CUSTOMER
+========================= */
+
+function addCustomer(){
+
+  openModal(
+    "Add Customer",
+    `
+
+    <div class="field">
+      <label>Customer Name</label>
+      <input id="c_name"
+        placeholder="Enter customer name">
+    </div>
+
+    <div class="field">
+      <label>WhatsApp Number</label>
+      <input id="c_phone"
+        inputmode="tel"
+        placeholder="Enter WhatsApp number">
+    </div>
+
+    <div class="field">
+      <label>Company / Shop</label>
+      <input id="c_company"
+        placeholder="Optional">
+    </div>
+
+    <div class="actions">
+
+      <button
+        class="secondary"
+        onclick="closeModal()">
+        Cancel
+      </button>
+
+      <button
+        class="success"
+        onclick="saveCustomer()">
+        Save Customer
+      </button>
+
+    </div>
+
+    `
+  );
 }
 
-function customerView(encoded){
 
- const phone=decodeURIComponent(encoded);
- const c=DB.customers.find(x=>x.phone===phone);
+function saveCustomer(){
 
- if(!c)return;
+  const name =
+    document.getElementById("c_name").value.trim();
 
- const orders=DB.orders.filter(o=>o.customerPhone===phone);
+  const phone =
+    document.getElementById("c_phone").value.trim();
 
- openModal(c.name,`
+  const company =
+    document.getElementById("c_company").value.trim();
 
- <div class="card" style="box-shadow:none">
+  if(!name || !phone){
 
- <b>📱 ${safe(c.phone)}</b><br>
- <span style="color:#777">
- ${safe(c.shop||"No shop")} • ${safe(c.city||"No city")}
- </span>
+    toast("Please enter name and WhatsApp number");
 
- <p style="margin-top:12px;font-size:13px">
- ${safe(c.notes||"No customer notes")}
- </p>
+    return;
+  }
 
- </div>
+  DB.customers.push({
 
- <br>
+    id: id(),
 
- <h3 style="margin-bottom:15px">Customer Journey</h3>
+    name: name,
 
- <div class="timelineItem">
-  <div class="dot"></div>
-  <div>
-   <h4>Customer Added</h4>
-   <p>${c.date}</p>
-  </div>
- </div>
+    phone: phone,
 
- ${orders.map(o=>`
+    company: company,
 
- <div class="timelineItem">
-  <div class="dot"></div>
-  <div>
-   <h4>📦 ${o.number} — ${o.status}</h4>
-   <p>
-   Start: ${o.start||"-"} |
-   Finish: ${o.finish||"-"} |
-   Delivery: ${o.delivery||"-"}
-   </p>
-  </div>
- </div>
+    createdAt: new Date().toISOString()
 
- `).join("")}
+  });
 
- <div class="modalActions">
- <button class="wa"
- onclick="sendWhatsApp('${encodeURIComponent(c.phone)}','${encodeURIComponent(c.name)}')">
- 💬 WhatsApp
- </button>
- <button class="secondary" onclick="closeModal()">Close</button>
- </div>
- `);
+  saveDB();
+
+  closeModal();
+
+  toast("Customer added successfully");
+
+  customersPage();
 }
 
-function sendWhatsApp(phone,name,message){
 
- phone=decodeURIComponent(phone);
- name=decodeURIComponent(name);
+/* =========================
+   EDIT CUSTOMER
+========================= */
 
- let number=phone.replace(/\D/g,"");
+function editCustomer(customerId){
 
- if(number.length===10)number="91"+number;
+  const c =
+    DB.customers.find(x => x.id === customerId);
 
- const text=message||
- `Dear ${name},%0A%0A`+
- `Greetings from SHREE JI GOLD CREATOR LLP.%0A%0A`+
- `Thank you for being our valued customer.%0A%0A`+
- `Regards,%0A`+
- `SHREE JI GOLD CREATOR LLP`;
+  if(!c) return;
 
- window.open(
- "https://wa.me/"+number+"?text="+text,
- "_blank"
- );
+  openModal(
+    "Edit Customer",
+    `
+
+    <div class="field">
+      <label>Customer Name</label>
+      <input id="e_name"
+        value="${esc(c.name || "")}">
+    </div>
+
+    <div class="field">
+      <label>WhatsApp Number</label>
+      <input id="e_phone"
+        value="${esc(c.phone || "")}">
+    </div>
+
+    <div class="field">
+      <label>Company / Shop</label>
+      <input id="e_company"
+        value="${esc(c.company || "")}">
+    </div>
+
+    <div class="actions">
+
+      <button
+        class="secondary"
+        onclick="closeModal()">
+        Cancel
+      </button>
+
+      <button
+        class="success"
+        onclick="updateCustomer('${customerId}')">
+        Update
+      </button>
+
+    </div>
+
+    `
+  );
 }
 
-function addOrder(){
 
- if(!DB.customers.length){
-  toast("Please add a customer first");
-  addCustomer();
-  return;
- }
+function updateCustomer(customerId){
 
- openModal("Create New Order",`
+  const c =
+    DB.customers.find(x => x.id === customerId);
 
- <div class="form">
+  if(!c) return;
 
- <div class="field">
- <label>Customer *</label>
- <select id="oc">
- <option value="">Select Customer</option>
- ${DB.customers.map(c=>
- `<option value="${safe(c.phone)}">${safe(c.name)} — ${safe(c.phone)}</option>`
- ).join("")}
- </select>
- </div>
+  c.name =
+    document.getElementById("e_name").value.trim();
 
- <div class="field">
- <label>Product / Item</label>
- <input id="oi" placeholder="Product name">
- </div>
+  c.phone =
+    document.getElementById("e_phone").value.trim();
 
- <div class="field">
- <label>Gold Weight</label>
- <input id="ow" placeholder="e.g. 25.500 g">
- </div>
+  c.company =
+    document.getElementById("e_company").value.trim();
 
- <div class="field">
- <label>Gold Touch</label>
- <input id="ot" placeholder="e.g. 916">
- </div>
+  saveDB();
 
- <div class="field">
- <label>Screw Type</label>
- <input id="os" placeholder="Screw type">
- </div>
+  closeModal();
 
- <div class="field">
- <label>Order Value</label>
- <input id="ov" type="number" placeholder="₹">
- </div>
+  toast("Customer updated");
 
- <div class="field">
- <label>Advance</label>
- <input id="oa" type="number" placeholder="₹">
- </div>
-
- <div class="field">
- <label>Start Date</label>
- <input id="od1" type="date">
- </div>
-
- <div class="field">
- <label>Expected Finish</label>
- <input id="od2" type="date">
- </div>
-
- <div class="field">
- <label>Delivery Date</label>
- <input id="od3" type="date">
- </div>
-
- <div class="field full">
- <label>Notes</label>
- <textarea id="on" placeholder="Order notes"></textarea>
- </div>
-
- </div>
-
- <div class="modalActions">
- <button class="secondary" onclick="closeModal()">Cancel</button>
- <button class="primary" onclick="saveOrder()">Create Order</button>
- </div>
- `);
+  customersPage();
 }
 
-function saveOrder(){
 
- const phone=document.getElementById("oc").value;
+function deleteCustomer(customerId){
 
- if(!phone){
-  toast("Select customer");
-  return;
- }
+  const c =
+    DB.customers.find(x => x.id === customerId);
 
- const c=DB.customers.find(x=>x.phone===phone);
+  if(!c) return;
 
- const number=
- "SJ-"+new Date().getFullYear()+"-"+
- String(DB.orders.length+1).padStart(4,"0");
+  if(!confirm(
+    "Delete this customer?"
+  )) return;
 
- DB.orders.push({
-  id:Date.now(),
-  number,
-  customer:c.name,
-  customerPhone:phone,
-  item:document.getElementById("oi").value,
-  weight:document.getElementById("ow").value,
-  touch:document.getElementById("ot").value,
-  screw:document.getElementById("os").value,
-  value:Number(document.getElementById("ov").value)||0,
-  advance:Number(document.getElementById("oa").value)||0,
-  start:document.getElementById("od1").value,
-  finish:document.getElementById("od2").value,
-  delivery:document.getElementById("od3").value,
-  status:"New",
-  notes:document.getElementById("on").value
- });
+  DB.customers =
+    DB.customers.filter(x => x.id !== customerId);
 
- saveDB();
- closeModal();
- ordersPage();
- toast(number+" created ✓");
+  saveDB();
+
+  toast("Customer deleted");
+
+  customersPage();
 }
+
+
+/* =========================
+   WHATSAPP
+========================= */
+
+function openWhatsApp(phone){
+
+  const number =
+    normalizePhone(phone);
+
+  if(!number){
+
+    toast("Invalid WhatsApp number");
+
+    return;
+  }
+
+  window.open(
+    "https://wa.me/" + number,
+    "_blank"
+  );
+}
+
+
+function sendWhatsApp(){
+
+  const phone =
+    document.getElementById("wa_phone")?.value.trim();
+
+  const message =
+    document.getElementById("wa_message")?.value || "";
+
+  if(!phone){
+
+    toast("Enter WhatsApp number");
+
+    return;
+  }
+
+  const number =
+    normalizePhone(phone);
+
+  if(!number){
+
+    toast("Invalid WhatsApp number");
+
+    return;
+  }
+
+  const url =
+    "https://wa.me/" +
+    number +
+    "?text=" +
+    encodeURIComponent(message);
+
+  window.open(url, "_blank");
+}
+
+
+/* =========================
+   BULK WHATSAPP
+========================= */
+
+function renderBulkCustomers(){
+
+  const box =
+    document.getElementById("bulkCustomers");
+
+  if(!box) return;
+
+  box.innerHTML = DB.customers.length
+    ?
+    DB.customers.map(c => `
+
+      <label class="bulkCustomer">
+
+        <input
+          type="checkbox"
+          class="bulkCheck"
+          value="${c.id}"
+          onchange="setBulkPreview()"
+        >
+
+        <span>
+          <b>${esc(c.name || "Customer")}</b>
+          <small>${esc(c.phone || "")}</small>
+        </span>
+
+      </label>
+
+    `).join("")
+    :
+    `
+      <div class="empty">
+        Add customers first.
+      </div>
+    `;
+}
+
+
+function selectAllWA(value){
+
+  document
+    .querySelectorAll(".bulkCheck")
+    .forEach(x => {
+      x.checked = value;
+    });
+
+  setBulkPreview();
+}
+
+
+function getTemplate(tid){
+
+  return DB.templates.find(
+    t => t.id === tid
+  );
+}
+
+
+function applyTemplate(msg, customer){
+
+  return String(msg || "")
+    .replaceAll(
+      "{{name}}",
+      customer?.name || ""
+    )
+    .replaceAll(
+      "{{phone}}",
+      customer?.phone || ""
+    )
+    .replaceAll(
+      "{{company}}",
+      customer?.company || ""
+    );
+}
+
+
+function setBulkPreview(){
+
+  const templateId =
+    document.getElementById("bulkTemplate")?.value;
+
+  const template =
+    getTemplate(templateId);
+
+  const selected =
+    [...document.querySelectorAll(".bulkCheck:checked")];
+
+  const preview =
+    document.getElementById("bulkPreview");
+
+  if(!preview) return;
+
+  if(!selected.length){
+
+    preview.innerHTML =
+      "Select customers first.";
+
+    return;
+  }
+
+  preview.innerHTML =
+    selected.map(check => {
+
+      const c =
+        DB.customers.find(
+          x => x.id === check.value
+        );
+
+      return `
+        <div class="previewItem">
+
+          <b>${esc(c?.name || "")}</b>
+
+          <p>
+            ${esc(
+              applyTemplate(
+                template?.message || "",
+                c
+              )
+            )}
+          </p>
+
+        </div>
+      `;
+
+    }).join("");
+}
+
+
+function bulkWhatsApp(){
+
+  const selected =
+    [...document.querySelectorAll(".bulkCheck:checked")];
+
+  const templateId =
+    document.getElementById("bulkTemplate")?.value;
+
+  const template =
+    getTemplate(templateId);
+
+  if(!selected.length){
+
+    toast("Select at least one customer");
+
+    return;
+  }
+
+  if(!template){
+
+    toast("Select a template");
+
+    return;
+  }
+
+  let index = 0;
+
+  function openNext(){
+
+    if(index >= selected.length){
+
+      toast("Bulk WhatsApp completed");
+
+      return;
+    }
+
+    const customer =
+      DB.customers.find(
+        x => x.id === selected[index].value
+      );
+
+    index++;
+
+    if(!customer){
+
+      openNext();
+
+      return;
+    }
+
+    const number =
+      normalizePhone(customer.phone);
+
+    if(!number){
+
+      openNext();
+
+      return;
+    }
+
+    const message =
+      applyTemplate(
+        template.message,
+        customer
+      );
+
+    const url =
+      "https://wa.me/" +
+      number +
+      "?text=" +
+      encodeURIComponent(message);
+
+    window.open(url, "_blank");
+
+    setTimeout(
+      openNext,
+      1200
+    );
+  }
+
+  openNext();
+}
+
+
+/* =========================
+   PHONE NORMALIZER
+========================= */
+
+function normalizePhone(phone){
+
+  let p =
+    String(phone || "")
+      .replace(/\D/g, "");
+
+  if(!p) return "";
+
+  if(p.length === 10){
+
+    p = "91" + p;
+
+  }else if(
+    p.length === 11 &&
+    p.startsWith("0")
+  ){
+
+    p = "91" + p.substring(1);
+
+  }
+
+  return p;
+}
+
+
+/* =========================
+   INITIAL PAGE HELPERS
+========================= */
+
+function showCustomers(){
+
+  customersPage();
+
+}
+
+
+function showDashboard(){
+
+  dashboard();
+
+}
+
+
+/* =========================
+   TEMPLATE SELECT
+========================= */
+
+function fillTemplateSelect(){
+
+  const select =
+    document.getElementById("bulkTemplate");
+
+  if(!select) return;
+
+  select.innerHTML = DB.templates.length
+    ?
+    DB.templates.map(t => `
+      <option value="${t.id}">
+        ${esc(t.name)}
+      </option>
+    `).join("")
+    :
+    `
+      <option value="">
+        No templates available
+      </option>
+    `;
+
+  setBulkPreview();
+}
+/* =========================
+   ORDERS PAGE
+========================= */
 
 function ordersPage(){
 
- document.getElementById("main").innerHTML=`
+  document.getElementById("app").innerHTML = `
 
- <div class="title">
-  <div>
-   <h1>Orders 📦</h1>
-   <p>Track order from production to delivery</p>
-  </div>
-  <button class="primary" onclick="addOrder()">＋ New Order</button>
- </div>
+    <section class="page">
 
- <div class="card">
+      <div class="section">
 
- <div class="table">
+        <div class="sectionHead">
 
- <table>
+          <h2>📦 Orders</h2>
 
- <tr>
- <th>Order</th>
- <th>Customer</th>
- <th>Item</th>
- <th>Start</th>
- <th>Finish</th>
- <th>Delivery</th>
- <th>Status</th>
- <th>Value</th>
- </tr>
+          <button
+            class="success"
+            onclick="addOrder()">
+            + Add Order
+          </button>
 
- ${DB.orders.length?
- DB.orders.slice().reverse().map(o=>`
+        </div>
 
- <tr>
+        <input
+          class="search"
+          id="orderSearch"
+          placeholder="🔍 Search order / customer..."
+          oninput="renderOrders()"
+        >
 
- <td><b>${o.number}</b></td>
+        <div id="orderList"></div>
 
- <td>${safe(o.customer)}</td>
+      </div>
 
- <td>${safe(o.item)}</td>
+    </section>
+  `;
 
- <td>${o.start||"-"}</td>
-
- <td>${o.finish||"-"}</td>
-
- <td>${o.delivery||"-"}</td>
-
- <td>
-
- <select onchange="changeStatus(${o.id},this.value)"
- style="padding:5px;border:1px solid #ddd;border-radius:7px">
-
- ${[
- "New",
- "Started",
- "Production",
- "Completed",
- "Hallmarking",
- "Ready for Delivery",
- "Delivered"
- ].map(s=>
- `<option ${s===o.status?"selected":""}>${s}</option>`
- ).join("")}
-
- </select>
-
- </td>
-
- <td>₹${Number(o.value||0).toLocaleString("en-IN")}</td>
-
- </tr>
-
- `).join("")
- :
- `<tr><td colspan="8" class="empty">No orders yet.</td></tr>`}
-
- </table>
-
- </div>
- </div>
- `;
+  renderOrders();
 }
 
-function changeStatus(id,status){
 
- const o=DB.orders.find(x=>x.id==id);
+function renderOrders(){
 
- if(!o)return;
+  const box =
+    document.getElementById("orderList");
 
- o.status=status;
+  if(!box) return;
 
- if(status==="Completed"&&!o.finish)
- o.finish=new Date().toISOString().split("T")[0];
+  const search =
+    String(
+      document.getElementById("orderSearch")?.value || ""
+    ).toLowerCase();
 
- if(status==="Delivered"&&!o.delivery)
- o.delivery=new Date().toISOString().split("T")[0];
+  const list =
+    DB.orders.filter(o => {
 
- saveDB();
- ordersPage();
- toast("Order status updated ✓");
+      const text =
+        [
+          o.orderNo,
+          o.customerName,
+          o.product,
+          o.status
+        ]
+        .join(" ")
+        .toLowerCase();
+
+      return text.includes(search);
+
+    }).slice().reverse();
+
+  if(!list.length){
+
+    box.innerHTML = `
+      <div class="empty">
+        No orders found.
+      </div>
+    `;
+
+    return;
+  }
+
+  box.innerHTML =
+    list.map(o => `
+
+      <div class="orderCard">
+
+        <div class="orderTop">
+
+          <div>
+            <b>
+              ${esc(o.orderNo || "Order")}
+            </b>
+
+            <small>
+              ${esc(o.customerName || "Customer")}
+            </small>
+          </div>
+
+          <span class="status">
+            ${esc(o.status || "Pending")}
+          </span>
+
+        </div>
+
+        <div class="orderDetails">
+
+          <span>
+            💍 ${esc(o.product || "-")}
+          </span>
+
+          <span>
+            ⚖️ ${esc(o.weight || "-")}
+          </span>
+
+          <span>
+            💰 ₹${money(o.value)}
+          </span>
+
+        </div>
+
+        <div class="actions">
+
+          <button
+            onclick="editOrder('${o.id}')">
+            ✏️ Edit
+          </button>
+
+          <button
+            class="danger"
+            onclick="deleteOrder('${o.id}')">
+            🗑️ Delete
+          </button>
+
+        </div>
+
+      </div>
+
+    `).join("");
 }
 
-const templates=[
- ["🎪","Exhibition Invite","Invite customers to your exhibition."],
- ["🎉","Festival Greeting","Festival wishes for customers."],
- ["🙏","Stall Visit Thanks","Thank customers for visiting."],
- ["💎","Order Thanks","Thank customers after order."],
- ["🏭","Order Started","Production started notification."],
- ["✅","Order Completed","Completed order notification."],
- ["📦","Ready for Delivery","Order ready notification."],
- ["🚚","Delivery Update","Delivery communication."],
- ["⭐","Review Request","Ask for customer feedback."],
- ["🔁","Repeat Order","Reconnect with old customers."],
- ["✨","New Collection","New collection announcement."],
- ["📞","Follow-up","Customer follow-up message."]
-];
+
+/* =========================
+   ADD ORDER
+========================= */
+
+function addOrder(){
+
+  const customerOptions =
+    DB.customers.length
+    ?
+    DB.customers.map(c => `
+      <option value="${c.id}">
+        ${esc(c.name)} - ${esc(c.phone)}
+      </option>
+    `).join("")
+    :
+    `<option value="">No customers</option>`;
+
+  openModal(
+    "Add Order",
+    `
+
+    <div class="field">
+      <label>Customer</label>
+
+      <select id="o_customer">
+        ${customerOptions}
+      </select>
+
+    </div>
+
+    <div class="field">
+      <label>Product</label>
+
+      <input
+        id="o_product"
+        placeholder="Example: Gold Chain">
+    </div>
+
+    <div class="field">
+      <label>Weight</label>
+
+      <input
+        id="o_weight"
+        placeholder="Example: 12.500 g">
+    </div>
+
+    <div class="field">
+      <label>Order Value</label>
+
+      <input
+        id="o_value"
+        inputmode="decimal"
+        placeholder="₹">
+    </div>
+
+    <div class="field">
+      <label>Status</label>
+
+      <select id="o_status">
+
+        <option>Pending</option>
+        <option>Production</option>
+        <option>Ready for Delivery</option>
+        <option>Completed</option>
+        <option>Delivered</option>
+
+      </select>
+
+    </div>
+
+    <div class="actions">
+
+      <button
+        class="secondary"
+        onclick="closeModal()">
+        Cancel
+      </button>
+
+      <button
+        class="success"
+        onclick="saveOrder()">
+        Save Order
+      </button>
+
+    </div>
+
+    `
+  );
+}
+
+
+function saveOrder(){
+
+  const customerId =
+    document.getElementById("o_customer")?.value;
+
+  const customer =
+    DB.customers.find(
+      c => c.id === customerId
+    );
+
+  const product =
+    document.getElementById("o_product").value.trim();
+
+  const weight =
+    document.getElementById("o_weight").value.trim();
+
+  const value =
+    Number(
+      document.getElementById("o_value").value || 0
+    );
+
+  const status =
+    document.getElementById("o_status").value;
+
+  if(!customer){
+
+    toast("Please select customer");
+
+    return;
+  }
+
+  if(!product){
+
+    toast("Please enter product");
+
+    return;
+  }
+
+  DB.orders.push({
+
+    id: id(),
+
+    orderNo:
+      "SJ-" +
+      String(Date.now()).slice(-6),
+
+    customerId:
+      customer.id,
+
+    customerName:
+      customer.name,
+
+    phone:
+      customer.phone,
+
+    product:
+      product,
+
+    weight:
+      weight,
+
+    value:
+      value,
+
+    status:
+      status,
+
+    createdAt:
+      new Date().toISOString()
+
+  });
+
+  saveDB();
+
+  closeModal();
+
+  toast("Order added successfully");
+
+  ordersPage();
+}
+
+
+/* =========================
+   EDIT ORDER
+========================= */
+
+function editOrder(orderId){
+
+  const o =
+    DB.orders.find(
+      x => x.id === orderId
+    );
+
+  if(!o) return;
+
+  openModal(
+    "Edit Order",
+    `
+
+    <div class="field">
+      <label>Product</label>
+
+      <input
+        id="eo_product"
+        value="${esc(o.product || "")}">
+    </div>
+
+    <div class="field">
+      <label>Weight</label>
+
+      <input
+        id="eo_weight"
+        value="${esc(o.weight || "")}">
+    </div>
+
+    <div class="field">
+      <label>Order Value</label>
+
+      <input
+        id="eo_value"
+        inputmode="decimal"
+        value="${Number(o.value || 0)}">
+    </div>
+
+    <div class="field">
+      <label>Status</label>
+
+      <select id="eo_status">
+
+        ${[
+          "Pending",
+          "Production",
+          "Ready for Delivery",
+          "Completed",
+          "Delivered"
+        ].map(s => `
+          <option
+            ${o.status === s ? "selected" : ""}>
+            ${s}
+          </option>
+        `).join("")}
+
+      </select>
+
+    </div>
+
+    <div class="actions">
+
+      <button
+        class="secondary"
+        onclick="closeModal()">
+        Cancel
+      </button>
+
+      <button
+        class="success"
+        onclick="updateOrder('${orderId}')">
+        Update
+      </button>
+
+    </div>
+
+    `
+  );
+}
+
+
+function updateOrder(orderId){
+
+  const o =
+    DB.orders.find(
+      x => x.id === orderId
+    );
+
+  if(!o) return;
+
+  o.product =
+    document.getElementById("eo_product").value.trim();
+
+  o.weight =
+    document.getElementById("eo_weight").value.trim();
+
+  o.value =
+    Number(
+      document.getElementById("eo_value").value || 0
+    );
+
+  o.status =
+    document.getElementById("eo_status").value;
+
+  saveDB();
+
+  closeModal();
+
+  toast("Order updated");
+
+  ordersPage();
+}
+
+
+function deleteOrder(orderId){
+
+  if(!confirm("Delete this order?")) return;
+
+  DB.orders =
+    DB.orders.filter(
+      o => o.id !== orderId
+    );
+
+  saveDB();
+
+  toast("Order deleted");
+
+  ordersPage();
+}
+
+
+/* =========================
+   WHATSAPP PAGE
+========================= */
 
 function whatsappPage(){
 
- document.getElementById("main").innerHTML=`
+  document.getElementById("app").innerHTML = `
 
- <div class="title">
-  <div>
-   <h1>WhatsApp Center 💬</h1>
-   <p>Professional customer communication</p>
-  </div>
- </div>
+    <section class="page">
 
- <div class="card" style="margin-bottom:16px">
+      <div class="section">
 
- <div class="section">Select Customer</div>
+        <h2>💬 WhatsApp</h2>
 
- <select id="waCustomer"
- style="width:100%;padding:13px;border:1px solid #ddd;border-radius:10px">
+        <div class="field">
 
- <option value="">Choose customer...</option>
+          <label>WhatsApp Number</label>
 
- ${DB.customers.map(c=>
- `<option value="${safe(c.phone)}">${safe(c.name)} — ${safe(c.phone)}</option>`
- ).join("")}
+          <input
+            id="wa_phone"
+            inputmode="tel"
+            placeholder="10 digit mobile number">
 
- </select>
+        </div>
 
- </div>
+        <div class="field">
 
- <div class="templates">
+          <label>Message</label>
 
- ${templates.map((t,i)=>`
+          <textarea
+            id="wa_message"
+            rows="7"
+            placeholder="Type your message..."></textarea>
 
- <div class="template">
+        </div>
 
- <div class="big">${t[0]}</div>
+        <div class="actions">
 
- <h3>${t[1]}</h3>
+          <button
+            class="success"
+            onclick="sendWhatsApp()">
+            💬 Open WhatsApp
+          </button>
 
- <p>${t[2]}</p>
+        </div>
 
- <button class="wa" onclick="sendTemplate(${i})">
- Send WhatsApp
- </button>
+      </div>
 
- </div>
 
- `).join("")}
+      <div class="section">
 
- </div>
- `;
+        <h2>🖼️ WhatsApp Image</h2>
+
+        <p class="muted">
+          Select an image to share manually through WhatsApp.
+        </p>
+
+        <div class="field">
+
+          <input
+            type="file"
+            id="waImage"
+            accept="image/*">
+
+        </div>
+
+        <button
+          class="secondary"
+          onclick="shareImage()">
+          🖼️ Share Image
+        </button>
+
+      </div>
+
+
+      <div class="section">
+
+        <h2>📢 Bulk WhatsApp</h2>
+
+        <p class="muted">
+          Select customers and open their WhatsApp chats
+          with a prepared message.
+        </p>
+
+        <div class="actions">
+
+          <button
+            class="secondary"
+            onclick="selectAllWA(true)">
+            Select All
+          </button>
+
+          <button
+            class="secondary"
+            onclick="selectAllWA(false)">
+            Clear
+          </button>
+
+        </div>
+
+        <div
+          id="bulkCustomers">
+        </div>
+
+        <div class="field">
+
+          <label>Message Template</label>
+
+          <select
+            id="bulkTemplate"
+            onchange="setBulkPreview()">
+          </select>
+
+        </div>
+
+        <div
+          id="bulkPreview"
+          class="preview">
+        </div>
+
+        <button
+          class="success"
+          onclick="bulkWhatsApp()">
+          💬 Start WhatsApp
+        </button>
+
+      </div>
+
+    </section>
+  `;
+
+  renderBulkCustomers();
+
+  fillTemplateSelect();
 }
 
-function sendTemplate(i){
 
- const phone=document.getElementById("waCustomer").value;
+/* =========================
+   IMAGE SHARE
+========================= */
 
- if(!phone){
-  toast("Select a customer first");
-  return;
- }
+async function shareImage(){
 
- const c=DB.customers.find(x=>x.phone===phone);
+  const input =
+    document.getElementById("waImage");
 
- const messages=[
+  if(!input || !input.files.length){
 
- `Dear ${c.name},%0A%0AWe are delighted to invite you to our upcoming exhibition.%0A%0AWe look forward to welcoming you.%0A%0ARegards,%0ASHREE JI GOLD CREATOR LLP`,
+    toast("Please select an image");
 
- `Dear ${c.name},%0A%0AWarm festival greetings from SHREE JI GOLD CREATOR LLP!%0A%0AWishing you and your family happiness, prosperity and success.`,
+    return;
+  }
 
- `Dear ${c.name},%0A%0AThank you for visiting our stall. It was a pleasure meeting you.%0A%0AWe truly appreciate your valuable support.`,
+  const file =
+    input.files[0];
 
- `Dear ${c.name},%0A%0AThank you for placing your valuable order with SHREE JI GOLD CREATOR LLP.%0A%0AWe sincerely appreciate your trust.`,
+  if(
+    navigator.share &&
+    navigator.canShare &&
+    navigator.canShare({
+      files: [file]
+    })
+  ){
 
- `Dear ${c.name},%0A%0AYour order has been started and our production team has begun work.%0A%0AWe will keep you updated.`,
+    try{
 
- `Dear ${c.name},%0A%0AGood news! Your order has been completed successfully.%0A%0AThank you for choosing SHREE JI GOLD CREATOR LLP.`,
+      await navigator.share({
 
- `Dear ${c.name},%0A%0AYour order is now ready for delivery.%0A%0APlease contact us to coordinate delivery.`,
+        title: "SHREE JI CONNECT",
 
- `Dear ${c.name},%0A%0AHere is an update regarding your order and delivery.%0A%0AOur team will coordinate with you shortly.`,
+        text:
+          "Thank you from SHREE JI GOLD CREATOR LLP.",
 
- `Dear ${c.name},%0A%0AWe hope you are happy with your purchase.%0A%0ACould you kindly share your valuable feedback with us? ⭐`,
+        files: [file]
 
- `Dear ${c.name},%0A%0AWe hope you are doing well.%0A%0AWe would be happy to assist you with your next requirement.`,
+      });
 
- `Dear ${c.name},%0A%0AWe are excited to share our latest collection with you.%0A%0APlease contact us for more details.`,
+      toast("Share opened");
 
- `Dear ${c.name},%0A%0AJust following up regarding your requirement.%0A%0APlease let us know if we can assist you.`
- ];
+    }catch(e){
 
- let n=phone.replace(/\D/g,"");
+      if(e.name !== "AbortError"){
 
- if(n.length===10)n="91"+n;
+        toast("Unable to share image");
 
- window.open("https://wa.me/"+n+"?text="+messages[i],"_blank");
+      }
+
+    }
+
+    return;
+  }
+
+  toast(
+    "Your browser does not support direct image sharing. Use the WhatsApp attachment option."
+  );
 }
 
-function addExhibition(){
 
- openModal("New Exhibition",`
+/* =========================
+   TEMPLATES PAGE
+========================= */
 
- <div class="field">
- <label>Exhibition Name *</label>
- <input id="en" placeholder="Exhibition name">
- </div>
+function templatesPage(){
 
- <div class="field">
- <label>Date</label>
- <input id="ed" type="date">
- </div>
+  document.getElementById("app").innerHTML = `
 
- <div class="field">
- <label>Venue</label>
- <input id="ev" placeholder="Venue">
- </div>
+    <section class="page">
 
- <div class="modalActions">
- <button class="secondary" onclick="closeModal()">Cancel</button>
- <button class="primary" onclick="saveExhibition()">Create Exhibition</button>
- </div>
- `);
+      <div class="section">
+
+        <div class="sectionHead">
+
+          <h2>📝 Message Templates</h2>
+
+          <button
+            class="success"
+            onclick="addTemplate()">
+            + New Template
+          </button>
+
+        </div>
+
+        <div id="templateList"></div>
+
+      </div>
+
+    </section>
+  `;
+
+  renderTemplates();
 }
 
-function saveExhibition(){
 
- const name=document.getElementById("en").value.trim();
+function renderTemplates(){
 
- if(!name){
-  toast("Enter exhibition name");
-  return;
- }
+  const box =
+    document.getElementById("templateList");
 
- DB.exhibitions.push({
-  id:Date.now(),
-  name,
-  date:document.getElementById("ed").value,
-  venue:document.getElementById("ev").value,
-  invited:0
- });
+  if(!box) return;
 
- saveDB();
- closeModal();
- exhibitionsPage();
- toast("Exhibition created ✓");
+  if(!DB.templates.length){
+
+    box.innerHTML = `
+      <div class="empty">
+        No templates yet.
+      </div>
+    `;
+
+    return;
+  }
+
+  box.innerHTML =
+    DB.templates.map(t => `
+
+      <div class="templateCard">
+
+        <div class="sectionHead">
+
+          <div>
+            <b>${esc(t.name)}</b>
+          </div>
+
+          <div>
+
+            <button
+              onclick="editTemplate('${t.id}')">
+              ✏️
+            </button>
+
+            <button
+              onclick="deleteTemplate('${t.id}')">
+              🗑️
+            </button>
+
+          </div>
+
+        </div>
+
+        <div class="templateMessage">
+          ${esc(t.message)}
+        </div>
+
+      </div>
+
+    `).join("");
 }
 
-function exhibitionsPage(){
 
- document.getElementById("main").innerHTML=`
+/* =========================
+   ADD TEMPLATE
+========================= */
 
- <div class="title">
-  <div>
-   <h1>Exhibitions 🎪</h1>
-   <p>Exhibition campaign management</p>
-  </div>
+function addTemplate(){
 
-  <button class="primary" onclick="addExhibition()">
-  ＋ New Exhibition
-  </button>
- </div>
+  openModal(
+    "Create Template",
+    `
 
- <div class="cards">
+    <div class="field">
 
- <div class="card stat">
- <div><p>Exhibitions</p><h2>${DB.exhibitions.length}</h2></div>
- <div class="icon">🎪</div>
- </div>
+      <label>Template Name</label>
 
- <div class="card stat">
- <div><p>Customers</p><h2>${DB.customers.length}</h2></div>
- <div class="icon">👥</div>
- </div>
+      <input
+        id="t_name"
+        placeholder="Example: Festival Wishes">
 
- <div class="card stat">
- <div><p>Orders</p><h2>${DB.orders.length}</h2></div>
- <div class="icon">📦</div>
- </div>
+    </div>
 
- <div class="card stat">
- <div><p>Reviews</p><h2>${DB.reviews.length}</h2></div>
- <div class="icon">⭐</div>
- </div>
+    <div class="field">
 
- </div>
+      <label>Message</label>
 
- <div class="card">
+      <textarea
+        id="t_message"
+        rows="9"
+        placeholder="Dear {{name}},
 
- <div class="section">Exhibition Campaigns</div>
+Warm wishes from SHREE JI GOLD CREATOR LLP.
 
- ${DB.exhibitions.length?
- DB.exhibitions.slice().reverse().map(e=>`
+Thank you for your continued support.
 
- <div style="padding:15px 0;border-bottom:1px solid #eee">
+Regards,
+SHREE JI CONNECT"></textarea>
 
- <h3>${safe(e.name)}</h3>
+    </div>
 
- <p style="font-size:12px;color:#777;margin:6px 0">
- 📅 ${e.date||"Date not added"}<br>
- 📍 ${safe(e.venue||"Venue not added")}
- </p>
+    <p class="muted">
+      You can use:
+      <b>{{name}}</b>,
+      <b>{{phone}}</b>,
+      <b>{{company}}</b>
+    </p>
 
- </div>
+    <div class="actions">
 
- `).join("")
- :
- `<div class="empty">🎪<br><br>No exhibitions added yet.</div>`}
+      <button
+        class="secondary"
+        onclick="closeModal()">
+        Cancel
+      </button>
 
- </div>
- `;
+      <button
+        class="success"
+        onclick="saveTemplate()">
+        Save Template
+      </button>
+
+    </div>
+
+    `
+  );
 }
 
-function addReview(){
 
- openModal("Add Customer Review",`
+function saveTemplate(){
 
- <div class="field">
- <label>Customer</label>
+  const name =
+    document.getElementById("t_name").value.trim();
 
- <select id="rc">
+  const message =
+    document.getElementById("t_message").value;
 
- <option value="">Select Customer</option>
+  if(!name || !message.trim()){
 
- ${DB.customers.map(c=>
- `<option>${safe(c.name)}</option>`
- ).join("")}
+    toast("Enter template name and message");
 
- </select>
+    return;
+  }
 
- </div>
+  DB.templates.push({
 
- <div class="field">
- <label>Rating</label>
+    id: id(),
 
- <select id="rr">
- <option value="5">⭐⭐⭐⭐⭐ Excellent</option>
- <option value="4">⭐⭐⭐⭐ Good</option>
- <option value="3">⭐⭐⭐ Average</option>
- <option value="2">⭐⭐ Needs Improvement</option>
- <option value="1">⭐ Poor</option>
- </select>
+    name:
+      name,
 
- </div>
+    message:
+      message,
 
- <div class="field">
- <label>Review</label>
- <textarea id="rt" placeholder="Customer feedback"></textarea>
- </div>
+    createdAt:
+      new Date().toISOString()
 
- <div class="modalActions">
- <button class="secondary" onclick="closeModal()">Cancel</button>
- <button class="primary" onclick="saveReview()">Save Review</button>
- </div>
- `);
+  });
+
+  saveDB();
+
+  closeModal();
+
+  toast("Template saved");
+
+  templatesPage();
 }
 
-function saveReview(){
 
- const customer=document.getElementById("rc").value;
+/* =========================
+   EDIT TEMPLATE
+========================= */
 
- if(!customer){
-  toast("Select customer");
-  return;
- }
+function editTemplate(templateId){
 
- DB.reviews.push({
-  id:Date.now(),
-  customer,
-  rating:Number(document.getElementById("rr").value),
-  text:document.getElementById("rt").value,
-  date:new Date().toLocaleDateString()
- });
+  const t =
+    DB.templates.find(
+      x => x.id === templateId
+    );
 
- saveDB();
- closeModal();
- reviewsPage();
- toast("Review saved ✓");
+  if(!t) return;
+
+  openModal(
+    "Edit Template",
+    `
+
+    <div class="field">
+
+      <label>Template Name</label>
+
+      <input
+        id="et_name"
+        value="${esc(t.name || "")}">
+
+    </div>
+
+    <div class="field">
+
+      <label>Message</label>
+
+      <textarea
+        id="et_message"
+        rows="9">${esc(t.message || "")}</textarea>
+
+    </div>
+
+    <p class="muted">
+      Variables:
+      <b>{{name}}</b>,
+      <b>{{phone}}</b>,
+      <b>{{company}}</b>
+    </p>
+
+    <div class="actions">
+
+      <button
+        class="secondary"
+        onclick="closeModal()">
+        Cancel
+      </button>
+
+      <button
+        class="success"
+        onclick="updateTemplate('${templateId}')">
+        Update
+      </button>
+
+    </div>
+
+    `
+  );
 }
 
-function reviewsPage(){
 
- const avg=DB.reviews.length?
- (DB.reviews.reduce((a,r)=>a+Number(r.rating),0)/DB.reviews.length).toFixed(1)
- :"0.0";
+function updateTemplate(templateId){
 
- document.getElementById("main").innerHTML=`
+  const t =
+    DB.templates.find(
+      x => x.id === templateId
+    );
 
- <div class="title">
+  if(!t) return;
 
- <div>
- <h1>Customer Reviews ⭐</h1>
- <p>Customer satisfaction tracking</p>
- </div>
+  t.name =
+    document.getElementById("et_name").value.trim();
 
- <button class="primary" onclick="addReview()">＋ Add Review</button>
+  t.message =
+    document.getElementById("et_message").value;
 
- </div>
+  if(!t.name || !t.message.trim()){
 
- <div class="cards">
+    toast("Template cannot be empty");
 
- <div class="card stat">
- <div><p>Average Rating</p><h2>⭐ ${avg}</h2></div>
- <div class="icon">⭐</div>
- </div>
+    return;
+  }
 
- <div class="card stat">
- <div><p>Total Reviews</p><h2>${DB.reviews.length}</h2></div>
- <div class="icon">💬</div>
- </div>
+  saveDB();
 
- <div class="card stat">
- <div><p>5 Star</p><h2>${DB.reviews.filter(r=>r.rating===5).length}</h2></div>
- <div class="icon">🏆</div>
- </div>
+  closeModal();
 
- <div class="card stat">
- <div><p>Happy Customers</p><h2>${DB.reviews.filter(r=>r.rating>=4).length}</h2></div>
- <div class="icon">❤️</div>
- </div>
+  toast("Template updated");
 
- </div>
-
- <div class="card">
-
- ${DB.reviews.length?
- DB.reviews.slice().reverse().map(r=>`
-
- <div style="padding:15px 0;border-bottom:1px solid #eee">
-
- <b>${safe(r.customer)}</b>
-
- <div style="margin:7px 0">
- ${"⭐".repeat(Number(r.rating))}
- </div>
-
- <p style="font-size:13px;color:#666">
- ${safe(r.text||"No written review")}
- </p>
-
- <small style="color:#999">${r.date}</small>
-
- </div>
-
- `).join("")
- :
- `<div class="empty">⭐<br><br>No reviews yet.</div>`}
-
- </div>
- `;
+  templatesPage();
 }
 
-function reportsPage(){
 
- const value=DB.orders.reduce((a,o)=>a+Number(o.value||0),0);
- const advance=DB.orders.reduce((a,o)=>a+Number(o.advance||0),0);
+function deleteTemplate(templateId){
 
- document.getElementById("main").innerHTML=`
+  if(!confirm("Delete this template?")) return;
 
- <div class="title">
+  DB.templates =
+    DB.templates.filter(
+      x => x.id !== templateId
+    );
 
- <div>
- <h1>Business Reports 📊</h1>
- <p>Owner dashboard & business insights</p>
- </div>
+  saveDB();
 
- </div>
+  toast("Template deleted");
 
- <div class="cards">
-
- <div class="card stat">
- <div><p>Total Customers</p><h2>${DB.customers.length}</h2></div>
- <div class="icon">👥</div>
- </div>
-
- <div class="card stat">
- <div><p>Total Orders</p><h2>${DB.orders.length}</h2></div>
- <div class="icon">📦</div>
- </div>
-
- <div class="card stat">
- <div><p>Order Value</p><h2>₹${value.toLocaleString("en-IN")}</h2></div>
- <div class="icon">💎</div>
- </div>
-
- <div class="card stat">
- <div><p>Advance Received</p><h2>₹${advance.toLocaleString("en-IN")}</h2></div>
- <div class="icon">💰</div>
- </div>
-
- </div>
-
- <div class="grid">
-
- <div class="card">
-
- <div class="section">Order Status</div>
-
- ${[
- "New",
- "Started",
- "Production",
- "Completed",
- "Hallmarking",
- "Ready for Delivery",
- "Delivered"
- ].map(s=>{
-
- const count=DB.orders.filter(o=>o.status===s).length;
- const pct=DB.orders.length?
- count/DB.orders.length*100:0;
-
- return`
-
- <div style="margin:14px 0">
-
- <div style="display:flex;justify-content:space-between;font-size:12px">
- <span>${s}</span>
- <b>${count}</b>
- </div>
-
- <div class="progress" style="margin-top:6px">
- <span style="width:${pct}%"></span>
- </div>
-
- </div>
-
- `}).join("")}
-
- </div>
-
- <div class="card">
-
- <div class="section">Business Snapshot</div>
-
- <p style="line-height:2;font-size:14px">
-
- 👥 Customers: <b>${DB.customers.length}</b><br>
-
- 📦 Orders: <b>${DB.orders.length}</b><br>
-
- 💎 Order Value:
- <b>₹${value.toLocaleString("en-IN")}</b><br>
-
- 💰 Advance:
- <b>₹${advance.toLocaleString("en-IN")}</b><br>
-
- 💵 Balance:
- <b>₹${(value-advance).toLocaleString("en-IN")}</b><br>
-
- ⭐ Reviews: <b>${DB.reviews.length}</b><br>
-
- 🎪 Exhibitions: <b>${DB.exhibitions.length}</b>
-
- </p>
-
- </div>
-
- </div>
- `;
+  templatesPage();
 }
 
-function settingsPage(){
 
- document.getElementById("main").innerHTML=`
+/* =========================
+   PAGE ROUTING
+========================= */
 
- <div class="title">
+const oldShowPage =
+  typeof showPage === "function"
+  ? showPage
+  : null;
 
- <div>
- <h1>Settings ⚙️</h1>
- <p>SHREE JI CONNECT configuration</p>
- </div>
 
- </div>
+/*
+  Main navigation helper.
+  Existing buttons can call:
+  dashboard
+  customers
+  orders
+  whatsapp
+  templates
+*/
 
- <div class="grid">
+function openSection(name){
 
- <div class="card">
+  if(name === "dashboard"){
 
- <div class="section">Company Profile</div>
+    dashboard();
 
- <div class="field">
- <label>Company Name</label>
- <input value="SHREE JI GOLD CREATOR LLP">
- </div>
+  }else if(name === "customers"){
 
- <div class="field">
- <label>Application Name</label>
- <input value="SHREE JI CONNECT">
- </div>
+    customersPage();
 
- <button class="primary" onclick="toast('Settings saved ✓')">
- Save Settings
- </button>
+  }else if(name === "orders"){
 
- </div>
+    ordersPage();
 
- <div class="card">
+  }else if(name === "whatsapp"){
 
- <div class="section">Data Management</div>
+    whatsappPage();
 
- <button class="secondary"
- style="width:100%;margin-bottom:10px"
- onclick="backupData()">
- 📥 Export Backup
- </button>
+  }else if(name === "templates"){
 
- <button class="secondary"
- style="width:100%;margin-bottom:10px"
- onclick="document.getElementById('backupFile').click()">
- 📤 Import Backup
- </button>
+    templatesPage();
 
- <input
- id="backupFile"
- type="file"
- accept=".json"
- style="display:none"
- onchange="restoreData(event)">
+  }
 
- <button class="secondary"
- style="width:100%"
- onclick="clearData()">
- 🗑️ Clear Local Data
- </button>
-
- </div>
-
- </div>
- `;
 }
 
-function backupData(){
 
- const blob=new Blob([
- JSON.stringify(DB,null,2)
- ],{type:"application/json"});
+/* =========================
+   SAFE START
+========================= */
 
- const a=document.createElement("a");
+try{
 
- a.href=URL.createObjectURL(blob);
- a.download="shree-ji-connect-backup.json";
- a.click();
+  if(
+    document.getElementById("bulkCustomers")
+  ){
 
- toast("Backup created ✓");
+    renderBulkCustomers();
+
+  }
+
+}catch(e){
+
+  console.log(e);
+
+}
+/* ==============================
+   PART 4 — FINAL APP CONTROLS
+   ============================== */
+
+function refreshApp(){
+
+    try{
+
+        if(typeof saveDB === "function"){
+            saveDB();
+        }
+
+        if(document.getElementById("bulkCustomers")){
+            renderBulkCustomers();
+        }
+
+        if(typeof dashboard === "function"){
+            dashboard();
+        }
+
+    }catch(e){
+
+        console.log("Refresh error:",e);
+
+    }
 }
 
-function restoreData(e){
 
- const file=e.target.files[0];
+/* ==============================
+   WHATSAPP IMAGE PREVIEW
+   ============================== */
 
- if(!file)return;
+const waImageInput = document.getElementById("waImage");
 
- const reader=new FileReader();
+if(waImageInput){
 
- reader.onload=function(){
+    waImageInput.addEventListener("change",function(){
 
- try{
+        const file = this.files && this.files[0];
 
- const d=JSON.parse(reader.result);
+        if(!file) return;
 
- DB.customers=d.customers||[];
- DB.orders=d.orders||[];
- DB.reviews=d.reviews||[];
- DB.exhibitions=d.exhibitions||[];
+        if(!file.type.startsWith("image/")){
 
- saveDB();
- dashboard();
+            toast("Please select an image");
 
- toast("Backup restored ✓");
+            this.value = "";
 
- }catch(err){
+            return;
+        }
 
- toast("Invalid backup file");
+        toast("Image selected ✓");
 
- }
+    });
 
- };
-
- reader.readAsText(file);
 }
 
-function clearData(){
 
- if(!confirm("Are you sure you want to delete all local data?"))
- return;
+/* ==============================
+   KEYBOARD SHORTCUT
+   ============================== */
 
- DB.customers=[];
- DB.orders=[];
- DB.reviews=[];
- DB.exhibitions=[];
+document.addEventListener("keydown",function(e){
 
- saveDB();
- dashboard();
+    if(e.key === "Escape"){
 
- toast("All local data cleared");
-}
+        try{
 
-document.getElementById("modal").addEventListener("click",function(e){
+            if(typeof closeModal === "function"){
+                closeModal();
+            }
 
- if(e.target===this)closeModal();
+        }catch(err){
+
+            console.log(err);
+
+        }
+
+    }
 
 });
 
-dashboard();
+
+/* ==============================
+   AUTO SAVE
+   ============================== */
+
+setInterval(function(){
+
+    try{
+
+        if(typeof saveDB === "function"){
+            saveDB();
+        }
+
+    }catch(e){
+
+        console.log("Auto save:",e);
+
+    }
+
+},30000);
+
+
+/* ==============================
+   START APP
+   ============================== */
+
+try{
+
+    if(typeof createDefaultTemplates === "function"){
+        createDefaultTemplates();
+    }
+
+    if(typeof dashboard === "function"){
+        dashboard();
+    }
+
+}catch(e){
+
+    console.log("App start error:",e);
+
+}
 </script>
 
 </body>
