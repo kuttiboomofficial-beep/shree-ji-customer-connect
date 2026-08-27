@@ -67,18 +67,18 @@ function loadDB(){try{const d=JSON.parse(localStorage.getItem(KEY)||'null');if(d
 function saveDB(){localStorage.setItem(KEY,JSON.stringify(DB))}
 function defaultTemplates(){
  const x=[
- ['Exhibition Invite','Dear {{name}},\\n\\nYou are warmly invited to visit SHREE JI GOLD CREATOR LLP at our exhibition.\\n\\nWe look forward to seeing you.'],
- ['Festival Greeting','Dear {{name}},\\n\\nWarm festival wishes from SHREE JI GOLD CREATOR LLP.\\n\\nThank you for your continued support.'],
- ['Stall Visit Thank You','Dear {{name}},\\n\\nThank you for visiting our stall. It was a pleasure meeting you.\\n\\nRegards,\\nSHREE JI GOLD CREATOR LLP'],
- ['Order Thank You','Dear {{name}},\\n\\nThank you for your valuable order {{orderNo}}. We truly appreciate your trust and support.'],
- ['Order Started','Dear {{name}},\\n\\nYour order {{orderNo}} has been started.\\nStatus: {{status}}\\n\\nThank you.'],
- ['Order Completed','Dear {{name}},\\n\\nYour order {{orderNo}} has been completed successfully.\\n\\nThank you for choosing SHREE JI GOLD CREATOR LLP.'],
- ['Ready for Delivery','Dear {{name}},\\n\\nYour order {{orderNo}} is ready for delivery.\\nWeight: {{weight}}\\n\\nPlease contact us for delivery.'],
- ['Delivery Update','Dear {{name}},\\n\\nUpdate for order {{orderNo}}: {{status}}.\\n\\nThank you.'],
- ['Review Request','Dear {{name}},\\n\\nThank you for your order. We would appreciate your valuable feedback and review.'],
- ['Repeat Order','Dear {{name}},\\n\\nIt has been a while since your last order. We would be happy to serve you again.'],
- ['New Collection','Dear {{name}},\\n\\nOur new jewellery collection is now available. Please contact us for the latest designs.'],
- ['Follow-up','Dear {{name}},\\n\\nJust following up regarding your order / enquiry. Please let us know if you need any assistance.']
+ ['Exhibition Invite','Dear {{name}},\n\nYou are warmly invited to visit SHREE JI GOLD CREATOR LLP at our exhibition.\n\nWe look forward to seeing you.'],
+ ['Festival Greeting','Dear {{name}},\n\nWarm festival wishes from SHREE JI GOLD CREATOR LLP.\n\nThank you for your continued support.'],
+ ['Stall Visit Thank You','Dear {{name}},\n\nThank you for visiting our stall. It was a pleasure meeting you.\n\nRegards,\nSHREE JI GOLD CREATOR LLP'],
+ ['Order Thank You','Dear {{name}},\n\nThank you for your valuable order {{orderNo}}. We truly appreciate your trust and support.'],
+ ['Order Started','Dear {{name}},\n\nYour order {{orderNo}} has been started.\nStatus: {{status}}\n\nThank you.'],
+ ['Order Completed','Dear {{name}},\n\nYour order {{orderNo}} has been completed successfully.\n\nThank you for choosing SHREE JI GOLD CREATOR LLP.'],
+ ['Ready for Delivery','Dear {{name}},\n\nYour order {{orderNo}} is ready for delivery.\nWeight: {{weight}}\n\nPlease contact us for delivery.'],
+ ['Delivery Update','Dear {{name}},\n\nUpdate for order {{orderNo}}: {{status}}.\n\nThank you.'],
+ ['Review Request','Dear {{name}},\n\nThank you for your order. We would appreciate your valuable feedback and review.'],
+ ['Repeat Order','Dear {{name}},\n\nIt has been a while since your last order. We would be happy to serve you again.'],
+ ['New Collection','Dear {{name}},\n\nOur new jewellery collection is now available. Please contact us for the latest designs.'],
+ ['Follow-up','Dear {{name}},\n\nJust following up regarding your order / enquiry. Please let us know if you need any assistance.']
  ];
  return x.map(([name,message])=>({id:uid(),name,message}));
 }
