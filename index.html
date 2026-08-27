@@ -2,494 +2,665 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="theme-color" content="#111111">
 <title>SHREE JI CONNECT</title>
 
 <style>
-*{box-sizing:border-box;margin:0;padding:0}
+*{box-sizing:border-box}
 body{
-  font-family:Arial,Helvetica,sans-serif;
-  background:#f5f6f8;
-  color:#171717;
+margin:0;
+font-family:Arial,Helvetica,sans-serif;
+background:#f5f5f7;
+color:#181818
 }
 button,input,select,textarea{font:inherit}
-button{cursor:pointer;border:0}
-
-:root{
-  --gold:#c59b45;
-  --gold2:#e3c477;
-  --dark:#111111;
-  --dark2:#1b1b1b;
-  --white:#fff;
-  --muted:#747474;
-  --green:#159447;
-  --red:#d64545;
-  --blue:#3768d8;
+button{cursor:pointer}
+.header{
+height:70px;
+background:linear-gradient(135deg,#111,#292929);
+color:#fff;
+display:flex;
+align-items:center;
+justify-content:space-between;
+padding:0 18px;
+position:sticky;
+top:0;
+z-index:20;
+box-shadow:0 4px 15px #0003
 }
-
-.app{min-height:100vh}
-
-.top{
-  height:72px;
-  background:linear-gradient(135deg,#101010,#242424);
-  color:white;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  padding:0 22px;
-  position:sticky;
-  top:0;
-  z-index:20;
-  box-shadow:0 4px 18px #0002;
-}
-
+.brand{display:flex;align-items:center;gap:11px}
 .logo{
-  display:flex;
-  align-items:center;
-  gap:12px;
+width:43px;height:43px;border-radius:50%;
+background:linear-gradient(135deg,#c59b45,#f0d58d);
+color:#111;
+display:flex;align-items:center;justify-content:center;
+font-weight:900
 }
-.logoCircle{
-  width:43px;height:43px;border-radius:50%;
-  background:linear-gradient(135deg,var(--gold),var(--gold2));
-  color:#111;
-  display:flex;align-items:center;justify-content:center;
-  font-weight:900;
-  font-size:17px;
-}
-.logoTitle{font-size:18px;font-weight:800;letter-spacing:.4px}
-.logoSub{font-size:10px;color:#d7d7d7;margin-top:3px}
-
-.topRight{display:flex;align-items:center;gap:10px}
-.topBtn{
-  width:40px;height:40px;border-radius:12px;
-  background:#ffffff12;color:white;
+.brand h2{font-size:17px;margin:0}
+.brand small{font-size:9px;color:#ccc}
+.menu{
+background:none;border:0;color:#fff;font-size:25px;
+display:none
 }
 .avatar{
-  width:40px;height:40px;border-radius:50%;
-  background:var(--gold);font-weight:bold;
+width:40px;height:40px;border-radius:50%;
+background:#c59b45;color:#111;border:0;font-weight:bold
 }
-
-.layout{display:flex;min-height:calc(100vh - 72px)}
-
-.side{
-  width:245px;background:#fff;
-  border-right:1px solid #e5e5e5;
-  padding:18px 12px;
-  flex-shrink:0;
+.layout{display:flex;min-height:calc(100vh - 70px)}
+.sidebar{
+width:235px;background:#fff;border-right:1px solid #e5e5e5;
+padding:15px 10px;flex-shrink:0
 }
-
 .nav{
-  width:100%;padding:13px 14px;
-  border-radius:12px;background:none;
-  text-align:left;color:#555;
-  margin-bottom:5px;
-  font-weight:600;
+display:block;width:100%;border:0;background:none;
+padding:13px;border-radius:11px;text-align:left;
+font-weight:bold;color:#555;margin:4px 0
 }
 .nav:hover,.nav.active{
-  background:#fff5df;color:#8c651d;
+background:#fff4dc;color:#966d25
 }
-.nav.active{box-shadow:inset 3px 0 var(--gold)}
-
-.main{flex:1;padding:25px;max-width:1500px}
-
-.pageTitle{
-  display:flex;justify-content:space-between;align-items:center;
-  margin-bottom:22px;
+.main{flex:1;padding:22px;max-width:1450px}
+.title{
+display:flex;justify-content:space-between;align-items:center;
+margin-bottom:20px
 }
-.pageTitle h1{font-size:27px}
-.pageTitle p{color:var(--muted);margin-top:5px;font-size:13px}
-
+.title h1{margin:0;font-size:27px}
+.title p{margin:5px 0;color:#777;font-size:13px}
 .primary{
-  background:linear-gradient(135deg,var(--gold),#a77b29);
-  color:white;padding:12px 17px;border-radius:11px;
-  font-weight:bold;box-shadow:0 5px 15px #b88b3b33;
+border:0;border-radius:10px;padding:12px 17px;
+background:linear-gradient(135deg,#c59b45,#a87927);
+color:#fff;font-weight:bold
 }
 .secondary{
-  background:#fff;border:1px solid #ddd;
-  padding:11px 15px;border-radius:10px;
+border:1px solid #ddd;border-radius:10px;
+background:#fff;padding:10px 14px
 }
-
 .cards{
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:15px;margin-bottom:22px;
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:14px;margin-bottom:18px
 }
 .card{
-  background:white;border-radius:16px;padding:19px;
-  border:1px solid #e9e9e9;
-  box-shadow:0 4px 15px #00000008;
+background:#fff;border:1px solid #e8e8e8;
+border-radius:15px;padding:18px;
+box-shadow:0 4px 15px #00000008
 }
-.stat{
-  display:flex;justify-content:space-between;align-items:center;
+.stat{display:flex;justify-content:space-between}
+.stat p{font-size:12px;color:#777;margin:0}
+.stat h2{font-size:27px;margin:8px 0 0}
+.icon{
+width:44px;height:44px;border-radius:12px;
+background:#fff2d3;display:flex;
+align-items:center;justify-content:center;font-size:20px
 }
-.statIcon{
-  width:45px;height:45px;border-radius:13px;
-  display:flex;align-items:center;justify-content:center;
-  background:#fff3d9;font-size:21px;
+.grid{
+display:grid;grid-template-columns:1.4fr 1fr;
+gap:17px
 }
-.stat h2{font-size:28px;margin-top:9px}
-.stat p{color:#777;font-size:12px}
-.goldText{color:#a87924}
-
-.grid2{
-  display:grid;grid-template-columns:1.4fr 1fr;gap:18px;
+.section{
+font-weight:800;font-size:16px;
+display:flex;justify-content:space-between;
+margin-bottom:13px
 }
-.sectionTitle{
-  font-size:17px;font-weight:800;margin-bottom:14px;
-  display:flex;justify-content:space-between;align-items:center;
-}
-
-.tableWrap{overflow:auto}
-table{width:100%;border-collapse:collapse;min-width:600px}
-th,td{text-align:left;padding:13px 10px;border-bottom:1px solid #eee;font-size:13px}
-th{color:#777;font-size:11px;text-transform:uppercase}
-
-.badge{
-  display:inline-block;padding:6px 9px;border-radius:20px;
-  font-size:11px;font-weight:bold;
-}
-.new{background:#edf2ff;color:#3862c7}
-.started{background:#fff2d9;color:#9b6a17}
-.completed{background:#e9f8ef;color:#168144}
-.pending{background:#fff0f0;color:#c33}
-.delivered{background:#e7f7ee;color:#168144}
-
 .quick{
-  display:grid;grid-template-columns:repeat(2,1fr);gap:10px;
+display:grid;grid-template-columns:1fr 1fr;gap:9px
 }
 .quick button{
-  background:#fafafa;border:1px solid #eee;
-  border-radius:12px;padding:14px;text-align:left;
-  font-weight:700;
+padding:15px;border:1px solid #eee;
+background:#fafafa;border-radius:11px;
+text-align:left;font-weight:bold
 }
-.quick button:hover{border-color:var(--gold);background:#fffaf0}
-
+.quick button:hover{
+border-color:#c59b45;background:#fffaf0
+}
+table{width:100%;border-collapse:collapse}
+th,td{
+padding:12px 9px;border-bottom:1px solid #eee;
+text-align:left;font-size:12px
+}
+th{color:#777;font-size:10px}
+.table{overflow:auto}
+.badge{
+padding:5px 8px;border-radius:20px;
+font-size:10px;font-weight:bold;
+background:#fff0d0;color:#946b21
+}
 .search{
-  width:100%;padding:13px 15px;border:1px solid #ddd;
-  border-radius:11px;outline:none;background:white;
-  margin-bottom:15px;
+width:100%;padding:13px;border:1px solid #ddd;
+border-radius:10px;margin-bottom:15px;
+outline:none;background:#fff
 }
-.search:focus{border-color:var(--gold)}
-
 .customerGrid{
-  display:grid;grid-template-columns:repeat(3,1fr);gap:15px;
+display:grid;grid-template-columns:repeat(3,1fr);gap:14px
 }
 .customer{
-  background:#fff;border:1px solid #e7e7e7;
-  border-radius:15px;padding:17px;
+background:#fff;border:1px solid #e7e7e7;
+border-radius:14px;padding:16px
 }
-.customerTop{display:flex;gap:12px;align-items:center}
-.cAvatar{
-  width:45px;height:45px;border-radius:50%;
-  background:#fff0d0;color:#8e651c;
-  display:flex;align-items:center;justify-content:center;
-  font-weight:bold;
+.customerTop{display:flex;align-items:center;gap:10px}
+.cavatar{
+width:44px;height:44px;border-radius:50%;
+background:#fff0d0;color:#8d671f;
+display:flex;align-items:center;justify-content:center;
+font-weight:bold
 }
-.customer h3{font-size:15px}
+.customer h3{margin:0;font-size:15px}
 .customer small{color:#777}
-.customerActions{display:flex;gap:7px;margin-top:15px}
-.whatsapp{background:#20b85a;color:#fff;padding:9px 11px;border-radius:9px;font-weight:bold}
-.view{background:#f3f3f3;padding:9px 11px;border-radius:9px}
-
-.templateGrid{
-  display:grid;grid-template-columns:repeat(3,1fr);gap:14px;
+.actions{display:flex;gap:7px;margin-top:13px}
+.wa{
+background:#20b858;color:#fff;
+border:0;border-radius:8px;padding:9px 11px;font-weight:bold
+}
+.view{
+background:#f1f1f1;border:0;border-radius:8px;
+padding:9px 11px
+}
+.templates{
+display:grid;grid-template-columns:repeat(3,1fr);gap:14px
 }
 .template{
-  background:white;border:1px solid #e7e7e7;
-  border-radius:15px;padding:17px;
+background:#fff;border:1px solid #e5e5e5;
+border-radius:14px;padding:17px
 }
-.templateIcon{font-size:25px;margin-bottom:10px}
-.template h3{font-size:15px}
-.template p{font-size:12px;color:#777;margin:7px 0 13px;line-height:1.5}
-
-.timeline{position:relative}
-.timelineItem{
-  display:flex;gap:13px;padding:0 0 18px;
-}
-.dot{
-  width:11px;height:11px;background:var(--gold);
-  border-radius:50%;margin-top:4px;flex-shrink:0;
-}
-.timelineItem h4{font-size:13px}
-.timelineItem p{font-size:12px;color:#777;margin-top:3px}
-
-.progress{
-  height:9px;background:#eee;border-radius:10px;overflow:hidden;
-}
-.progress span{
-  display:block;height:100%;
-  background:linear-gradient(90deg,var(--gold),var(--gold2));
-}
-
-.empty{
-  text-align:center;padding:35px;color:#888;
-}
-
+.template .big{font-size:25px}
+.template h3{font-size:15px;margin:9px 0 5px}
+.template p{font-size:12px;color:#777;line-height:1.5}
 .modal{
-  position:fixed;inset:0;background:#0008;
-  display:none;align-items:center;justify-content:center;
-  z-index:50;padding:18px;
+position:fixed;inset:0;background:#0008;
+display:none;align-items:center;justify-content:center;
+padding:15px;z-index:50
 }
 .modal.show{display:flex}
 .modalBox{
-  width:100%;max-width:560px;background:white;
-  border-radius:18px;padding:22px;
-  max-height:90vh;overflow:auto;
+background:#fff;border-radius:17px;
+width:100%;max-width:560px;
+max-height:90vh;overflow:auto;padding:20px
 }
 .modalHead{
-  display:flex;justify-content:space-between;align-items:center;
-  margin-bottom:18px;
+display:flex;justify-content:space-between;
+align-items:center;margin-bottom:17px
 }
-.close{background:#f2f2f2;width:35px;height:35px;border-radius:50%;font-size:20px}
-.formGrid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-.field{margin-bottom:12px}
-.field.full{grid-column:1/-1}
-.field label{display:block;font-size:12px;font-weight:bold;margin-bottom:6px}
+.modalHead h2{margin:0;font-size:20px}
+.close{
+border:0;background:#eee;border-radius:50%;
+width:34px;height:34px;font-size:20px
+}
+.form{
+display:grid;grid-template-columns:1fr 1fr;gap:11px
+}
+.field label{
+display:block;font-size:11px;font-weight:bold;
+margin-bottom:5px
+}
 .field input,.field select,.field textarea{
-  width:100%;padding:12px;border:1px solid #ddd;
-  border-radius:9px;outline:none;
+width:100%;padding:11px;border:1px solid #ddd;
+border-radius:9px;outline:none
 }
-.field textarea{min-height:90px;resize:vertical}
-.modalActions{display:flex;justify-content:flex-end;gap:8px;margin-top:10px}
-
+.field textarea{min-height:80px}
+.full{grid-column:1/-1}
+.modalActions{
+display:flex;justify-content:flex-end;
+gap:8px;margin-top:14px
+}
+.empty{text-align:center;color:#888;padding:35px}
+.timelineItem{
+display:flex;gap:10px;margin-bottom:17px
+}
+.dot{
+width:10px;height:10px;border-radius:50%;
+background:#c59b45;margin-top:4px;flex-shrink:0
+}
+.timelineItem h4{margin:0;font-size:13px}
+.timelineItem p{margin:4px 0;color:#777;font-size:11px}
+.progress{
+height:8px;background:#eee;border-radius:10px;
+overflow:hidden
+}
+.progress span{
+display:block;height:100%;
+background:linear-gradient(90deg,#c59b45,#e5c77c)
+}
 .toast{
-  position:fixed;bottom:20px;left:50%;
-  transform:translateX(-50%) translateY(80px);
-  background:#171717;color:#fff;padding:12px 18px;
-  border-radius:10px;z-index:100;
-  transition:.3s;opacity:0;
+position:fixed;bottom:20px;left:50%;
+transform:translate(-50%,80px);
+background:#171717;color:#fff;padding:12px 17px;
+border-radius:10px;opacity:0;
+transition:.3s;z-index:100
 }
-.toast.show{transform:translateX(-50%) translateY(0);opacity:1}
-
-.mobileMenu{display:none}
-
+.toast.show{
+transform:translate(-50%,0);opacity:1
+}
 @media(max-width:1000px){
-  .cards{grid-template-columns:repeat(2,1fr)}
-  .customerGrid{grid-template-columns:repeat(2,1fr)}
-  .templateGrid{grid-template-columns:repeat(2,1fr)}
-  .grid2{grid-template-columns:1fr}
+.cards{grid-template-columns:1fr 1fr}
+.customerGrid{grid-template-columns:1fr 1fr}
+.templates{grid-template-columns:1fr 1fr}
+.grid{grid-template-columns:1fr}
 }
 @media(max-width:700px){
-  .top{height:64px;padding:0 13px}
-  .logoTitle{font-size:14px}
-  .logoSub{font-size:8px}
-  .side{
-    position:fixed;left:-260px;top:64px;bottom:0;
-    z-index:30;transition:.3s;
-  }
-  .side.open{left:0}
-  .mobileMenu{display:block;background:none;color:white;font-size:22px}
-  .main{padding:15px}
-  .cards{grid-template-columns:1fr 1fr;gap:9px}
-  .card{padding:13px}
-  .stat h2{font-size:22px}
-  .statIcon{width:38px;height:38px}
-  .pageTitle{align-items:flex-start;gap:10px}
-  .pageTitle h1{font-size:22px}
-  .customerGrid,.templateGrid{grid-template-columns:1fr}
-  .formGrid{grid-template-columns:1fr}
-  .field.full{grid-column:auto}
+.header{height:64px}
+.menu{display:block}
+.sidebar{
+position:fixed;left:-250px;top:64px;bottom:0;
+z-index:30;transition:.25s
+}
+.sidebar.open{left:0}
+.main{padding:14px}
+.title h1{font-size:21px}
+.cards{gap:8px}
+.card{padding:13px}
+.stat h2{font-size:21px}
+.customerGrid,.templates{grid-template-columns:1fr}
+.form{grid-template-columns:1fr}
+.full{grid-column:auto}
+.brand h2{font-size:14px}
 }
 </style>
 </head>
 
 <body>
 
-<div class="app">
+<header class="header">
+<div class="brand">
+<button class="menu" onclick="toggleMenu()">☰</button>
+<div class="logo">SJ</div>
+<div>
+<h2>SHREE JI CONNECT</h2>
+<small>SHREE JI GOLD CREATOR LLP</small>
+</div>
+</div>
 
-<header class="top">
-  <div class="logo">
-    <button class="mobileMenu" onclick="toggleMenu()">☰</button>
-    <div class="logoCircle">SJ</div>
-    <div>
-      <div class="logoTitle">SHREE JI CONNECT</div>
-      <div class="logoSub">SHREE JI GOLD CREATOR LLP</div>
-    </div>
-  </div>
-
-  <div class="topRight">
-    <button class="topBtn" onclick="showToast('No new notifications')"></button>
-    <button class="avatar">SJ</button>
-  </div>
+<div>
+<button class="avatar">SJ</button>
+</div>
 </header>
 
 <div class="layout">
 
-<aside class="side" id="side">
-  <button class="nav active" onclick="page('dashboard',this)"> Dashboard</button>
-  <button class="nav" onclick="page('customers',this)"> Customers</button>
-  <button class="nav" onclick="page('orders',this)"> Orders</button>
-  <button class="nav" onclick="page('whatsapp',this)"> WhatsApp Center</button>
-  <button class="nav" onclick="page('exhibitions',this)"> Exhibitions</button>
-  <button class="nav" onclick="page('reviews',this)">⭐ Reviews</button>
-  <button class="nav" onclick="page('reports',this)"> Reports</button>
-  <button class="nav" onclick="page('settings',this)">⚙️ Settings</button>
+<aside class="sidebar" id="sidebar">
+
+<button class="nav active" onclick="showPage('dashboard',this)">
+🏠 Dashboard
+</button>
+
+<button class="nav" onclick="showPage('customers',this)">
+👥 Customers
+</button>
+
+<button class="nav" onclick="showPage('orders',this)">
+📦 Orders
+</button>
+
+<button class="nav" onclick="showPage('whatsapp',this)">
+💬 WhatsApp Center
+</button>
+
+<button class="nav" onclick="showPage('exhibitions',this)">
+🎪 Exhibitions
+</button>
+
+<button class="nav" onclick="showPage('reviews',this)">
+⭐ Customer Reviews
+</button>
+
+<button class="nav" onclick="showPage('reports',this)">
+📊 Reports
+</button>
+
+<button class="nav" onclick="showPage('settings',this)">
+⚙️ Settings
+</button>
+
 </aside>
 
-<main class="main" id="main"></main>
+<main class="main" id="main">
+
+<div class="title">
+<div>
+<h1>Welcome to SHREE JI CONNECT 👋</h1>
+<p>Customer Relationship & Order Management</p>
+</div>
+<button class="primary">＋ Add Customer</button>
+</div>
+
+<div class="cards">
+
+<div class="card stat">
+<div>
+<p>Total Customers</p>
+<h2>0</h2>
+</div>
+<div class="icon">👥</div>
+</div>
+
+<div class="card stat">
+<div>
+<p>Active Orders</p>
+<h2>0</h2>
+</div>
+<div class="icon">📦</div>
+</div>
+
+<div class="card stat">
+<div>
+<p>Pending Delivery</p>
+<h2>0</h2>
+</div>
+<div class="icon">🚚</div>
+</div>
+
+<div class="card stat">
+<div>
+<p>Total Order Value</p>
+<h2>₹0</h2>
+</div>
+<div class="icon">💎</div>
+</div>
 
 </div>
+
+<div class="grid">
+
+<div class="card">
+<div class="section">
+<span>Recent Orders</span>
+<span>📋</span>
+</div>
+
+<div class="empty">
+📦<br><br>
+No orders yet.<br>
+Your recent orders will appear here.
+</div>
+</div>
+
+<div class="card">
+
+<div class="section">
+<span>Quick Actions</span>
+</div>
+
+<div class="quick">
+
+<button>👤<br>Add Customer</button>
+<button>📦<br>New Order</button>
+<button>💬<br>WhatsApp</button>
+<button>🎪<br>Exhibition</button>
+<button>⭐<br>Reviews</button>
+<button>📊<br>Reports</button>
+
+</div>
+
+</div>
+
+</div>
+
+</main>
 </div>
 
 <div class="modal" id="modal">
-  <div class="modalBox">
-    <div class="modalHead">
-      <h2 id="modalTitle">Add</h2>
-      <button class="close" onclick="closeModal()">×</button>
-    </div>
-    <div id="modalBody"></div>
-  </div>
+<div class="modalBox">
+<div class="modalHead">
+<h2 id="modalTitle">SHREE JI CONNECT</h2>
+<button class="close" onclick="closeModal()">×</button>
+</div>
+<div id="modalBody"></div>
+</div>
 </div>
 
 <div class="toast" id="toast"></div>
 
 <script>
-/* =========================
-   SHREE JI CONNECT
-   Local business prototype
-========================= */
+</script>
 
-let customers = JSON.parse(localStorage.getItem("sj_customers") || "[]");
-let orders = JSON.parse(localStorage.getItem("sj_orders") || "[]");
-let reviews = JSON.parse(localStorage.getItem("sj_reviews") || "[]");
-let exhibitions = JSON.parse(localStorage.getItem("sj_exhibitions") || "[]");
+</body>
+</html>
+const DB={
+ customers:JSON.parse(localStorage.getItem("sj_customers")||"[]"),
+ orders:JSON.parse(localStorage.getItem("sj_orders")||"[]"),
+ reviews:JSON.parse(localStorage.getItem("sj_reviews")||"[]"),
+ exhibitions:JSON.parse(localStorage.getItem("sj_exhibitions")||"[]")
+};
 
-function save(){
-  localStorage.setItem("sj_customers",JSON.stringify(customers));
-  localStorage.setItem("sj_orders",JSON.stringify(orders));
-  localStorage.setItem("sj_reviews",JSON.stringify(reviews));
-  localStorage.setItem("sj_exhibitions",JSON.stringify(exhibitions));
+function saveDB(){
+ localStorage.setItem("sj_customers",JSON.stringify(DB.customers));
+ localStorage.setItem("sj_orders",JSON.stringify(DB.orders));
+ localStorage.setItem("sj_reviews",JSON.stringify(DB.reviews));
+ localStorage.setItem("sj_exhibitions",JSON.stringify(DB.exhibitions));
 }
 
-function showToast(msg){
-  const t=document.getElementById("toast");
-  t.textContent=msg;
-  t.classList.add("show");
-  setTimeout(()=>t.classList.remove("show"),2500);
+function toast(msg){
+ const x=document.getElementById("toast");
+ x.textContent=msg;
+ x.classList.add("show");
+ setTimeout(()=>x.classList.remove("show"),2200);
 }
 
 function toggleMenu(){
-  document.getElementById("side").classList.toggle("open");
+ document.getElementById("sidebar").classList.toggle("open");
 }
 
-function page(name,el){
-  document.querySelectorAll(".nav").forEach(x=>x.classList.remove("active"));
-  if(el)el.classList.add("active");
-  document.getElementById("side").classList.remove("open");
+function showPage(name,btn){
 
-  if(name==="dashboard")dashboard();
-  if(name==="customers")customerPage();
-  if(name==="orders")orderPage();
-  if(name==="whatsapp")whatsappPage();
-  if(name==="exhibitions")exhibitionPage();
-  if(name==="reviews")reviewPage();
-  if(name==="reports")reportPage();
-  if(name==="settings")settingsPage();
+ document.querySelectorAll(".nav").forEach(x=>x.classList.remove("active"));
+ if(btn)btn.classList.add("active");
+
+ document.getElementById("sidebar").classList.remove("open");
+
+ if(name==="dashboard")dashboard();
+ if(name==="customers")customersPage();
+ if(name==="orders")ordersPage();
+ if(name==="whatsapp")whatsappPage();
+ if(name==="exhibitions")exhibitionsPage();
+ if(name==="reviews")reviewsPage();
+ if(name==="reports")reportsPage();
+ if(name==="settings")settingsPage();
 }
 
 function dashboard(){
 
-  const active=orders.filter(o=>!["Delivered","Completed"].includes(o.status)).length;
-  const completed=orders.filter(o=>["Completed","Delivered"].includes(o.status)).length;
-  const pending=orders.filter(o=>o.status==="Ready for Delivery").length;
-  const value=orders.reduce((s,o)=>s+(Number(o.value)||0),0);
+ const active=DB.orders.filter(o=>
+ !["Completed","Delivered"].includes(o.status)
+ ).length;
 
-  document.getElementById("main").innerHTML=`
-  <div class="pageTitle">
-    <div>
-      <h1>Good Morning </h1>
-      <p>Business overview — SHREE JI GOLD CREATOR LLP</p>
-    </div>
-    <button class="primary" onclick="openCustomer()">＋ Add Customer</button>
-  </div>
+ const delivery=DB.orders.filter(o=>
+ o.status==="Ready for Delivery"
+ ).length;
 
-  <div class="cards">
-    <div class="card stat">
-      <div><p>Total Customers</p><h2>${customers.length}</h2></div>
-      <div class="statIcon"></div>
-    </div>
-
-    <div class="card stat">
-      <div><p>Active Orders</p><h2>${active}</h2></div>
-      <div class="statIcon"></div>
-    </div>
-
-    <div class="card stat">
-      <div><p>Pending Delivery</p><h2>${pending}</h2></div>
-      <div class="statIcon"></div>
-    </div>
-
-    <div class="card stat">
-      <div><p>Total Order Value</p><h2 class="goldText">₹${value.toLocaleString("en-IN")}</h2></div>
-      <div class="statIcon"></div>
-    </div>
-  </div>
-
-  <div class="grid2">
-
-    <div class="card">
-      <div class="sectionTitle">
-        Recent Orders
-        <button class="secondary" onclick="page('orders')">View All</button>
-      </div>
-
-      ${orders.length===0
-      ? `<div class="empty"><br><br>No orders yet.<br>Add your first order.</div>`
-      : `<div class="tableWrap"><table>
-      <thead><tr><th>Order</th><th>Customer</th><th>Status</th><th>Value</th></tr></thead>
-      <tbody>
-      ${orders.slice(-6).reverse().map(o=>`
-      <tr>
-        <td><b>${o.number}</b></td>
-        <td>${o.customer}</td>
-        <td><span class="badge ${statusClass(o.status)}">${o.status}</span></td>
-        <td>₹${Number(o.value||0).toLocaleString("en-IN")}</td>
-      </tr>`).join("")}
-      </tbody></table></div>`}
-    </div>
-
-    <div class="card">
-      <div class="sectionTitle">Quick Actions</div>
-
-      <div class="quick">
-        <button onclick="openCustomer()"><br>Add Customer</button>
-        <button onclick="openOrder()"><br>New Order</button>
-        <button onclick="page('whatsapp')"><br>WhatsApp</button>
-        <button onclick="openExhibition()"><br>Exhibition</button>
-        <button onclick="page('reviews')">⭐<br>Reviews</button>
-        <button onclick="page('reports')"><br>Reports</button>
-      </div>
-
-      <br>
-
-      <div class="sectionTitle">Business Health</div>
-      <p style="font-size:12px;color:#777;margin-bottom:7px">Completed Orders</p>
-      <div class="progress"><span style="width:${orders.length ? Math.min(100,completed/orders.length*100):0}%"></span></div>
-      <p style="font-size:11px;color:#888;margin-top:6px">${completed} completed of ${orders.length} orders</p>
-    </div>
-
-  </div>
-  `;
-}
-
-function statusClass(s){
-  if(s==="New")return "new";
-  if(s==="Started"||s==="Production")return "started";
-  if(s==="Completed")return "completed";
-  if(s==="Delivered")return "delivered";
-  return "pending";
-}
-
-function customerPage(){
+ const value=DB.orders.reduce((a,o)=>a+Number(o.value||0),0);
 
  document.getElementById("main").innerHTML=`
- <div class="pageTitle">
-  <div><h1>Customers</h1><p>Manage your customer relationships</p></div>
-  <button class="primary" onclick="openCustomer()">＋ Add Customer</button>
+ <div class="title">
+  <div>
+   <h1>Good Morning 👋</h1>
+   <p>SHREE JI GOLD CREATOR LLP • Business Overview</p>
+  </div>
+  <button class="primary" onclick="addCustomer()">＋ Add Customer</button>
  </div>
 
- <input class="search" id="customerSearch" placeholder=" Search customer, shop or WhatsApp number..." oninput="renderCustomers()">
+ <div class="cards">
+
+ <div class="card stat">
+  <div><p>Total Customers</p><h2>${DB.customers.length}</h2></div>
+  <div class="icon">👥</div>
+ </div>
+
+ <div class="card stat">
+  <div><p>Active Orders</p><h2>${active}</h2></div>
+  <div class="icon">📦</div>
+ </div>
+
+ <div class="card stat">
+  <div><p>Pending Delivery</p><h2>${delivery}</h2></div>
+  <div class="icon">🚚</div>
+ </div>
+
+ <div class="card stat">
+  <div><p>Total Order Value</p><h2>₹${value.toLocaleString("en-IN")}</h2></div>
+  <div class="icon">💎</div>
+ </div>
+
+ </div>
+
+ <div class="grid">
+
+ <div class="card">
+  <div class="section">
+   <span>Recent Orders</span>
+   <button class="secondary" onclick="showPage('orders')">View All</button>
+  </div>
+
+  ${DB.orders.length?
+  `<div class="table">
+  <table>
+  <tr>
+   <th>Order</th>
+   <th>Customer</th>
+   <th>Status</th>
+   <th>Value</th>
+  </tr>
+  ${DB.orders.slice(-6).reverse().map(o=>`
+  <tr>
+   <td><b>${o.number}</b></td>
+   <td>${safe(o.customer)}</td>
+   <td><span class="badge">${o.status}</span></td>
+   <td>₹${Number(o.value||0).toLocaleString("en-IN")}</td>
+  </tr>`).join("")}
+  </table>
+  </div>`
+  :
+  `<div class="empty">📦<br><br>No orders yet.</div>`}
+ </div>
+
+ <div class="card">
+  <div class="section">Quick Actions</div>
+
+  <div class="quick">
+   <button onclick="addCustomer()">👤<br>Add Customer</button>
+   <button onclick="addOrder()">📦<br>New Order</button>
+   <button onclick="showPage('whatsapp')">💬<br>WhatsApp</button>
+   <button onclick="addExhibition()">🎪<br>Exhibition</button>
+   <button onclick="addReview()">⭐<br>Add Review</button>
+   <button onclick="showPage('reports')">📊<br>Reports</button>
+  </div>
+
+  <br>
+
+  <div class="section">Customer Engagement</div>
+  <p style="font-size:12px;color:#777">
+   ${DB.reviews.length} customer reviews collected
+  </p>
+
+ </div>
+
+ </div>
+ `;
+}
+
+function safe(v){
+ return String(v||"").replace(/[&<>"']/g,m=>({
+ "&":"&amp;","<":"&lt;",">":"&gt;",
+ '"':"&quot;","'":"&#039;"
+ }[m]));
+}
+
+function openModal(title,html){
+ document.getElementById("modalTitle").textContent=title;
+ document.getElementById("modalBody").innerHTML=html;
+ document.getElementById("modal").classList.add("show");
+}
+
+function closeModal(){
+ document.getElementById("modal").classList.remove("show");
+}
+
+function addCustomer(){
+
+ openModal("Add New Customer",`
+
+ <div class="form">
+
+ <div class="field">
+ <label>Customer Name *</label>
+ <input id="cn" placeholder="Customer name">
+ </div>
+
+ <div class="field">
+ <label>WhatsApp Number *</label>
+ <input id="cp" type="tel" placeholder="10 digit number">
+ </div>
+
+ <div class="field">
+ <label>Shop / Company</label>
+ <input id="cs" placeholder="Shop name">
+ </div>
+
+ <div class="field">
+ <label>City</label>
+ <input id="cc" placeholder="City">
+ </div>
+
+ <div class="field full">
+ <label>Notes</label>
+ <textarea id="ct" placeholder="Customer notes"></textarea>
+ </div>
+
+ </div>
+
+ <div class="modalActions">
+ <button class="secondary" onclick="closeModal()">Cancel</button>
+ <button class="primary" onclick="saveCustomer()">Save Customer</button>
+ </div>
+ `);
+}
+
+function saveCustomer(){
+
+ const name=document.getElementById("cn").value.trim();
+ const phone=document.getElementById("cp").value.trim();
+
+ if(!name||!phone){
+  toast("Name & WhatsApp number required");
+  return;
+ }
+
+ if(DB.customers.some(c=>c.phone===phone)){
+  toast("Customer already exists");
+  return;
+ }
+
+ DB.customers.push({
+  id:Date.now(),
+  name,
+  phone,
+  shop:document.getElementById("cs").value.trim(),
+  city:document.getElementById("cc").value.trim(),
+  notes:document.getElementById("ct").value.trim(),
+  date:new Date().toLocaleDateString()
+ });
+
+ saveDB();
+ closeModal();
+ dashboard();
+ toast("Customer added successfully ✓");
+}
+
+function customersPage(){
+
+ document.getElementById("main").innerHTML=`
+
+ <div class="title">
+  <div>
+   <h1>Customers 👥</h1>
+   <p>Complete customer relationship management</p>
+  </div>
+  <button class="primary" onclick="addCustomer()">＋ Add Customer</button>
+ </div>
+
+ <input class="search"
+ id="customerSearch"
+ placeholder="🔍 Search name, shop or WhatsApp number..."
+ oninput="renderCustomers()">
 
  <div class="customerGrid" id="customerList"></div>
  `;
@@ -499,683 +670,999 @@ function customerPage(){
 
 function renderCustomers(){
 
- const q=(document.getElementById("customerSearch")?.value||"").toLowerCase();
-
- const list=customers.filter(c=>
-  c.name.toLowerCase().includes(q) ||
-  (c.shop||"").toLowerCase().includes(q) ||
-  (c.phone||"").includes(q)
- );
-
  const box=document.getElementById("customerList");
-
  if(!box)return;
 
+ const q=(document.getElementById("customerSearch")?.value||"").toLowerCase();
+
+ const list=DB.customers.filter(c=>
+ c.name.toLowerCase().includes(q)||
+ (c.shop||"").toLowerCase().includes(q)||
+ c.phone.includes(q)
+ );
+
  if(!list.length){
-  box.innerHTML=`<div class="card empty" style="grid-column:1/-1"><br><br>No customers found.<br>Add a customer to get started.</div>`;
+  box.innerHTML=`
+  <div class="card empty" style="grid-column:1/-1">
+  👥<br><br>No customers found.
+  </div>`;
   return;
  }
 
  box.innerHTML=list.map(c=>`
+
  <div class="customer">
-  <div class="customerTop">
-   <div class="cAvatar">${initials(c.name)}</div>
-   <div>
-    <h3>${esc(c.name)}</h3>
-    <small>${esc(c.shop||"Individual Customer")}</small>
-   </div>
-  </div>
 
-  <div style="margin-top:13px;font-size:12px;color:#666">
-    ${esc(c.phone)}<br>
-    ${esc(c.city||"City not added")}<br>
-    ${orders.filter(o=>o.customerPhone===c.phone).length} orders
-  </div>
+ <div class="customerTop">
 
-  <div class="customerActions">
-   <button class="whatsapp" onclick="sendWA('${encodeURIComponent(c.phone)}','${encodeURIComponent(c.name)}')"> WhatsApp</button>
-   <button class="view" onclick="customerDetails('${encodeURIComponent(c.phone)}')">View</button>
-  </div>
+ <div class="cavatar">
+ ${initials(c.name)}
  </div>
+
+ <div>
+ <h3>${safe(c.name)}</h3>
+ <small>${safe(c.shop||"Customer")}</small>
+ </div>
+
+ </div>
+
+ <p style="font-size:12px;color:#777;line-height:1.8;margin:12px 0">
+ 📱 ${safe(c.phone)}<br>
+ 📍 ${safe(c.city||"Not added")}<br>
+ 📦 ${DB.orders.filter(o=>o.customerPhone===c.phone).length} Orders
+ </p>
+
+ <div class="actions">
+
+ <button class="wa"
+ onclick="sendWhatsApp('${encodeURIComponent(c.phone)}','${encodeURIComponent(c.name)}')">
+ 💬 WhatsApp
+ </button>
+
+ <button class="view"
+ onclick="customerView('${encodeURIComponent(c.phone)}')">
+ View
+ </button>
+
+ </div>
+
+ </div>
+
  `).join("");
 }
 
-function initials(name){
- return name.split(" ").map(x=>x[0]).slice(0,2).join("").toUpperCase();
+function initials(n){
+ return n.split(" ")
+ .map(x=>x[0])
+ .slice(0,2)
+ .join("")
+ .toUpperCase();
 }
 
-function esc(x){
- return String(x||"").replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"}[m]));
-}
-
-function openCustomer(){
-
- document.getElementById("modalTitle").textContent="Add New Customer";
-
- document.getElementById("modalBody").innerHTML=`
- <div class="formGrid">
-
- <div class="field">
-  <label>Customer Name *</label>
-  <input id="cName" placeholder="Enter name">
- </div>
-
- <div class="field">
-  <label>WhatsApp Number *</label>
-  <input id="cPhone" type="tel" placeholder="10 digit number">
- </div>
-
- <div class="field">
-  <label>Shop / Company</label>
-  <input id="cShop" placeholder="Shop name">
- </div>
-
- <div class="field">
-  <label>City</label>
-  <input id="cCity" placeholder="City">
- </div>
-
- <div class="field full">
-  <label>Notes</label>
-  <textarea id="cNotes" placeholder="Customer notes"></textarea>
- </div>
-
- </div>
-
- <div class="modalActions">
-  <button class="secondary" onclick="closeModal()">Cancel</button>
-  <button class="primary" onclick="addCustomer()">Save Customer</button>
- </div>
- `;
-
- openModal();
-}
-
-function addCustomer(){
-
- const name=document.getElementById("cName").value.trim();
- const phone=document.getElementById("cPhone").value.trim();
-
- if(!name||!phone){
-  showToast("Please enter name and WhatsApp number");
-  return;
- }
-
- customers.push({
-  id:Date.now(),
-  name,
-  phone,
-  shop:document.getElementById("cShop").value.trim(),
-  city:document.getElementById("cCity").value.trim(),
-  notes:document.getElementById("cNotes").value.trim(),
-  created:new Date().toLocaleDateString()
- });
-
- save();
- closeModal();
- customerPage();
- showToast("Customer added successfully ✓");
-}
-
-function customerDetails(encoded){
+function customerView(encoded){
 
  const phone=decodeURIComponent(encoded);
- const c=customers.find(x=>x.phone===phone);
+ const c=DB.customers.find(x=>x.phone===phone);
 
  if(!c)return;
 
- const os=orders.filter(o=>o.customerPhone===phone);
+ const orders=DB.orders.filter(o=>o.customerPhone===phone);
 
- document.getElementById("modalTitle").textContent=c.name;
+ openModal(c.name,`
 
- document.getElementById("modalBody").innerHTML=`
  <div class="card" style="box-shadow:none">
-  <b> ${c.phone}</b><br>
-  <span style="color:#777">${c.shop||"No shop name"} • ${c.city||"No city"}</span>
-  <br><br>
-  ${c.notes||"No notes"}
+
+ <b>📱 ${safe(c.phone)}</b><br>
+ <span style="color:#777">
+ ${safe(c.shop||"No shop")} • ${safe(c.city||"No city")}
+ </span>
+
+ <p style="margin-top:12px;font-size:13px">
+ ${safe(c.notes||"No customer notes")}
+ </p>
+
  </div>
 
  <br>
- <h3 style="margin-bottom:12px">Customer Timeline</h3>
 
- <div class="timeline">
+ <h3 style="margin-bottom:15px">Customer Journey</h3>
 
-  <div class="timelineItem">
-   <div class="dot"></div>
-   <div><h4>Customer Added</h4><p>${c.created}</p></div>
+ <div class="timelineItem">
+  <div class="dot"></div>
+  <div>
+   <h4>Customer Added</h4>
+   <p>${c.date}</p>
   </div>
-
-  ${os.map(o=>`
-   <div class="timelineItem">
-    <div class="dot"></div>
-    <div>
-     <h4>Order ${o.number} — ${o.status}</h4>
-     <p>Started: ${o.start||"-"} • Finish: ${o.finish||"-"} • Delivery: ${o.delivery||"-"}</p>
-    </div>
-   </div>
-  `).join("")}
-
  </div>
+
+ ${orders.map(o=>`
+
+ <div class="timelineItem">
+  <div class="dot"></div>
+  <div>
+   <h4>📦 ${o.number} — ${o.status}</h4>
+   <p>
+   Start: ${o.start||"-"} |
+   Finish: ${o.finish||"-"} |
+   Delivery: ${o.delivery||"-"}
+   </p>
+  </div>
+ </div>
+
+ `).join("")}
 
  <div class="modalActions">
-  <button class="whatsapp" onclick="sendWA('${encodeURIComponent(c.phone)}','${encodeURIComponent(c.name)}')"> WhatsApp</button>
-  <button class="secondary" onclick="closeModal()">Close</button>
+ <button class="wa"
+ onclick="sendWhatsApp('${encodeURIComponent(c.phone)}','${encodeURIComponent(c.name)}')">
+ 💬 WhatsApp
+ </button>
+ <button class="secondary" onclick="closeModal()">Close</button>
  </div>
- `;
-
- openModal();
+ `);
 }
 
-function sendWA(phone,name){
+function sendWhatsApp(phone,name,message){
 
  phone=decodeURIComponent(phone);
  name=decodeURIComponent(name);
 
- let clean=phone.replace(/\D/g,"");
+ let number=phone.replace(/\D/g,"");
 
- if(clean.length===10)clean="91"+clean;
+ if(number.length===10)number="91"+number;
 
- const msg=
+ const text=message||
  `Dear ${name},%0A%0A`+
  `Greetings from SHREE JI GOLD CREATOR LLP.%0A%0A`+
  `Thank you for being our valued customer.%0A%0A`+
  `Regards,%0A`+
  `SHREE JI GOLD CREATOR LLP`;
 
- window.open("https://wa.me/"+clean+"?text="+msg,"_blank");
+ window.open(
+ "https://wa.me/"+number+"?text="+text,
+ "_blank"
+ );
 }
 
-function orderPage(){
+function addOrder(){
 
- document.getElementById("main").innerHTML=`
- <div class="pageTitle">
-  <div><h1>Orders</h1><p>Track every order from start to delivery</p></div>
-  <button class="primary" onclick="openOrder()">＋ New Order</button>
- </div>
+ if(!DB.customers.length){
+  toast("Please add a customer first");
+  addCustomer();
+  return;
+ }
 
- <div class="card">
-  <div class="tableWrap">
-  <table>
-   <thead>
-    <tr>
-     <th>Order</th><th>Customer</th><th>Item</th>
-     <th>Start</th><th>Finish</th><th>Delivery</th>
-     <th>Status</th><th>Value</th>
-    </tr>
-   </thead>
-   <tbody>
+ openModal("Create New Order",`
 
-   ${orders.length===0
-   ? `<tr><td colspan="8" class="empty">No orders yet.</td></tr>`
-   : orders.slice().reverse().map(o=>`
-   <tr>
-    <td><b>${o.number}</b></td>
-    <td>${esc(o.customer)}</td>
-    <td>${esc(o.item)}</td>
-    <td>${o.start||"-"}</td>
-    <td>${o.finish||"-"}</td>
-    <td>${o.delivery||"-"}</td>
-    <td>
-     <select onchange="updateOrder('${o.id}',this.value)" style="border:0;background:#fff">
-      ${["New","Started","Production","Completed","Hallmarking","Ready for Delivery","Delivered"].map(s=>`<option ${s===o.status?"selected":""}>${s}</option>`).join("")}
-     </select>
-    </td>
-    <td>₹${Number(o.value||0).toLocaleString("en-IN")}</td>
-   </tr>
-   `).join("")}
-
-   </tbody>
-  </table>
-  </div>
- </div>
- `;
-}
-
-function openOrder(){
-
- document.getElementById("modalTitle").textContent="Create New Order";
-
- document.getElementById("modalBody").innerHTML=`
- <div class="formGrid">
+ <div class="form">
 
  <div class="field">
-  <label>Customer *</label>
-  <select id="oCustomer">
-   <option value="">Select customer</option>
-   ${customers.map(c=>`<option value="${esc(c.phone)}">${esc(c.name)} — ${esc(c.phone)}</option>`).join("")}
-  </select>
+ <label>Customer *</label>
+ <select id="oc">
+ <option value="">Select Customer</option>
+ ${DB.customers.map(c=>
+ `<option value="${safe(c.phone)}">${safe(c.name)} — ${safe(c.phone)}</option>`
+ ).join("")}
+ </select>
  </div>
 
  <div class="field">
-  <label>Item / Product</label>
-  <input id="oItem" placeholder="Product name">
+ <label>Product / Item</label>
+ <input id="oi" placeholder="Product name">
  </div>
 
  <div class="field">
-  <label>Gold Weight</label>
-  <input id="oWeight" placeholder="e.g. 25.500 g">
+ <label>Gold Weight</label>
+ <input id="ow" placeholder="e.g. 25.500 g">
  </div>
 
  <div class="field">
-  <label>Gold Touch</label>
-  <input id="oTouch" placeholder="e.g. 916">
+ <label>Gold Touch</label>
+ <input id="ot" placeholder="e.g. 916">
  </div>
 
  <div class="field">
-  <label>Screw Type</label>
-  <input id="oScrew" placeholder="Screw type">
+ <label>Screw Type</label>
+ <input id="os" placeholder="Screw type">
  </div>
 
  <div class="field">
-  <label>Order Value</label>
-  <input id="oValue" type="number" placeholder="₹">
+ <label>Order Value</label>
+ <input id="ov" type="number" placeholder="₹">
  </div>
 
  <div class="field">
-  <label>Start Date</label>
-  <input id="oStart" type="date">
+ <label>Advance</label>
+ <input id="oa" type="number" placeholder="₹">
  </div>
 
  <div class="field">
-  <label>Expected Finish</label>
-  <input id="oFinish" type="date">
+ <label>Start Date</label>
+ <input id="od1" type="date">
  </div>
 
  <div class="field">
-  <label>Delivery Date</label>
-  <input id="oDelivery" type="date">
+ <label>Expected Finish</label>
+ <input id="od2" type="date">
  </div>
 
  <div class="field">
-  <label>Advance</label>
-  <input id="oAdvance" type="number" placeholder="₹">
+ <label>Delivery Date</label>
+ <input id="od3" type="date">
  </div>
 
  <div class="field full">
-  <label>Notes</label>
-  <textarea id="oNotes" placeholder="Order notes"></textarea>
+ <label>Notes</label>
+ <textarea id="on" placeholder="Order notes"></textarea>
  </div>
 
  </div>
 
  <div class="modalActions">
-  <button class="secondary" onclick="closeModal()">Cancel</button>
-  <button class="primary" onclick="addOrder()">Create Order</button>
+ <button class="secondary" onclick="closeModal()">Cancel</button>
+ <button class="primary" onclick="saveOrder()">Create Order</button>
  </div>
- `;
-
- openModal();
+ `);
 }
 
-function addOrder(){
+function saveOrder(){
 
- const phone=document.getElementById("oCustomer").value;
+ const phone=document.getElementById("oc").value;
 
  if(!phone){
-  showToast("Select a customer first");
+  toast("Select customer");
   return;
  }
 
- const c=customers.find(x=>x.phone===phone);
+ const c=DB.customers.find(x=>x.phone===phone);
 
- const number="SJ-"+new Date().getFullYear()+"-"+String(orders.length+1).padStart(4,"0");
+ const number=
+ "SJ-"+new Date().getFullYear()+"-"+
+ String(DB.orders.length+1).padStart(4,"0");
 
- orders.push({
+ DB.orders.push({
   id:Date.now(),
   number,
   customer:c.name,
   customerPhone:phone,
-  item:document.getElementById("oItem").value,
-  weight:document.getElementById("oWeight").value,
-  touch:document.getElementById("oTouch").value,
-  screw:document.getElementById("oScrew").value,
-  value:Number(document.getElementById("oValue").value)||0,
-  advance:Number(document.getElementById("oAdvance").value)||0,
-  start:document.getElementById("oStart").value,
-  finish:document.getElementById("oFinish").value,
-  delivery:document.getElementById("oDelivery").value,
+  item:document.getElementById("oi").value,
+  weight:document.getElementById("ow").value,
+  touch:document.getElementById("ot").value,
+  screw:document.getElementById("os").value,
+  value:Number(document.getElementById("ov").value)||0,
+  advance:Number(document.getElementById("oa").value)||0,
+  start:document.getElementById("od1").value,
+  finish:document.getElementById("od2").value,
+  delivery:document.getElementById("od3").value,
   status:"New",
-  notes:document.getElementById("oNotes").value
+  notes:document.getElementById("on").value
  });
 
- save();
+ saveDB();
  closeModal();
- orderPage();
- showToast("Order "+number+" created ✓");
+ ordersPage();
+ toast(number+" created ✓");
 }
 
-function updateOrder(id,status){
+function ordersPage(){
 
- const o=orders.find(x=>x.id==id);
+ document.getElementById("main").innerHTML=`
+
+ <div class="title">
+  <div>
+   <h1>Orders 📦</h1>
+   <p>Track order from production to delivery</p>
+  </div>
+  <button class="primary" onclick="addOrder()">＋ New Order</button>
+ </div>
+
+ <div class="card">
+
+ <div class="table">
+
+ <table>
+
+ <tr>
+ <th>Order</th>
+ <th>Customer</th>
+ <th>Item</th>
+ <th>Start</th>
+ <th>Finish</th>
+ <th>Delivery</th>
+ <th>Status</th>
+ <th>Value</th>
+ </tr>
+
+ ${DB.orders.length?
+ DB.orders.slice().reverse().map(o=>`
+
+ <tr>
+
+ <td><b>${o.number}</b></td>
+
+ <td>${safe(o.customer)}</td>
+
+ <td>${safe(o.item)}</td>
+
+ <td>${o.start||"-"}</td>
+
+ <td>${o.finish||"-"}</td>
+
+ <td>${o.delivery||"-"}</td>
+
+ <td>
+
+ <select onchange="changeStatus(${o.id},this.value)"
+ style="padding:5px;border:1px solid #ddd;border-radius:7px">
+
+ ${[
+ "New",
+ "Started",
+ "Production",
+ "Completed",
+ "Hallmarking",
+ "Ready for Delivery",
+ "Delivered"
+ ].map(s=>
+ `<option ${s===o.status?"selected":""}>${s}</option>`
+ ).join("")}
+
+ </select>
+
+ </td>
+
+ <td>₹${Number(o.value||0).toLocaleString("en-IN")}</td>
+
+ </tr>
+
+ `).join("")
+ :
+ `<tr><td colspan="8" class="empty">No orders yet.</td></tr>`}
+
+ </table>
+
+ </div>
+ </div>
+ `;
+}
+
+function changeStatus(id,status){
+
+ const o=DB.orders.find(x=>x.id==id);
+
  if(!o)return;
 
  o.status=status;
 
- if(status==="Completed" && !o.finish)
-  o.finish=new Date().toISOString().split("T")[0];
+ if(status==="Completed"&&!o.finish)
+ o.finish=new Date().toISOString().split("T")[0];
 
- if(status==="Delivered" && !o.delivery)
-  o.delivery=new Date().toISOString().split("T")[0];
+ if(status==="Delivered"&&!o.delivery)
+ o.delivery=new Date().toISOString().split("T")[0];
 
- save();
- showToast("Order status updated ✓");
- orderPage();
+ saveDB();
+ ordersPage();
+ toast("Order status updated ✓");
 }
 
 const templates=[
- ["","Exhibition Invitation","Invite your customers to an upcoming exhibition."],
- ["","Festival Greeting","Send festival wishes with an image."],
- ["","Stall Visit Thank You","Thank customers for visiting your stall."],
- ["","Order Thank You","Thank customers after placing an order."],
- ["","Order Started","Inform customer that production has started."],
- ["✅","Order Completed","Inform customer that the order is completed."],
- ["","Ready for Delivery","Tell customer the order is ready."],
- ["","Delivery Update","Send delivery information."],
- ["⭐","Review Request","Ask the customer for feedback."],
- ["","Repeat Order","Reconnect with previous customers."],
- ["✨","New Collection","Share new collection information."],
- ["","Follow-up","Follow up with an important customer."]
+ ["🎪","Exhibition Invite","Invite customers to your exhibition."],
+ ["🎉","Festival Greeting","Festival wishes for customers."],
+ ["🙏","Stall Visit Thanks","Thank customers for visiting."],
+ ["💎","Order Thanks","Thank customers after order."],
+ ["🏭","Order Started","Production started notification."],
+ ["✅","Order Completed","Completed order notification."],
+ ["📦","Ready for Delivery","Order ready notification."],
+ ["🚚","Delivery Update","Delivery communication."],
+ ["⭐","Review Request","Ask for customer feedback."],
+ ["🔁","Repeat Order","Reconnect with old customers."],
+ ["✨","New Collection","New collection announcement."],
+ ["📞","Follow-up","Customer follow-up message."]
 ];
 
 function whatsappPage(){
 
  document.getElementById("main").innerHTML=`
- <div class="pageTitle">
-  <div><h1>WhatsApp Center </h1><p>Professional customer communication</p></div>
- </div>
 
- <div class="card" style="margin-bottom:18px">
-  <div class="sectionTitle">Select Customer</div>
-
-  <select id="waCustomer" style="width:100%;padding:13px;border:1px solid #ddd;border-radius:10px">
-   <option value="">Choose a customer...</option>
-   ${customers.map(c=>`<option value="${esc(c.phone)}">${esc(c.name)} — ${esc(c.phone)}</option>`).join("")}
-  </select>
- </div>
-
- <div class="templateGrid">
- ${templates.map((t,i)=>`
-  <div class="template">
-   <div class="templateIcon">${t[0]}</div>
-   <h3>${t[1]}</h3>
-   <p>${t[2]}</p>
-   <button class="whatsapp" onclick="templateWA(${i})">Send WhatsApp</button>
+ <div class="title">
+  <div>
+   <h1>WhatsApp Center 💬</h1>
+   <p>Professional customer communication</p>
   </div>
+ </div>
+
+ <div class="card" style="margin-bottom:16px">
+
+ <div class="section">Select Customer</div>
+
+ <select id="waCustomer"
+ style="width:100%;padding:13px;border:1px solid #ddd;border-radius:10px">
+
+ <option value="">Choose customer...</option>
+
+ ${DB.customers.map(c=>
+ `<option value="${safe(c.phone)}">${safe(c.name)} — ${safe(c.phone)}</option>`
+ ).join("")}
+
+ </select>
+
+ </div>
+
+ <div class="templates">
+
+ ${templates.map((t,i)=>`
+
+ <div class="template">
+
+ <div class="big">${t[0]}</div>
+
+ <h3>${t[1]}</h3>
+
+ <p>${t[2]}</p>
+
+ <button class="wa" onclick="sendTemplate(${i})">
+ Send WhatsApp
+ </button>
+
+ </div>
+
  `).join("")}
+
  </div>
  `;
 }
 
-function templateWA(i){
+function sendTemplate(i){
 
  const phone=document.getElementById("waCustomer").value;
 
  if(!phone){
-  showToast("Please select a customer");
+  toast("Select a customer first");
   return;
  }
 
- const c=customers.find(x=>x.phone===phone);
- const t=templates[i];
+ const c=DB.customers.find(x=>x.phone===phone);
 
  const messages=[
- `Dear ${c.name},%0A%0AWe are delighted to invite you to visit our upcoming exhibition.%0A%0AWe look forward to welcoming you.%0A%0ARegards,%0ASHREE JI GOLD CREATOR LLP`,
 
- `Dear ${c.name},%0A%0AWarm festival greetings from SHREE JI GOLD CREATOR LLP!%0A%0AWishing you and your family happiness, prosperity and success.%0A%0A✨ Best Wishes ✨`,
+ `Dear ${c.name},%0A%0AWe are delighted to invite you to our upcoming exhibition.%0A%0AWe look forward to welcoming you.%0A%0ARegards,%0ASHREE JI GOLD CREATOR LLP`,
 
- `Dear ${c.name},%0A%0AThank you for visiting our stall. It was a pleasure meeting you.%0A%0AWe truly appreciate your valuable time and support.%0A%0ARegards,%0ASHREE JI GOLD CREATOR LLP`,
+ `Dear ${c.name},%0A%0AWarm festival greetings from SHREE JI GOLD CREATOR LLP!%0A%0AWishing you and your family happiness, prosperity and success.`,
 
- `Dear ${c.name},%0A%0AThank you for placing your valuable order with SHREE JI GOLD CREATOR LLP.%0A%0AWe sincerely appreciate your trust and support.`,
+ `Dear ${c.name},%0A%0AThank you for visiting our stall. It was a pleasure meeting you.%0A%0AWe truly appreciate your valuable support.`,
 
- `Dear ${c.name},%0A%0AYour order has been started and our team has begun the production process.%0A%0AWe will keep you updated on the progress.`,
+ `Dear ${c.name},%0A%0AThank you for placing your valuable order with SHREE JI GOLD CREATOR LLP.%0A%0AWe sincerely appreciate your trust.`,
+
+ `Dear ${c.name},%0A%0AYour order has been started and our production team has begun work.%0A%0AWe will keep you updated.`,
 
  `Dear ${c.name},%0A%0AGood news! Your order has been completed successfully.%0A%0AThank you for choosing SHREE JI GOLD CREATOR LLP.`,
 
- `Dear ${c.name},%0A%0AYour order is now ready for delivery.%0A%0APlease contact us to coordinate the delivery.`,
+ `Dear ${c.name},%0A%0AYour order is now ready for delivery.%0A%0APlease contact us to coordinate delivery.`,
 
- `Dear ${c.name},%0A%0AThis is an update regarding your order and delivery.%0A%0AOur team will coordinate with you shortly.`,
+ `Dear ${c.name},%0A%0AHere is an update regarding your order and delivery.%0A%0AOur team will coordinate with you shortly.`,
 
- `Dear ${c.name},%0A%0AWe hope you are happy with your recent purchase from SHREE JI GOLD CREATOR LLP.%0A%0ACould you kindly share your valuable feedback with us? ⭐`,
+ `Dear ${c.name},%0A%0AWe hope you are happy with your purchase.%0A%0ACould you kindly share your valuable feedback with us? ⭐`,
 
- `Dear ${c.name},%0A%0AWe hope you are doing well.%0A%0AIt has been a while since your last order. We would be happy to assist you with your next requirement.`,
+ `Dear ${c.name},%0A%0AWe hope you are doing well.%0A%0AWe would be happy to assist you with your next requirement.`,
 
  `Dear ${c.name},%0A%0AWe are excited to share our latest collection with you.%0A%0APlease contact us for more details.`,
 
- `Dear ${c.name},%0A%0AJust following up with you regarding your requirement.%0A%0APlease let us know if we can assist you.`
+ `Dear ${c.name},%0A%0AJust following up regarding your requirement.%0A%0APlease let us know if we can assist you.`
  ];
 
- let clean=phone.replace(/\D/g,"");
- if(clean.length===10)clean="91"+clean;
+ let n=phone.replace(/\D/g,"");
 
- window.open("https://wa.me/"+clean+"?text="+messages[i],"_blank");
-}
+ if(n.length===10)n="91"+n;
 
-function exhibitionPage(){
-
- document.getElementById("main").innerHTML=`
- <div class="pageTitle">
-  <div><h1>Exhibitions </h1><p>Manage exhibition campaigns and customer follow-ups</p></div>
-  <button class="primary" onclick="openExhibition()">＋ New Exhibition</button>
- </div>
-
- <div class="cards">
-  <div class="card stat"><div><p>Total Exhibitions</p><h2>${exhibitions.length}</h2></div><div class="statIcon"></div></div>
-  <div class="card stat"><div><p>Customers</p><h2>${customers.length}</h2></div><div class="statIcon"></div></div>
-  <div class="card stat"><div><p>Orders Generated</p><h2>${orders.length}</h2></div><div class="statIcon"></div></div>
-  <div class="card stat"><div><p>Reviews</p><h2>${reviews.length}</h2></div><div class="statIcon">⭐</div></div>
- </div>
-
- <div class="card">
-  <div class="sectionTitle">Exhibition Campaigns</div>
-
-  ${exhibitions.length===0
-  ? `<div class="empty"><br><br>No exhibitions added yet.</div>`
-  : exhibitions.slice().reverse().map(e=>`
-   <div style="padding:16px 0;border-bottom:1px solid #eee">
-    <h3>${esc(e.name)}</h3>
-    <p style="font-size:12px;color:#777;margin:6px 0">${e.date||"-"} • ${esc(e.venue||"Venue not added")}</p>
-    <span class="badge started">${e.invited||0} invited</span>
-   </div>
-  `).join("")}
- </div>
- `;
-}
-
-function openExhibition(){
-
- document.getElementById("modalTitle").textContent="New Exhibition";
-
- document.getElementById("modalBody").innerHTML=`
- <div class="field">
-  <label>Exhibition Name *</label>
-  <input id="eName" placeholder="e.g. Chennai Jewellery Expo">
- </div>
-
- <div class="field">
-  <label>Date</label>
-  <input id="eDate" type="date">
- </div>
-
- <div class="field">
-  <label>Venue</label>
-  <input id="eVenue" placeholder="Venue">
- </div>
-
- <div class="modalActions">
-  <button class="secondary" onclick="closeModal()">Cancel</button>
-  <button class="primary" onclick="addExhibition()">Create</button>
- </div>
- `;
-
- openModal();
+ window.open("https://wa.me/"+n+"?text="+messages[i],"_blank");
 }
 
 function addExhibition(){
 
- const name=document.getElementById("eName").value.trim();
+ openModal("New Exhibition",`
 
- if(!name){
-  showToast("Enter exhibition name");
-  return;
- }
-
- exhibitions.push({
-  id:Date.now(),
-  name,
-  date:document.getElementById("eDate").value,
-  venue:document.getElementById("eVenue").value,
-  invited:0
- });
-
- save();
- closeModal();
- exhibitionPage();
- showToast("Exhibition created ✓");
-}
-
-function reviewPage(){
-
- const avg=reviews.length
-  ? (reviews.reduce((s,r)=>s+Number(r.rating),0)/reviews.length).toFixed(1)
-  : "0.0";
-
- document.getElementById("main").innerHTML=`
- <div class="pageTitle">
-  <div><h1>Customer Reviews ⭐</h1><p>Track customer satisfaction</p></div>
-  <button class="primary" onclick="openReview()">＋ Add Review</button>
- </div>
-
- <div class="cards">
-  <div class="card stat">
-   <div><p>Average Rating</p><h2>⭐ ${avg}</h2></div>
-   <div class="statIcon">⭐</div>
-  </div>
-  <div class="card stat">
-   <div><p>Total Reviews</p><h2>${reviews.length}</h2></div>
-   <div class="statIcon"></div>
-  </div>
-  <div class="card stat">
-   <div><p>5 Star Reviews</p><h2>${reviews.filter(r=>Number(r.rating)===5).length}</h2></div>
-   <div class="statIcon"></div>
-  </div>
-  <div class="card stat">
-   <div><p>Happy Customers</p><h2>${reviews.filter(r=>Number(r.rating)>=4).length}</h2></div>
-   <div class="statIcon">❤️</div>
-  </div>
- </div>
-
- <div class="card">
- ${reviews.length===0
- ? `<div class="empty">⭐<br><br>No reviews yet.</div>`
- : reviews.slice().reverse().map(r=>`
-  <div style="padding:16px 0;border-bottom:1px solid #eee">
-   <b>${esc(r.customer)}</b>
-   <div style="margin:7px 0">{"⭐".repeat(Number(r.rating))}</div>
-   <p style="font-size:13px;color:#666">${esc(r.text)}</p>
-  </div>
- `).join("")}
- </div>
- `;
-}
-
-function openReview(){
-
- document.getElementById("modalTitle").textContent="Add Customer Review";
-
- document.getElementById("modalBody").innerHTML=`
  <div class="field">
-  <label>Customer</label>
-  <select id="rCustomer">
-   <option value="">Select</option>
-   ${customers.map(c=>`<option value="${esc(c.name)}">${esc(c.name)}</option>`).join("")}
-  </select>
+ <label>Exhibition Name *</label>
+ <input id="en" placeholder="Exhibition name">
  </div>
 
  <div class="field">
-  <label>Rating</label>
-  <select id="rRating">
-   <option value="5">⭐⭐⭐⭐⭐ — Excellent</option>
-   <option value="4">⭐⭐⭐⭐ — Good</option>
-   <option value="3">⭐⭐⭐ — Average</option>
-   <option value="2">⭐⭐ — Needs Improvement</option>
-   <option value="1">⭐ — Poor</option>
-  </select>
+ <label>Date</label>
+ <input id="ed" type="date">
  </div>
 
  <div class="field">
-  <label>Review</label>
-  <textarea id="rText" placeholder="Customer feedback"></textarea>
+ <label>Venue</label>
+ <input id="ev" placeholder="Venue">
  </div>
 
  <div class="modalActions">
-  <button class="secondary" onclick="closeModal()">Cancel</button>
-  <button class="primary" onclick="addReview()">Save Review</button>
+ <button class="secondary" onclick="closeModal()">Cancel</button>
+ <button class="primary" onclick="saveExhibition()">Create Exhibition</button>
+ </div>
+ `);
+}
+
+function saveExhibition(){
+
+ const name=document.getElementById("en").value.trim();
+
+ if(!name){
+  toast("Enter exhibition name");
+  return;
+ }
+
+ DB.exhibitions.push({
+  id:Date.now(),
+  name,
+  date:document.getElementById("ed").value,
+  venue:document.getElementById("ev").value,
+  invited:0
+ });
+
+ saveDB();
+ closeModal();
+ exhibitionsPage();
+ toast("Exhibition created ✓");
+}
+
+function exhibitionsPage(){
+
+ document.getElementById("main").innerHTML=`
+
+ <div class="title">
+  <div>
+   <h1>Exhibitions 🎪</h1>
+   <p>Exhibition campaign management</p>
+  </div>
+
+  <button class="primary" onclick="addExhibition()">
+  ＋ New Exhibition
+  </button>
+ </div>
+
+ <div class="cards">
+
+ <div class="card stat">
+ <div><p>Exhibitions</p><h2>${DB.exhibitions.length}</h2></div>
+ <div class="icon">🎪</div>
+ </div>
+
+ <div class="card stat">
+ <div><p>Customers</p><h2>${DB.customers.length}</h2></div>
+ <div class="icon">👥</div>
+ </div>
+
+ <div class="card stat">
+ <div><p>Orders</p><h2>${DB.orders.length}</h2></div>
+ <div class="icon">📦</div>
+ </div>
+
+ <div class="card stat">
+ <div><p>Reviews</p><h2>${DB.reviews.length}</h2></div>
+ <div class="icon">⭐</div>
+ </div>
+
+ </div>
+
+ <div class="card">
+
+ <div class="section">Exhibition Campaigns</div>
+
+ ${DB.exhibitions.length?
+ DB.exhibitions.slice().reverse().map(e=>`
+
+ <div style="padding:15px 0;border-bottom:1px solid #eee">
+
+ <h3>${safe(e.name)}</h3>
+
+ <p style="font-size:12px;color:#777;margin:6px 0">
+ 📅 ${e.date||"Date not added"}<br>
+ 📍 ${safe(e.venue||"Venue not added")}
+ </p>
+
+ </div>
+
+ `).join("")
+ :
+ `<div class="empty">🎪<br><br>No exhibitions added yet.</div>`}
+
  </div>
  `;
-
- openModal();
 }
 
 function addReview(){
 
- const customer=document.getElementById("rCustomer").value;
+ openModal("Add Customer Review",`
+
+ <div class="field">
+ <label>Customer</label>
+
+ <select id="rc">
+
+ <option value="">Select Customer</option>
+
+ ${DB.customers.map(c=>
+ `<option>${safe(c.name)}</option>`
+ ).join("")}
+
+ </select>
+
+ </div>
+
+ <div class="field">
+ <label>Rating</label>
+
+ <select id="rr">
+ <option value="5">⭐⭐⭐⭐⭐ Excellent</option>
+ <option value="4">⭐⭐⭐⭐ Good</option>
+ <option value="3">⭐⭐⭐ Average</option>
+ <option value="2">⭐⭐ Needs Improvement</option>
+ <option value="1">⭐ Poor</option>
+ </select>
+
+ </div>
+
+ <div class="field">
+ <label>Review</label>
+ <textarea id="rt" placeholder="Customer feedback"></textarea>
+ </div>
+
+ <div class="modalActions">
+ <button class="secondary" onclick="closeModal()">Cancel</button>
+ <button class="primary" onclick="saveReview()">Save Review</button>
+ </div>
+ `);
+}
+
+function saveReview(){
+
+ const customer=document.getElementById("rc").value;
 
  if(!customer){
-  showToast("Select customer");
+  toast("Select customer");
   return;
  }
 
- reviews.push({
+ DB.reviews.push({
   id:Date.now(),
   customer,
-  rating:Number(document.getElementById("rRating").value),
-  text:document.getElementById("rText").value,
+  rating:Number(document.getElementById("rr").value),
+  text:document.getElementById("rt").value,
   date:new Date().toLocaleDateString()
  });
 
- save();
+ saveDB();
  closeModal();
- reviewPage();
- showToast("Review saved ✓");
+ reviewsPage();
+ toast("Review saved ✓");
 }
 
-function reportPage(){
+function reviewsPage(){
 
- const totalValue=orders.reduce((s,o)=>s+Number(o.value||0),0);
- const advance=orders.reduce((s,o)=>s+Number(o.advance||0),0);
- const balance=totalValue-advance;
+ const avg=DB.reviews.length?
+ (DB.reviews.reduce((a,r)=>a+Number(r.rating),0)/DB.reviews.length).toFixed(1)
+ :"0.0";
 
  document.getElementById("main").innerHTML=`
- <div class="pageTitle">
-  <div><h1>Business Reports </h1><p>Owner-level business overview</p></div>
+
+ <div class="title">
+
+ <div>
+ <h1>Customer Reviews ⭐</h1>
+ <p>Customer satisfaction tracking</p>
+ </div>
+
+ <button class="primary" onclick="addReview()">＋ Add Review</button>
+
  </div>
 
  <div class="cards">
-  <div class="card stat"><div><p>Total Customers</p><h2>${customers.length}</h2></div><div class="statIcon"></div></div>
-  <div class="card stat"><div><p>Total Orders</p><h2>${orders.length}</h2></div><div class="statIcon"></div></div>
-  <div class="card stat"><div><p>Order Value</p><h2 class="goldText">₹${totalValue.toLocaleString("en-IN")}</h2></div><div class="statIcon"></div></div>
-  <div class="card stat"><div><p>Balance</p><h2>₹${balance.toLocaleString("en-IN")}</h2></div><div class="statIcon"></div></div>
+
+ <div class="card stat">
+ <div><p>Average Rating</p><h2>⭐ ${avg}</h2></div>
+ <div class="icon">⭐</div>
  </div>
 
- <div class="grid2">
+ <div class="card stat">
+ <div><p>Total Reviews</p><h2>${DB.reviews.length}</h2></div>
+ <div class="icon">💬</div>
+ </div>
 
-  <div class="card">
-   <div class="sectionTitle">Order Status</div>
-   ${["New","Started","Production","Completed","Hallmarking","Ready for Delivery","Delivered"].map(s=>{
-    const n=orders.filter(o=>o.status===s).length;
-    return `
-    <div style="margin:15px 0">
-     <div style="display:flex;justify-content:space-between;font-size:12px;margin-bottom:6px">
-      <span>${s}</span><b>${n}</b>
-     </div>
-     <div class="progress"><span style="width:${orders.length?n/orders.length*100:0}%"></span></div>
-    </div>`;
-   }).join("")}
-  </div>
+ <div class="card stat">
+ <div><p>5 Star</p><h2>${DB.reviews.filter(r=>r.rating===5).length}</h2></div>
+ <div class="icon">🏆</div>
+ </div>
 
-  <div class="card">
-   <div class="sectionTitle">Customer Insights</div>
-   <div style="line-height:2.2;font-size:14px">
-     <b>${cust
+ <div class="card stat">
+ <div><p>Happy Customers</p><h2>${DB.reviews.filter(r=>r.rating>=4).length}</h2></div>
+ <div class="icon">❤️</div>
+ </div>
 
+ </div>
+
+ <div class="card">
+
+ ${DB.reviews.length?
+ DB.reviews.slice().reverse().map(r=>`
+
+ <div style="padding:15px 0;border-bottom:1px solid #eee">
+
+ <b>${safe(r.customer)}</b>
+
+ <div style="margin:7px 0">
+ ${"⭐".repeat(Number(r.rating))}
+ </div>
+
+ <p style="font-size:13px;color:#666">
+ ${safe(r.text||"No written review")}
+ </p>
+
+ <small style="color:#999">${r.date}</small>
+
+ </div>
+
+ `).join("")
+ :
+ `<div class="empty">⭐<br><br>No reviews yet.</div>`}
+
+ </div>
+ `;
+}
+
+function reportsPage(){
+
+ const value=DB.orders.reduce((a,o)=>a+Number(o.value||0),0);
+ const advance=DB.orders.reduce((a,o)=>a+Number(o.advance||0),0);
+
+ document.getElementById("main").innerHTML=`
+
+ <div class="title">
+
+ <div>
+ <h1>Business Reports 📊</h1>
+ <p>Owner dashboard & business insights</p>
+ </div>
+
+ </div>
+
+ <div class="cards">
+
+ <div class="card stat">
+ <div><p>Total Customers</p><h2>${DB.customers.length}</h2></div>
+ <div class="icon">👥</div>
+ </div>
+
+ <div class="card stat">
+ <div><p>Total Orders</p><h2>${DB.orders.length}</h2></div>
+ <div class="icon">📦</div>
+ </div>
+
+ <div class="card stat">
+ <div><p>Order Value</p><h2>₹${value.toLocaleString("en-IN")}</h2></div>
+ <div class="icon">💎</div>
+ </div>
+
+ <div class="card stat">
+ <div><p>Advance Received</p><h2>₹${advance.toLocaleString("en-IN")}</h2></div>
+ <div class="icon">💰</div>
+ </div>
+
+ </div>
+
+ <div class="grid">
+
+ <div class="card">
+
+ <div class="section">Order Status</div>
+
+ ${[
+ "New",
+ "Started",
+ "Production",
+ "Completed",
+ "Hallmarking",
+ "Ready for Delivery",
+ "Delivered"
+ ].map(s=>{
+
+ const count=DB.orders.filter(o=>o.status===s).length;
+ const pct=DB.orders.length?
+ count/DB.orders.length*100:0;
+
+ return`
+
+ <div style="margin:14px 0">
+
+ <div style="display:flex;justify-content:space-between;font-size:12px">
+ <span>${s}</span>
+ <b>${count}</b>
+ </div>
+
+ <div class="progress" style="margin-top:6px">
+ <span style="width:${pct}%"></span>
+ </div>
+
+ </div>
+
+ `}).join("")}
+
+ </div>
+
+ <div class="card">
+
+ <div class="section">Business Snapshot</div>
+
+ <p style="line-height:2;font-size:14px">
+
+ 👥 Customers: <b>${DB.customers.length}</b><br>
+
+ 📦 Orders: <b>${DB.orders.length}</b><br>
+
+ 💎 Order Value:
+ <b>₹${value.toLocaleString("en-IN")}</b><br>
+
+ 💰 Advance:
+ <b>₹${advance.toLocaleString("en-IN")}</b><br>
+
+ 💵 Balance:
+ <b>₹${(value-advance).toLocaleString("en-IN")}</b><br>
+
+ ⭐ Reviews: <b>${DB.reviews.length}</b><br>
+
+ 🎪 Exhibitions: <b>${DB.exhibitions.length}</b>
+
+ </p>
+
+ </div>
+
+ </div>
+ `;
+}
+
+function settingsPage(){
+
+ document.getElementById("main").innerHTML=`
+
+ <div class="title">
+
+ <div>
+ <h1>Settings ⚙️</h1>
+ <p>SHREE JI CONNECT configuration</p>
+ </div>
+
+ </div>
+
+ <div class="grid">
+
+ <div class="card">
+
+ <div class="section">Company Profile</div>
+
+ <div class="field">
+ <label>Company Name</label>
+ <input value="SHREE JI GOLD CREATOR LLP">
+ </div>
+
+ <div class="field">
+ <label>Application Name</label>
+ <input value="SHREE JI CONNECT">
+ </div>
+
+ <button class="primary" onclick="toast('Settings saved ✓')">
+ Save Settings
+ </button>
+
+ </div>
+
+ <div class="card">
+
+ <div class="section">Data Management</div>
+
+ <button class="secondary"
+ style="width:100%;margin-bottom:10px"
+ onclick="backupData()">
+ 📥 Export Backup
+ </button>
+
+ <button class="secondary"
+ style="width:100%;margin-bottom:10px"
+ onclick="document.getElementById('backupFile').click()">
+ 📤 Import Backup
+ </button>
+
+ <input
+ id="backupFile"
+ type="file"
+ accept=".json"
+ style="display:none"
+ onchange="restoreData(event)">
+
+ <button class="secondary"
+ style="width:100%"
+ onclick="clearData()">
+ 🗑️ Clear Local Data
+ </button>
+
+ </div>
+
+ </div>
+ `;
+}
+
+function backupData(){
+
+ const blob=new Blob([
+ JSON.stringify(DB,null,2)
+ ],{type:"application/json"});
+
+ const a=document.createElement("a");
+
+ a.href=URL.createObjectURL(blob);
+ a.download="shree-ji-connect-backup.json";
+ a.click();
+
+ toast("Backup created ✓");
+}
+
+function restoreData(e){
+
+ const file=e.target.files[0];
+
+ if(!file)return;
+
+ const reader=new FileReader();
+
+ reader.onload=function(){
+
+ try{
+
+ const d=JSON.parse(reader.result);
+
+ DB.customers=d.customers||[];
+ DB.orders=d.orders||[];
+ DB.reviews=d.reviews||[];
+ DB.exhibitions=d.exhibitions||[];
+
+ saveDB();
+ dashboard();
+
+ toast("Backup restored ✓");
+
+ }catch(err){
+
+ toast("Invalid backup file");
+
+ }
+
+ };
+
+ reader.readAsText(file);
+}
+
+function clearData(){
+
+ if(!confirm("Are you sure you want to delete all local data?"))
+ return;
+
+ DB.customers=[];
+ DB.orders=[];
+ DB.reviews=[];
+ DB.exhibitions=[];
+
+ saveDB();
+ dashboard();
+
+ toast("All local data cleared");
+}
+
+document.getElementById("modal").addEventListener("click",function(e){
+
+ if(e.target===this)closeModal();
+
+});
+
+dashboard();
+</script>
+
+</body>
+</html>
