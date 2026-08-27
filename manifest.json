@@ -1,0 +1,10 @@
+{
+  "name": "SHREE JI CONNECT",
+  "short_name": "SHREE JI CONNECT",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#f5f5f5",
+  "theme_color": "#111111",
+  "description": "Customer CRM, Order Management and WhatsApp Center",
+  "icons": []
+}
